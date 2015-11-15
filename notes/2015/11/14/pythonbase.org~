@@ -1,0 +1,62 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Python
+#+TITLE: 不积跬步无以至千里！
+#+AUTHOR: FangQian
+#+EMAIL: qinagu_fang@163.com
+#+DATE: 2015/11/14
+
+* python基础知识
+
+** 数学运算符号
++ +    plus               加号
++ -    minux              减号
++ /    slash              斜杠
++ ×    asterisk          星号
++ %    percent            百分号
++ <    less-than          小于号
++ >    greater-than       大于号
++ <=   less-than-equal    小于等于号
++ >=   greater-than-equsl 大于等于好
+** 文件相关的命令
++ close        ——关闭文件。跟你编辑器的 文件 -> 保存..一个意思。
++ read         ——读取文件内容。你可以把结果赋给一个变量。
++ readline     ——读取文本文件中的一行。
++ truncate     ——清空文件，请小心使用该命令。
++ write(stuff) ——将stuff写入文件。
+** if语句的规则
++ 每一个"if语句"必须包含一个else.
++ 如果这个else永远都不应该被执行到，因为它本身没有任何意义，那你必须在else
+语句后面使用一个叫die的函数,让它打印出错误信息并且死给你看。
++ "if语句"的嵌套不要超过两层,最好尽量保持只有一层。这意味着如果在if里边
+又有了一个if,那你就需要把第二个if移到另一个函数里面。
++ 将"if语句"当做段落来对待，其中的每一个if,elif,else组合就跟一个段落的
+句子组合一样。这种组合的最前面和最后面留一个空行以作区分。
++ 布尔测试应该很简单，如果很复杂的话，你需要将它们的运算事先放到一个变量
+里，并且为变量取一个好名字。
++ 再日常编程中不要成为这个规则的奴隶
+** 循环规则
++ 对于Python，只有再循环永不停在时使用"while循环"，这意味着可能永远都用不到。
++ 其它类型的循环都用"for循环"，尤其是在对象数量固定或有限的情况下。
+** 调试（debug）的小技巧
++ 不要使用"debugger"。Debugger所做的相当于对病人的全身扫描。并不会得到某方面的有用
+信息，而且你会发现它的输出的信息态度，并且大部分没有用，或者只会让你更困惑。
++ 最好的调试程序的方法是使用print在各个你想要检查的关键环节将关键变量打印出来，从而
+检查哪里是否有错。
++ 让程序一部分一部分地运行起来。不要等一个很长的脚本写完后才去运行它。写一点，运行一点，
+再修改一点。

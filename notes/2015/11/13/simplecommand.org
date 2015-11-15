@@ -1,0 +1,172 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Linux
+#+TITLE: Simple Command
+#+AUTHOR: FangQian
+#+EMAIL: qinagu_fang@163.com
+#+DATE: 2015/11/13
+
+* Simple Command
+
+** what is command？
++ 可执行的程序
++ 内建于shell自身的命令
++ shell函数
++ 命令别名
+** 一些简单的命令
++ date    ——显示系统当前的时间和日期
++ cal     ——默认显示单前月份的日历
++ df      ——查看磁盘剩余空间的数量
++ free    ——显示空闲内存的数量
++ exit    ——终止终端会话
+** 文件系统跳转
++ pwd     ——打印出单前工作目录名
++ cd      ——更改目录
++ ls      ——列出目录内容
++ file    ——确定文件类型
++ less    ——浏览文件内容
+** 操作文件目录
++ cp      ——复制文件和目录
++ mv      ——移动/重命名文件和目录
++ mkdir   ——创建目录
++ rm      ——删除文件和目录
++ ln      ——创建硬链接和符号链接
+** 使用命令
++ type    ——说明怎样解释一个命令名
++ which   ——显示会执行哪个可执行程序
++ man     ——显示命令手册页
++ apropos ——显示一系列适合的命令
++ info    ——显示命令info
++ whatis  ——显示一个命令的简介描述
++ alias   ——创建命令别名
+** 重定向
++ cat     ——连接文件
++ sort    ——排序文本行
++ uniq    ——报道或省略重复行
++ grep    ——打印匹配行
++ wc      ——打印文件中换行符，字，和字节个数
++ head    ——输出文件第一部分
++ tail    ——输出文件最后一部分
++ clear   ——清空屏幕
++ history ——显示历史列表内容
+** 移动光标
++ Ctrl-a  ——移动光标到行首
++ Ctrl-e  ——移动光标到行尾
++ Ctrl-f  ——光标前移一个字符
++ Ctrl-b  ——光标后移一个字符
++ Alt-f   ——光标前移一个字
++ Alt-b   ——光标后移一个字
++ Ctrl-l  ——清空屏幕，光标移到左上角
+** 修改文本
++ Ctrl-d  ——删除光标位置的字符
++ Ctrl-t  ——光标位置的字符和前面的字符互换位置
++ Alt-t   ——光标位置的字和光标前面的字互换位置
++ Alt-l   ——把从光标位置到字尾的字符转换成小写字母
++ Alt-u   ——把从光标位置到字首的字符转换成大写字母
+** 剪切和粘贴文本（killing and yanking）
++ Ctrl-k  ——剪切从光标位置到行尾的文本
++ Ctrl-u  ——剪切从光标位置到行首的文本
++ Alt-d   ——剪切从光标位置到词尾的文本
++ Alt-BackSpace   ——剪切从光标位置到词头的文本
++ Ctrl-y  ——把剪切环中的文本粘贴到光标位置
+** 权限
++ id      ——显示用户身份号
++ chmod   ——更改文件模式
++ umask   ——设置默认的文件属性
++ su      ——以另一个用户的身份来运行shell
++ sudo    ——以另一个用户的身份来执行命令
++ chown   ——更改文件的所有者
++ chgrp   ——更改文件组所有权
++ passwd  ——更改用户密码
+** 进程
++ ps      ——报告当前进程快照
++ top     ——显示任务
++ jobs    ——列出活跃的任务
++ bg      ——把一个任务放到后台执行
++ fg      ——把一个任务放到前台执行
++ kill    ——给一个进程发送信号
++ killall ——杀死指定名字的进程
++ shutdown ——关机或重启系统
+** shell
++ printenv ——打印部分或所有的环境变量
++ set     ——设置shell选项
++ export  ——导出环境变量，让随后执行的程序知道
++ alias   ——创建命令别名
+** 软件包管理
++ Debian GNU/Linux FAQ 关于软件包管理一章对软件包管理进行了概述:
+ [[http://www.debian.org/doc/FAQ/ch-pkgtools.html]]
++ RPM工程的主页
+[[http://www.rpm.org]] 
+** 存储媒介
+这部分好像用的不多，也不太懂...
++ mount    ——挂载一个文件系统
++ umount   ——卸载一个文件系统
++ fsck     ——检查和修复一个文件系统
++ fdisk    ——分区表控制器
++ fdformat ——格式化一张软盘
++ dd       ——把面向块的数据直接写入设备
++ genisoimage(mkisofs)  _——创建一个ISO 9660的映像文件
++ wodim(cdrecord)    ——把数据写入光存储媒介
+** 网络系统
++ ping         ——发送ICMP ECHO_REQUSET
++ traceroute   ——打印到一台网络主机的路由数据包
++ netstat      ——打印网络连接，路由表，借口统计数据，伪装连接，和多路广播成员
++ ftp          ——因特网文件文件传输程序
++ wget         ——非交互式网络的下载器
++ ssh          ——OpenSSH SSH 客户端（远程登陆程序）
+** 查找文件
++ locate       ——通过名字来查找文件
++ find         ——在目录层次结构中搜索文件
++ xargs        ——从标准输入生成和执行命令行
++ touch        ——更改文件时间
++ stat         ——显示文件或文件系统状态
+** 归档和备份
++ gzip         ——压缩或者展开文件
++ bzip2        ——快排序文件压缩器
++ tar          ——磁盘打包工具
++ zip          ——打包和压缩文件
++ rsync        ——同步远端文件和目录
+** 文本处理
++ cat          ——连接文件并打印到标准输出
++ sort         ——给文本行排序
++ uniq         ——报告或者省略重复行
++ cut          ——从每行中删除文本区域
++ paste        ——合并文件文本行
++ join         ——基于某个共享字段来联合两个文件的文本行
++ comm         ——逐行比较两个有序的文件
++ diff         ——逐行比较文件
++ patch        ——给原始文件打补丁
++ tr           ——翻译或删除字符
++ sed          ——用于筛选和转换文本的流编辑器
++ aspell       ——交互式拼写检查器
+** 格式化输出
++ nl           ——添加行号
++ fold         ——限制文件列宽
++ fmt          ——一个简单的文本格式转换器
++ pr           ——让文本为打印做好准备
++ printf       ——格式化数据并打印出来
++ groff        ——一个文件格式系统
+** 打印
++ pr           ——转换需要打印的文本文件
++ lpr          ——打印文件
++ lp           ——打印文件（System V）
++ a2ps         ——为PostScript打印机格式化文件
++ lpstat       ——显示打印机状态信息
++ lpq          ——显示打印机队列状态
++ lprm         ——取消打印任务
++ cancel       ——取消打印任务

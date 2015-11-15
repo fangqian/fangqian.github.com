@@ -1,0 +1,30 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: 随笔
+#+TITLE: Comeback
+#+AUTHOR: FangQian
+#+EMAIL: qinagu_fang@163.com
+#+DATE: 2015/11/12
+
+* 我又回来了
+很久时间没用orgnote写博客了，以前都是随便玩玩的，感觉很神奇，也很好玩，却没有认真的写过博客。到快毕业了，才觉得应该好好学点东西才好找工作啊，
++想了一下，这段主要还是总结一下自己学过的知识，主要是关于linux和python的一些基础知识吧，前几天几天忍住没有剁手，买了两本有关与pythonweb开发的
++书籍，一本是《Flask Web Development:Developing Web Applications with pyhthon》，另外一本是《Test-Driven Development with python》,当然都是
++中文版的，但总觉得翻译的作品还是比原版的查了一些味道，表达的没有那么清晰，所以有时候会比较难懂。也记录一下学习这两本书的笔记吧。我又回来了
++
++这次要好好写啊，qiangu...                                  —————by Leslie Zhu,the author of orgnote

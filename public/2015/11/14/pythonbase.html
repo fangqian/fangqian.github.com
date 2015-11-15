@@ -1,0 +1,315 @@
+
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        
+        <title>StudyNotes</title>
+        <meta name="author" content="FangQian">
+        <meta name="description" content="Use OrgNote.">
+        <meta property="og:site_name" content="StudyNotes"/>
+        <meta name="Keywords" content="OrgNote,Emacs,org-mode,blog,python,geek">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="undefined"/>
+
+        <link href="/favicon.ico" rel="icon">
+        
+        <link rel="stylesheet" href="/theme/freemind/css/bootstrap.min.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        </head>
+        
+
+        <body>  
+        <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+        
+        <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    
+        <a class="navbar-brand" href="/index.html">StudyNotes</a>
+        
+
+        <div class="collapse navbar-collapse nav-menu">
+        
+        <ul class="nav navbar-nav">
+        <li><a href="/public/minyi.html" title="归档"><i class="fa fa-sitemap"></i>MinYi</a></li><li><a href="/public/archive.html" title="归档"><i class="fa fa-archive"></i>归档</a></li><li><a href="/public/about.html" title="关于"><i class="fa fa-user"></i>关于</a></li>
+        </ul>
+        
+        </div> <!-- navbar -->
+        </div> <!-- container -->
+        </nav>
+        
+
+        <div class="clearfix"></div>
+        <div class="container">
+        <div class="content">
+        
+        <div class="page-header">                   <!-- page-header begin -->
+        <h1>不积跬步无以至千里！</h1>
+        </div>                                      <!-- page-header end -->
+        
+        <div class="row page">                      <!-- row-page begin -->
+        <div class="col-md-9">                      <!-- col-md-9 begin -->
+        <div class="mypage">                        <!-- mypage begin -->
+        
+        <div class="slogan">                        <!-- slogan begin -->
+        <i class="fa fa-heart"></i>
+        标签: <a href="/public/tags/Python.html"><i class="Python"></i>Python</a>
+        </div>                                     <!-- slogan end -->
+        
+<div id="content">
+
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. python基础知识</a>
+<ul>
+<li><a href="#sec-1-1">1.1. About</a></li>
+<li><a href="#sec-1-2">1.2. 文件相关的命令</a></li>
+<li><a href="#sec-1-3">1.3. if语句的规则</a></li>
+<li><a href="#sec-1-4">1.4. 循环规则</a></li>
+<li><a href="#sec-1-5">1.5. 调试（debug）的小技巧</a></li>
+<li><a href="#sec-1-6">1.6. Python语句中一些基本规则和特殊字符：</a></li>
+<li><a href="#sec-1-7">1.7. Python中下划线的特殊用法</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> python基础知识</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> About</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+这篇主要记录自己学习中遇见的一些好的笔记或者自己不熟悉的东西，可能会比较杂乱无章
+因为是见到一些就记录下来，看的书籍比较多，也很杂。会时常往这里面加笔记。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 文件相关的命令</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>close        ——关闭文件。跟你编辑器的 文件 -&gt; 保存..一个意思。
+</li>
+<li>read         ——读取文件内容。你可以把结果赋给一个变量。
+</li>
+<li>readline     ——读取文本文件中的一行。
+</li>
+<li>truncate     ——清空文件，请小心使用该命令。
+</li>
+<li>write(stuff) ——将stuff写入文件。
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> if语句的规则</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>每一个"if语句"必须包含一个else.
+</li>
+<li>如果这个else永远都不应该被执行到，因为它本身没有任何意义，那你必须在else
+</li>
+</ul>
+<p>
+语句后面使用一个叫die的函数,让它打印出错误信息并且死给你看。
+</p>
+<ul class="org-ul">
+<li>"if语句"的嵌套不要超过两层,最好尽量保持只有一层。这意味着如果在if里边
+</li>
+</ul>
+<p>
+又有了一个if,那你就需要把第二个if移到另一个函数里面。
+</p>
+<ul class="org-ul">
+<li>将"if语句"当做段落来对待，其中的每一个if,elif,else组合就跟一个段落的
+</li>
+</ul>
+<p>
+句子组合一样。这种组合的最前面和最后面留一个空行以作区分。
+</p>
+<ul class="org-ul">
+<li>布尔测试应该很简单，如果很复杂的话，你需要将它们的运算事先放到一个变量
+</li>
+</ul>
+<p>
+里，并且为变量取一个好名字。
+</p>
+<ul class="org-ul">
+<li>再日常编程中不要成为这个规则的奴隶
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 循环规则</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>对于Python，只有再循环永不停在时使用"while循环"，这意味着可能永远都用不到。
+</li>
+<li>其它类型的循环都用"for循环"，尤其是在对象数量固定或有限的情况下。
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 调试（debug）的小技巧</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>不要使用"debugger"。Debugger所做的相当于对病人的全身扫描。并不会得到某方面的有用
+</li>
+</ul>
+<p>
+信息，而且你会发现它的输出的信息态度，并且大部分没有用，或者只会让你更困惑。
+</p>
+<ul class="org-ul">
+<li>最好的调试程序的方法是使用print在各个你想要检查的关键环节将关键变量打印出来，从而
+</li>
+</ul>
+<p>
+检查哪里是否有错。
+</p>
+<ul class="org-ul">
+<li>让程序一部分一部分地运行起来。不要等一个很长的脚本写完后才去运行它。写一点，运行一点，
+</li>
+</ul>
+<p>
+再修改一点。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Python语句中一些基本规则和特殊字符：</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>井号（#）表示之后的字符为Pythond注释
+</li>
+<li>换行(\n)是标准的行分隔符（通常一个语句一行）
+</li>
+<li>反斜线（\）继续上一行
+</li>
+<li>分号（；）将两个语句连接在一行中
+</li>
+<li>冒号（：）将代码快的头和体分开
+</li>
+<li>语句（代码快）用缩进块的方式体现
+</li>
+<li>不同的缩进程度分割不同的代码快
+</li>
+<li>Python 文件以模块的形式组织
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Python中下划线的特殊用法</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>_XXX        不用'from modele import *'导入
+</li>
+<li><span class="underline"><span class="underline">XXX</span></span>     系统定义名字
+</li>
+<li>__XXX       类中的私用变量名
+</li>
+</ul>
+
+<p>
+避免用下划线作为变量名的开始
+</p>
+
+<p>
+因为下滑线对于解释器有特殊的意义，而且是内建标识符所使用的符号。一般地，变量
+名_XXX被看做是"私有的"，在模块或类外不可以使用。当变量私有的时候，用_XXX来表示
+变量名是很好的习惯。因为变量名__XXX__对Python来说有特殊的含义，普通的变量应该
+避免这种风格。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+            <div>
+            <center>
+            <div class="pagination">
+            <ul class="pagination">
+            <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
+            <li class="next"><a href="/public/2015/11/12/Emacs.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            </ul>
+            </div>
+            </center>
+            </div>
+            
+            </div> <!-- my-page --></div> <!-- col-md -->
+
+        <div class="col-md-3">
+        <div id="sidebar">
+        
+        <div class="widget">
+        <h4>最新文章</h4>
+        <ul class="entry list-unstyled">
+        <li><a href="/public/2015/11/14/pythonbase.html"><i class="fa fa-file-o"></i>不积跬步无以至千里！</a></li><li><a href="/public/2015/11/12/Emacs.html"><i class="fa fa-file-o"></i>Emacs</a></li><li><a href="/public/2015/11/12/v.html"><i class="fa fa-file-o"></i>vim编辑器</a></li><li><a href="/public/2015/11/13/simplecommand.html"><i class="fa fa-file-o"></i>Simple Command</a></li><li><a href="/public/2015/11/12/comeback.html"><i class="fa fa-file-o"></i>Comeback</a></li><li><a href="/public/2015/11/11/HelloOrgNote.html"><i class="fa fa-file-o"></i>HelloOrgNote</a></li>
+        </ul>   
+        </div> 
+        
+        <div class="widget">
+        <h4>标签云</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/Python.html">Python<span>1</span></a></li><li><a href="/public/tags/Linux学习.html">Linux学习<span>2</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>1</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li><li><a href="/public/tags/默认.html">默认<span>1</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>时间机器</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/201511.html">201511<span>4</span></a></li><li><a href="/public/tags/201412.html">201412<span>1</span></a></li><li><a href="/public/tags/201411.html">201411<span>1</span></a></li><li><a href="/public/archive.html">All<span>6</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>快速链接</h4>
+        <ul class="entry list-unstyled">
+        
+            <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
+            
+            <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+        </ul>
+        </div>
+        
+        </div> <!-- sidebar -->
+        </div> <!-- col-md-3 -->
+        
+
+        </div> <!-- row-fluid -->
+        </div>
+        </div>
+        
+
+        <div class="container-narrow">
+        <footer>
+        <p>&copy; 2014 FangQian
+        with help from <a href="https://github.com/LeslieZhu/OrgNote" target="_blank">OrgNote</a>. Theme by <a href="https://github.com/LeslieZhu/orgnote-theme-freemind">orgnote-theme-freemind</a>.  Published with GitHub Pages. 
+        </p> </footer>
+        </div> <!-- container-narrow -->
+        
+        <a id="gotop" href="#">   
+        <span>▲</span> 
+        </a>
+        
+        </body>
+        </html>
+        

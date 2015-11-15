@@ -1,0 +1,574 @@
+
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        
+        <title>StudyNotes</title>
+        <meta name="author" content="FangQian">
+        <meta name="description" content="Use OrgNote.">
+        <meta property="og:site_name" content="StudyNotes"/>
+        <meta name="Keywords" content="OrgNote,Emacs,org-mode,blog,python,geek">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="undefined"/>
+
+        <link href="/favicon.ico" rel="icon">
+        
+        <link rel="stylesheet" href="/theme/freemind/css/bootstrap.min.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        </head>
+        
+
+        <body>  
+        <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+        
+        <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    
+        <a class="navbar-brand" href="/index.html">StudyNotes</a>
+        
+
+        <div class="collapse navbar-collapse nav-menu">
+        
+        <ul class="nav navbar-nav">
+        <li><a href="/public/minyi.html" title="归档"><i class="fa fa-sitemap"></i>MinYi</a></li><li><a href="/public/archive.html" title="归档"><i class="fa fa-archive"></i>归档</a></li><li><a href="/public/about.html" title="关于"><i class="fa fa-user"></i>关于</a></li>
+        </ul>
+        
+        </div> <!-- navbar -->
+        </div> <!-- container -->
+        </nav>
+        
+
+        <div class="clearfix"></div>
+        <div class="container">
+        <div class="content">
+        
+        <div class="page-header">                   <!-- page-header begin -->
+        <h1>Simple Command</h1>
+        </div>                                      <!-- page-header end -->
+        
+        <div class="row page">                      <!-- row-page begin -->
+        <div class="col-md-9">                      <!-- col-md-9 begin -->
+        <div class="mypage">                        <!-- mypage begin -->
+        
+        <div class="slogan">                        <!-- slogan begin -->
+        <i class="fa fa-heart"></i>
+        标签: <a href="/public/tags/Linux.html"><i class="Linux"></i>Linux</a>
+        </div>                                     <!-- slogan end -->
+        
+<div id="content">
+
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Simple Command</a>
+<ul>
+<li><a href="#sec-1-1">1.1. what is command？</a></li>
+<li><a href="#sec-1-2">1.2. 一些简单的命令</a></li>
+<li><a href="#sec-1-3">1.3. 文件系统跳转</a></li>
+<li><a href="#sec-1-4">1.4. 操作文件目录</a></li>
+<li><a href="#sec-1-5">1.5. 使用命令</a></li>
+<li><a href="#sec-1-6">1.6. 重定向</a></li>
+<li><a href="#sec-1-7">1.7. 移动光标</a></li>
+<li><a href="#sec-1-8">1.8. 修改文本</a></li>
+<li><a href="#sec-1-9">1.9. 剪切和粘贴文本（killing and yanking）</a></li>
+<li><a href="#sec-1-10">1.10. 权限</a></li>
+<li><a href="#sec-1-11">1.11. 进程</a></li>
+<li><a href="#sec-1-12">1.12. shell</a></li>
+<li><a href="#sec-1-13">1.13. 软件包管理</a></li>
+<li><a href="#sec-1-14">1.14. 存储媒介</a></li>
+<li><a href="#sec-1-15">1.15. 网络系统</a></li>
+<li><a href="#sec-1-16">1.16. 查找文件</a></li>
+<li><a href="#sec-1-17">1.17. 归档和备份</a></li>
+<li><a href="#sec-1-18">1.18. 文本处理</a></li>
+<li><a href="#sec-1-19">1.19. 格式化输出</a></li>
+<li><a href="#sec-1-20">1.20. 打印</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Simple Command</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> what is command？</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>可执行的程序
+</li>
+<li>内建于shell自身的命令
+</li>
+<li>shell函数
+</li>
+<li>命令别名
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 一些简单的命令</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>date    ——显示系统当前的时间和日期
+</li>
+<li>cal     ——默认显示单前月份的日历
+</li>
+<li>df      ——查看磁盘剩余空间的数量
+</li>
+<li>free    ——显示空闲内存的数量
+</li>
+<li>exit    ——终止终端会话
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 文件系统跳转</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>pwd     ——打印出单前工作目录名
+</li>
+<li>cd      ——更改目录
+</li>
+<li>ls      ——列出目录内容
+</li>
+<li>file    ——确定文件类型
+</li>
+<li>less    ——浏览文件内容
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 操作文件目录</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>cp      ——复制文件和目录
+</li>
+<li>mv      ——移动/重命名文件和目录
+</li>
+<li>mkdir   ——创建目录
+</li>
+<li>rm      ——删除文件和目录
+</li>
+<li>ln      ——创建硬链接和符号链接
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 使用命令</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>type    ——说明怎样解释一个命令名
+</li>
+<li>which   ——显示会执行哪个可执行程序
+</li>
+<li>man     ——显示命令手册页
+</li>
+<li>apropos ——显示一系列适合的命令
+</li>
+<li>info    ——显示命令info
+</li>
+<li>whatis  ——显示一个命令的简介描述
+</li>
+<li>alias   ——创建命令别名
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 重定向</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>cat     ——连接文件
+</li>
+<li>sort    ——排序文本行
+</li>
+<li>uniq    ——报道或省略重复行
+</li>
+<li>grep    ——打印匹配行
+</li>
+<li>wc      ——打印文件中换行符，字，和字节个数
+</li>
+<li>head    ——输出文件第一部分
+</li>
+<li>tail    ——输出文件最后一部分
+</li>
+<li>clear   ——清空屏幕
+</li>
+<li>history ——显示历史列表内容
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> 移动光标</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>Ctrl-a  ——移动光标到行首
+</li>
+<li>Ctrl-e  ——移动光标到行尾
+</li>
+<li>Ctrl-f  ——光标前移一个字符
+</li>
+<li>Ctrl-b  ——光标后移一个字符
+</li>
+<li>Alt-f   ——光标前移一个字
+</li>
+<li>Alt-b   ——光标后移一个字
+</li>
+<li>Ctrl-l  ——清空屏幕，光标移到左上角
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> 修改文本</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>Ctrl-d  ——删除光标位置的字符
+</li>
+<li>Ctrl-t  ——光标位置的字符和前面的字符互换位置
+</li>
+<li>Alt-t   ——光标位置的字和光标前面的字互换位置
+</li>
+<li>Alt-l   ——把从光标位置到字尾的字符转换成小写字母
+</li>
+<li>Alt-u   ——把从光标位置到字首的字符转换成大写字母
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> 剪切和粘贴文本（killing and yanking）</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li>Ctrl-k  ——剪切从光标位置到行尾的文本
+</li>
+<li>Ctrl-u  ——剪切从光标位置到行首的文本
+</li>
+<li>Alt-d   ——剪切从光标位置到词尾的文本
+</li>
+<li>Alt-BackSpace   ——剪切从光标位置到词头的文本
+</li>
+<li>Ctrl-y  ——把剪切环中的文本粘贴到光标位置
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> 权限</h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li>id      ——显示用户身份号
+</li>
+<li>chmod   ——更改文件模式
+</li>
+<li>umask   ——设置默认的文件属性
+</li>
+<li>su      ——以另一个用户的身份来运行shell
+</li>
+<li>sudo    ——以另一个用户的身份来执行命令
+</li>
+<li>chown   ——更改文件的所有者
+</li>
+<li>chgrp   ——更改文件组所有权
+</li>
+<li>passwd  ——更改用户密码
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> 进程</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li>ps      ——报告当前进程快照
+</li>
+<li>top     ——显示任务
+</li>
+<li>jobs    ——列出活跃的任务
+</li>
+<li>bg      ——把一个任务放到后台执行
+</li>
+<li>fg      ——把一个任务放到前台执行
+</li>
+<li>kill    ——给一个进程发送信号
+</li>
+<li>killall ——杀死指定名字的进程
+</li>
+<li>shutdown ——关机或重启系统
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> shell</h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li>printenv ——打印部分或所有的环境变量
+</li>
+<li>set     ——设置shell选项
+</li>
+<li>export  ——导出环境变量，让随后执行的程序知道
+</li>
+<li>alias   ——创建命令别名
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> 软件包管理</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>Debian GNU/Linux FAQ 关于软件包管理一章对软件包管理进行了概述:
+<a href="http://www.debian.org/doc/FAQ/ch-pkgtools.html">http://www.debian.org/doc/FAQ/ch-pkgtools.html</a>
+</li>
+<li>RPM工程的主页
+</li>
+</ul>
+<p>
+<a href="http://www.rpm.org">http://www.rpm.org</a> 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> 存储媒介</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+这部分好像用的不多，也不太懂&#x2026;
+</p>
+<ul class="org-ul">
+<li>mount    ——挂载一个文件系统
+</li>
+<li>umount   ——卸载一个文件系统
+</li>
+<li>fsck     ——检查和修复一个文件系统
+</li>
+<li>fdisk    ——分区表控制器
+</li>
+<li>fdformat ——格式化一张软盘
+</li>
+<li>dd       ——把面向块的数据直接写入设备
+</li>
+<li>genisoimage(mkisofs)  _——创建一个ISO 9660的映像文件
+</li>
+<li>wodim(cdrecord)    ——把数据写入光存储媒介
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15"><span class="section-number-3">1.15</span> 网络系统</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li>ping         ——发送ICMP ECHO_REQUSET
+</li>
+<li>traceroute   ——打印到一台网络主机的路由数据包
+</li>
+<li>netstat      ——打印网络连接，路由表，借口统计数据，伪装连接，和多路广播成员
+</li>
+<li>ftp          ——因特网文件文件传输程序
+</li>
+<li>wget         ——非交互式网络的下载器
+</li>
+<li>ssh          ——OpenSSH SSH 客户端（远程登陆程序）
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16"><span class="section-number-3">1.16</span> 查找文件</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li>locate       ——通过名字来查找文件
+</li>
+<li>find         ——在目录层次结构中搜索文件
+</li>
+<li>xargs        ——从标准输入生成和执行命令行
+</li>
+<li>touch        ——更改文件时间
+</li>
+<li>stat         ——显示文件或文件系统状态
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17"><span class="section-number-3">1.17</span> 归档和备份</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li>gzip         ——压缩或者展开文件
+</li>
+<li>bzip2        ——快排序文件压缩器
+</li>
+<li>tar          ——磁盘打包工具
+</li>
+<li>zip          ——打包和压缩文件
+</li>
+<li>rsync        ——同步远端文件和目录
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18"><span class="section-number-3">1.18</span> 文本处理</h3>
+<div class="outline-text-3" id="text-1-18">
+<ul class="org-ul">
+<li>cat          ——连接文件并打印到标准输出
+</li>
+<li>sort         ——给文本行排序
+</li>
+<li>uniq         ——报告或者省略重复行
+</li>
+<li>cut          ——从每行中删除文本区域
+</li>
+<li>paste        ——合并文件文本行
+</li>
+<li>join         ——基于某个共享字段来联合两个文件的文本行
+</li>
+<li>comm         ——逐行比较两个有序的文件
+</li>
+<li>diff         ——逐行比较文件
+</li>
+<li>patch        ——给原始文件打补丁
+</li>
+<li>tr           ——翻译或删除字符
+</li>
+<li>sed          ——用于筛选和转换文本的流编辑器
+</li>
+<li>aspell       ——交互式拼写检查器
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19"><span class="section-number-3">1.19</span> 格式化输出</h3>
+<div class="outline-text-3" id="text-1-19">
+<ul class="org-ul">
+<li>nl           ——添加行号
+</li>
+<li>fold         ——限制文件列宽
+</li>
+<li>fmt          ——一个简单的文本格式转换器
+</li>
+<li>pr           ——让文本为打印做好准备
+</li>
+<li>printf       ——格式化数据并打印出来
+</li>
+<li>groff        ——一个文件格式系统
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-20" class="outline-3">
+<h3 id="sec-1-20"><span class="section-number-3">1.20</span> 打印</h3>
+<div class="outline-text-3" id="text-1-20">
+<ul class="org-ul">
+<li>pr           ——转换需要打印的文本文件
+</li>
+<li>lpr          ——打印文件
+</li>
+<li>lp           ——打印文件（System V）
+</li>
+<li>a2ps         ——为PostScript打印机格式化文件
+</li>
+<li>lpstat       ——显示打印机状态信息
+</li>
+<li>lpq          ——显示打印机队列状态
+</li>
+<li>lprm         ——取消打印任务
+</li>
+<li>cancel       ——取消打印任务
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+            <div>
+            <center>
+            <div class="pagination">
+            <ul class="pagination">
+            <li class="prev"><a href="/public/2015/11/12/v.html" class=alignright prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
+            <li class="next"><a href="/public/2015/11/12/comeback.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            </ul>
+            </div>
+            </center>
+            </div>
+            
+            </div> <!-- my-page --></div> <!-- col-md -->
+
+        <div class="col-md-3">
+        <div id="sidebar">
+        
+        <div class="widget">
+        <h4>最新文章</h4>
+        <ul class="entry list-unstyled">
+        <li><a href="/public/2015/11/14/pythonbase.html"><i class="fa fa-file-o"></i>不积跬步无以至千里！</a></li><li><a href="/public/2015/11/12/Emacs.html"><i class="fa fa-file-o"></i>Emacs</a></li><li><a href="/public/2015/11/12/v.html"><i class="fa fa-file-o"></i>vim编辑器</a></li><li><a href="/public/2015/11/13/simplecommand.html"><i class="fa fa-file-o"></i>Simple Command</a></li><li><a href="/public/2015/11/12/comeback.html"><i class="fa fa-file-o"></i>Comeback</a></li><li><a href="/public/2015/11/11/HelloOrgNote.html"><i class="fa fa-file-o"></i>HelloOrgNote</a></li>
+        </ul>   
+        </div> 
+        
+        <div class="widget">
+        <h4>标签云</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/Python.html">Python<span>1</span></a></li><li><a href="/public/tags/Linux学习.html">Linux学习<span>2</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>1</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li><li><a href="/public/tags/默认.html">默认<span>1</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>时间机器</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/201511.html">201511<span>4</span></a></li><li><a href="/public/tags/201412.html">201412<span>1</span></a></li><li><a href="/public/tags/201411.html">201411<span>1</span></a></li><li><a href="/public/archive.html">All<span>6</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>快速链接</h4>
+        <ul class="entry list-unstyled">
+        
+            <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
+            
+            <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+        </ul>
+        </div>
+        
+        </div> <!-- sidebar -->
+        </div> <!-- col-md-3 -->
+        
+
+        </div> <!-- row-fluid -->
+        </div>
+        </div>
+        
+
+        <div class="container-narrow">
+        <footer>
+        <p>&copy; 2014 FangQian
+        with help from <a href="https://github.com/LeslieZhu/OrgNote" target="_blank">OrgNote</a>. Theme by <a href="https://github.com/LeslieZhu/orgnote-theme-freemind">orgnote-theme-freemind</a>.  Published with GitHub Pages. 
+        </p> </footer>
+        </div> <!-- container-narrow -->
+        
+        <a id="gotop" href="#">   
+        <span>▲</span> 
+        </a>
+        
+        </body>
+        </html>
+        

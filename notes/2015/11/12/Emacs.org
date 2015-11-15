@@ -1,0 +1,132 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t         
+#+OPTIONS: LaTeX:dvipng    
+#+OPTIONS: LaTeX:nil       
+#+OPTIONS: LaTeX:verbatim  
+
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+
+#+KEYWORDS: Linux学习
+#+TITLE: Emacs
+#+AUTHOR:  FangQian
+#+EMAIL: Linuxsailor@gmail.com
+#+DATE: 2014/11/19 
+*  启动Emacs编辑器
+
+     emacs [option] [filename]
+
+       常用选项[options]
+
+         + nw:打开一个文本窗口而非图形窗口(no window).
+
+         + q:启动时,放弃加载初始化文件~/.emacs,这个选项对于希望不使用初始化文件的初学者而言非常有用.
+
+         + +n:m:n和m都是一个数字,Emacs启动成功后会自动将光标定位与文本的第n行的第m个字符处,使用此选项也可以忽略m个字符选项.这个选项通常用于调试出错的程序源代码.
+ 
+         + u:启动时导入指定用户的初始化条件,这个选项通常用于自定义初始化文件时.
+
+         + fn:使用指定的字体作为其窗口字体.(font)
+	  
+         + 退出Emacs:Ctrl+X Ctrl+C(有时候需要先 Ctrl+G取消正在执行的命令如果有未保存的内容会弹出是否保存的的提示)   
+*  Emacs基本操作
+
+**   使用菜单栏
+
+       F10(或Esc+`)启动菜单栏,使用方向键选择(也可以直接输入缓冲区中列出的快捷字母),Enter进入,再或者按PageUp切换到"*Completions*
+",然后使用方向键选择,Enter进入.返回的话按3次Esc或者Ctrl+G.
+
+**    打开新文件
+
+          way1:快捷键:Ctrl+G Ctrl+F(对应的命令为find-file),然后输入文件名,Enter就好.
+
+          way2:命令  :在Emacs中要输入命令,要先按下Esc,然后再按下X键.这样就会进入缓冲区了,然后find-file按下Enter.输文件名也可以使用命令补全功能
+
+**    替换缓冲区中的文件:Ctrl+X Ctrl+S(对应命令为find-alternate-file)
+
+**    保存文件:  Ctrl+X  Ctrl+S,另存为的话就用Ctrl+X Ctrl+W(此时会提示输入路径和文件名)
+
+**    编辑文本:如果一行没写完的话会自动在行为添加/   删除就是Backpace了,按多次的话据删除光标前所有的内容,当然也可以使用Delete了或者Ctrl+D
+
+**    按字符移动光标:Ctrl+[B前 F后 P上 N下] 
+
+**    按句子移动光标:Esc a:前移一句；  Esc e  后移一句
+
+**    按单词移动光标:Esc b:将光标前移一个单词      Esc l:将光标后移一个单词
+   
+**    按段落移动光标:Esc  Shift + [ (即Esc+{):将光标前移一个段落     Esc Shift+] (即Esc+}):将光标后移动一个段落
+    
+**    滚动屏幕:可以使用PgUp和PgDn.快捷键: Ctrl+V:显示下一屏幕.   Esc+V显示上一屏
+
+           + Esc+>:快速移动到文件结尾处    Esc+<:快速移动到文本起始处
+
+           + Skill:如果觉得重复执行某些快捷键比较麻烦,可以使用Ctrl+u n(n为重复次数,默认为4次)和Esc n重复执行n次后续快捷键
+**    其它移动关标的技巧:在Emacs编辑器中,除了使用编辑键Home.End移动到行首和行尾之外,还可以使用快捷键Ctrl+A(行首)   Ctrl+E(行尾)
+
+           + 将当前移动到屏幕中间:Ctrl+L(字母l)
+
+           + 将光标移动到指定的行:Esc+X,然后输入命令goto-line,Enter.此时会提示输入行号
+
+*   Emacs编辑器的常用功能
+
+**    撤销与恢复:
+
+         + 撤销修改:Ctrl+Shft +-(即Ctrl+_)撤销最后一次操作,如果多次使用,Emacs最终会撤销所有的编辑操作.
+
+         + 恢复修改:Ctrl+F Ctrl+Shift+-(在撤销操作前面加了一个Ctrl+F)
+
+**    搜索功能:
+
+***          增量查找:Ctrl+S(向下)  Ctrl+R(向上).按下之后输入要查找的内容
+
+          + 当查找到文本内容时:按下Enter键会将光标跳转到当前文本处    
+
+          + 如果在查找过程中推出查找,连续按两次Enter键或使用Ctrl+G键返回
+
+          + 如果要查看下一个或者上一个找到的文本,可以使用快捷键Ctrl+S和Ctrl+R快速切换
+
+***          非增量查找:和增量查找类似.当用户输入完之后菜开始查找
+
+**    查找并替换:
+
+***          简单的替换:先执行命令replace-string,在小缓冲区中输入查找的内容和替换的内容(替换的文本比较小的时候使用)
+
+***          查询替换:每查到一处文本,都询问用户是否要将其替换.
+
+                   当查找到文本之后,询问用户应该如何处理时,可以采用的操作如下:
+
+                  + Space(空格)或者y:替换当前文本并查找下一个
+
+                                 + n:不替换直接查找下一个
+
+                                 + .:句点号表示替换并退出
+
+                                 + ,:逗号表示替换,并显示已替换的情况,继续查找可以使用空格或y
+
+                                 +!:替换所有查找到的文本并不再询问
+
+                                 + ^:返回上次替换的位置
+
+                                 + Enter或q:退出查询替换
+
+                                 + Ctrl+R:进入递归编辑状态
+
+                                 + Esc Ctrl+C:退出递归编辑状态
+
+**  复制剪切和粘贴:
+
+                                 + 复制:(选择文本的方法是将光标移动到复制文本的开头,使用快捷键Ctrl+Space).按下之后会在缓冲区显示Mark set,这时就可以将光标移动到文本尾,
+                             按下Alt+W或Esc+W,这时就复制到缓冲区了.
+
+                                 + 剪切:选择文本同上,剪切使用Ctrl+W
+
+                                 +  粘贴:将光标移动到要粘贴的位置,按下Ctrl+Y(注意:Ctrl+Space是用于输入法切换的话,可以用Ctrl+@替换)
+

@@ -1,0 +1,56 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Linux
+#+TITLE: Simple Command
+#+AUTHOR: FangQian
+#+EMAIL: qinagu_fang@163.com
+#+DATE: 2015/11/13
+
+* Simple Command
+
+** what is command？
++ 可执行的程序
++ 内建于shell自身的命令
++ shell函数
++ 命令别名
+** 一些简单的命令
++ date    ——显示系统当前的时间和日期
++ cal     ——默认显示单前月份的日历
++ df      ——查看磁盘剩余空间的数量
++ free    ——显示空闲内存的数量
++ exit    ——终止终端会话
+** 文件系统跳转
++ pwd     ——打印出单前工作目录名
++ cd      ——更改目录
++ ls      ——列出目录内容
++ file    ——确定文件类型
++ less    ——浏览文件内容
+** 操作文件目录
++ cp      ——复制文件和目录
++ mv      ——移动/重命名文件和目录
++ mkdir   ——创建目录
++ rm      ——删除文件和目录
++ ln      ——创建硬链接和符号链接
+** 使用命令
++ type    ——说明怎样解释一个命令名
++ which   ——显示会执行哪个可执行程序
++ man     ——显示命令手册页
++ apropos ——显示一系列适合的命令
++ info    ——显示命令info
++ whatis  ——显示一个命令的简介描述
++ alias   ——创建命令别名

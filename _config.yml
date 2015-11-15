@@ -1,0 +1,72 @@
+# OrgNote Configuration
+## Docs: http://lesliezhu.github.io/OrgNote/
+## Source: https://github.com/LeslieZhu/OrgNote
+
+# Site
+title: StudyNotes
+subtitle: "A simple org-mode blog, write blog by org-mode in Emacs,to take some study notes"
+
+author: FangQian
+email: qinagu_fang@163.com
+
+language: zh-CN
+
+# About this blog
+description: "Use OrgNote."
+keywords: "OrgNote,Emacs,org-mode,blog,python,geek"
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://yoursite.com
+root: /
+
+
+# Directory
+# if the source_dir is ./notes, then set 'source_dir' as 'notes', not include the '/'
+public_dir: public
+source_dir: notes
+
+
+# Category & Tag
+default_tag: "默认"
+
+# Theme
+# the default is 'freemind' and it's only theme for OrgNote now
+theme: freemind
+
+
+# Pagination
+## the note num of each page
+per_page: 6
+
+
+# duoshuo
+duoshuo_shortname:
+
+
+
+# layout
+## 1: enable
+## 0: disable
+### if 'sidebar_show` is disable, igore all `sidebar` option
+### the sidebar item display as the config order, sidebar items list:
+### sidebar_latest,sidebar_tags,sidebar_time,sidebar_weibo,sidebar_link
+
+sidebar_show: 1
+sidebar:
+  - sidebar_latest
+  - sidebar_tags
+  - sidebar_time
+  - sidebar_link
+
+
+# links, each link should setting url,name,icon
+links:
+  link1:
+    url: http://lesliezhu.github.com
+    name: Leslie Zhu
+    icon: fa fa-github
+  link2:
+    url: https://github.com/LeslieZhu/OrgNote
+    name: OrgNote
+    icon: fa fa-github

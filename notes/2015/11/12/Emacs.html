@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<head>
+<title>Emacs</title>
+<!-- 2015-11-16 一 00:44 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="FangQian" />
+<meta  name="keywords" content="Linux学习" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Emacs</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 启动Emacs编辑器</a></li>
+<li><a href="#sec-2">2. Emacs基本操作</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 使用菜单栏</a></li>
+<li><a href="#sec-2-2">2.2. 打开新文件</a></li>
+<li><a href="#sec-2-3">2.3. 替换缓冲区中的文件:Ctrl+X Ctrl+S(对应命令为find-alternate-file)</a></li>
+<li><a href="#sec-2-4">2.4. 保存文件:  Ctrl+X  Ctrl+S,另存为的话就用Ctrl+X Ctrl+W(此时会提示输入路径和文件名)</a></li>
+<li><a href="#sec-2-5">2.5. 编辑文本:如果一行没写完的话会自动在行为添加/   删除就是Backpace了,按多次的话据删除光标前所有的内容,当然也可以使用Delete了或者Ctrl+D</a></li>
+<li><a href="#sec-2-6">2.6. 按字符移动光标:Ctrl+[B前 F后 P上 N下]</a></li>
+<li><a href="#sec-2-7">2.7. 按句子移动光标:Esc a:前移一句；  Esc e  后移一句</a></li>
+<li><a href="#sec-2-8">2.8. 按单词移动光标:Esc b:将光标前移一个单词      Esc l:将光标后移一个单词</a></li>
+<li><a href="#sec-2-9">2.9. 按段落移动光标:Esc  Shift + [ (即Esc+{):将光标前移一个段落     Esc Shift+] (即Esc+}):将光标后移动一个段落</a></li>
+<li><a href="#sec-2-10">2.10. 滚动屏幕:可以使用PgUp和PgDn.快捷键: Ctrl+V:显示下一屏幕.   Esc+V显示上一屏</a></li>
+<li><a href="#sec-2-11">2.11. 其它移动关标的技巧:在Emacs编辑器中,除了使用编辑键Home.End移动到行首和行尾之外,还可以使用快捷键Ctrl+A(行首)   Ctrl+E(行尾)</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Emacs编辑器的常用功能</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 撤销与恢复:</a></li>
+<li><a href="#sec-3-2">3.2. 搜索功能:</a>
+<ul>
+<li><a href="#sec-3-2-1">3.2.1. 增量查找:Ctrl+S(向下)  Ctrl+R(向上).按下之后输入要查找的内容</a></li>
+<li><a href="#sec-3-2-2">3.2.2. 非增量查找:和增量查找类似.当用户输入完之后菜开始查找</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-3">3.3. 查找并替换:</a>
+<ul>
+<li><a href="#sec-3-3-1">3.3.1. 简单的替换:先执行命令replace-string,在小缓冲区中输入查找的内容和替换的内容(替换的文本比较小的时候使用)</a></li>
+<li><a href="#sec-3-3-2">3.3.2. 查询替换:每查到一处文本,都询问用户是否要将其替换.</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-4">3.4. 复制剪切和粘贴:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 启动Emacs编辑器</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+emacs [option] [filename]
+</p>
+
+<p>
+常用选项[options]
+</p>
+
+<ul class="org-ul">
+<li>nw:打开一个文本窗口而非图形窗口(no window).
+</li>
+
+<li>q:启动时,放弃加载初始化文件~/.emacs,这个选项对于希望不使用初始化文件的初学者而言非常有用.
+</li>
+
+<li>+n:m:n和m都是一个数字,Emacs启动成功后会自动将光标定位与文本的第n行的第m个字符处,使用此选项也可以忽略m个字符选项.这个选项通常用于调试出错的程序源代码.
+</li>
+
+<li>u:启动时导入指定用户的初始化条件,这个选项通常用于自定义初始化文件时.
+</li>
+
+<li>fn:使用指定的字体作为其窗口字体.(font)
+</li>
+
+<li>退出Emacs:Ctrl+X Ctrl+C(有时候需要先 Ctrl+G取消正在执行的命令如果有未保存的内容会弹出是否保存的的提示)   
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Emacs基本操作</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 使用菜单栏</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+F10(或Esc+`)启动菜单栏,使用方向键选择(也可以直接输入缓冲区中列出的快捷字母),Enter进入,再或者按PageUp切换到"<b>Completions</b>
+",然后使用方向键选择,Enter进入.返回的话按3次Esc或者Ctrl+G.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 打开新文件</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+way1:快捷键:Ctrl+G Ctrl+F(对应的命令为find-file),然后输入文件名,Enter就好.
+</p>
+
+<p>
+way2:命令  :在Emacs中要输入命令,要先按下Esc,然后再按下X键.这样就会进入缓冲区了,然后find-file按下Enter.输文件名也可以使用命令补全功能
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 替换缓冲区中的文件:Ctrl+X Ctrl+S(对应命令为find-alternate-file)</h3>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 保存文件:  Ctrl+X  Ctrl+S,另存为的话就用Ctrl+X Ctrl+W(此时会提示输入路径和文件名)</h3>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 编辑文本:如果一行没写完的话会自动在行为添加/   删除就是Backpace了,按多次的话据删除光标前所有的内容,当然也可以使用Delete了或者Ctrl+D</h3>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 按字符移动光标:Ctrl+[B前 F后 P上 N下]</h3>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 按句子移动光标:Esc a:前移一句；  Esc e  后移一句</h3>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> 按单词移动光标:Esc b:将光标前移一个单词      Esc l:将光标后移一个单词</h3>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> 按段落移动光标:Esc  Shift + [ (即Esc+{):将光标前移一个段落     Esc Shift+] (即Esc+}):将光标后移动一个段落</h3>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> 滚动屏幕:可以使用PgUp和PgDn.快捷键: Ctrl+V:显示下一屏幕.   Esc+V显示上一屏</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>Esc+&gt;:快速移动到文件结尾处    Esc+&lt;:快速移动到文本起始处
+</li>
+
+<li>Skill:如果觉得重复执行某些快捷键比较麻烦,可以使用Ctrl+u n(n为重复次数,默认为4次)和Esc n重复执行n次后续快捷键
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11"><span class="section-number-3">2.11</span> 其它移动关标的技巧:在Emacs编辑器中,除了使用编辑键Home.End移动到行首和行尾之外,还可以使用快捷键Ctrl+A(行首)   Ctrl+E(行尾)</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>将当前移动到屏幕中间:Ctrl+L(字母l)
+</li>
+
+<li>将光标移动到指定的行:Esc+X,然后输入命令goto-line,Enter.此时会提示输入行号
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Emacs编辑器的常用功能</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 撤销与恢复:</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>撤销修改:Ctrl+Shft +-(即Ctrl+_)撤销最后一次操作,如果多次使用,Emacs最终会撤销所有的编辑操作.
+</li>
+
+<li>恢复修改:Ctrl+F Ctrl+Shift+-(在撤销操作前面加了一个Ctrl+F)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 搜索功能:</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> 增量查找:Ctrl+S(向下)  Ctrl+R(向上).按下之后输入要查找的内容</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li>当查找到文本内容时:按下Enter键会将光标跳转到当前文本处    
+</li>
+
+<li>如果在查找过程中推出查找,连续按两次Enter键或使用Ctrl+G键返回
+</li>
+
+<li>如果要查看下一个或者上一个找到的文本,可以使用快捷键Ctrl+S和Ctrl+R快速切换
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> 非增量查找:和增量查找类似.当用户输入完之后菜开始查找</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 查找并替换:</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><div id="outline-container-sec-3-3-1" class="outline-4">
+<h4 id="sec-3-3-1"><span class="section-number-4">3.3.1</span> 简单的替换:先执行命令replace-string,在小缓冲区中输入查找的内容和替换的内容(替换的文本比较小的时候使用)</h4>
+</div>
+
+<div id="outline-container-sec-3-3-2" class="outline-4">
+<h4 id="sec-3-3-2"><span class="section-number-4">3.3.2</span> 查询替换:每查到一处文本,都询问用户是否要将其替换.</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+当查找到文本之后,询问用户应该如何处理时,可以采用的操作如下:
+</p>
+
+<ul class="org-ul">
+<li>Space(空格)或者y:替换当前文本并查找下一个
+
+<ul class="org-ul">
+<li>n:不替换直接查找下一个
+</li>
+
+<li>.:句点号表示替换并退出
+</li>
+
+<li>,:逗号表示替换,并显示已替换的情况,继续查找可以使用空格或y
+</li>
+</ul>
+<p>
++!:替换所有查找到的文本并不再询问
+</p>
+
+<ul class="org-ul">
+<li>^:返回上次替换的位置
+</li>
+
+<li>Enter或q:退出查询替换
+</li>
+
+<li>Ctrl+R:进入递归编辑状态
+</li>
+
+<li>Esc Ctrl+C:退出递归编辑状态
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 复制剪切和粘贴:</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>复制:(选择文本的方法是将光标移动到复制文本的开头,使用快捷键Ctrl+Space).按下之后会在缓冲区显示Mark set,这时就可以将光标移动到文本尾,
+</li>
+</ul>
+<p>
+按下Alt+W或Esc+W,这时就复制到缓冲区了.
+</p>
+
+<ul class="org-ul">
+<li>剪切:选择文本同上,剪切使用Ctrl+W
+</li>
+
+<li>粘贴:将光标移动到要粘贴的位置,按下Ctrl+Y(注意:Ctrl+Space是用于输入法切换的话,可以用Ctrl+@替换)
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: 2014/11/19</p>
+<p class="author">&#20316;&#32773;: FangQian</p>
+<p class="date">Created: 2015-11-16 一 00:44</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
