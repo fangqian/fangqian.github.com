@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
 <head>
 <title>Comeback</title>
-<!-- 2015-11-16 一 00:44 -->
+<!-- 2015-11-16 一 00:54 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="FangQian" />
@@ -156,12 +156,7 @@ for the JavaScript code in this tag.
 +想了一下，这段主要还是总结一下自己学过的知识，主要是关于linux和python的一些基础知识吧，前几天几天忍住没有剁手，买了两本有关与pythonweb开发的
 +书籍，一本是《Flask Web Development:Developing Web Applications with pyhthon》，另外一本是《Test-Driven Development with python》,当然都是
 +中文版的，但总觉得翻译的作品还是比原版的查了一些味道，表达的没有那么清晰，所以有时候会比较难懂。也记录一下学习这两本书的笔记吧。我又回来了
-</p>
-<ul class="org-ul">
-<li></li>
-</ul>
-<p>
-+这次要好好写啊，qiangu&#x2026;                                  —————by Leslie Zhu,the author of orgnote
++每写一行代码，都是在改变自己的命运
 </p>
 </div>
 </div>
@@ -169,7 +164,7 @@ for the JavaScript code in this tag.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: 2015/11/12</p>
 <p class="author">&#20316;&#32773;: FangQian</p>
-<p class="date">Created: 2015-11-16 一 00:44</p>
+<p class="date">Created: 2015-11-16 一 00:54</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
