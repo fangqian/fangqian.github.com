@@ -1,0 +1,42 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Python
+#+TITLE: Python错误和异常
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/11/24
+
+* Python中的异常
+
++ NameError:                   尝试访问一个未声明的的变量
++ ZeroDivisionError:           除数为0
++ SyntaxError:                 Python 解释器语法错误，代表Python代码总有一个不正确的结构，在它改正之前程序无法执行，一般是在
+编译时发生。Python解释器无法把脚本转化为Python字节代码。
++ IndexError:                  请求的索引超出序列范围。
++ KeyError:                    请求一个不存在的字典关键字。
++ IOError:                     输入/输出错误
+* 检测和处理异常
+异常可以通过 try 语句来检测，任何在 try 语句块里的代码都会被监测，检查有无异常发生。
+** try-except语句
+#+BEGIN_SRC python 
+try:
+    try_suite    #watch for exceptions here 监控这里的异常
+except Exception[,reason]:
+    except_suite    #exception-handling code   异常处理代码
+
+#+END_SRC

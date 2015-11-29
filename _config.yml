@@ -7,7 +7,7 @@ title: StudyNotes
 subtitle: "Practice makes perfect!"
 
 author: FangQian
-email: qinagu_fang@163.com
+email: qiangu_fang@163.com
 
 language: zh-CN
 
@@ -69,4 +69,8 @@ links:
   link2:
     url: https://github.com/LeslieZhu/OrgNote
     name: OrgNote
+    icon: fa fa-github
+  link3:
+    url: http://code.activestate.com/recipes/langs/python
+    name: Python-Cookbook
     icon: fa fa-github

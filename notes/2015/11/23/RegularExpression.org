@@ -1,0 +1,26 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Linux
+#+TITLE: RegularExpression
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/11/23
+
+* What is Regular Expression
+正则表达式（Regular Expression）是通过一些特殊字符的排列，用以查找、替换、删除
+一行或多行文字字符串。简单的说，就是处理字符串的方法。

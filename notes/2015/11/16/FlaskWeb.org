@@ -1,0 +1,29 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: 默认
+#+TITLE: FlaskWeb
+#+AUTHOR: FangQian
+#+EMAIL: qinagu_fang@163.com
+#+DATE: 2015/11/16
+
+* Flask Web Development:Developing Web Applications with Python(参考书)
+** 第一章 安装
+*** 使用虚拟环境
+安装Flask最便捷的方式是使用虚拟环境。虚拟环境是Python解释器的一个私有副本，
+在这个环境你可以安装私有包（Leslie-Zhu的那个在线生成二维码的项目好像就用到了这个），
+而且不会影响系统中安装的全局Python解释器。

@@ -1,0 +1,49 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Linux
+#+TITLE: ShellVariable
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/11/21
+
+* 变量的显示与设置：echo,unset
+* 变量的设置规则
+** 变量与变量内容以一个等号"="来连接
+** 等号两边不能直接接空格符
+** 变量名称只能是英文字母和数字，但开头字符不能是数字
+** 变量内容若有空格符可以使用双引号“"”或单单引号“'”将变量内容结合起来，但是
++ 双引号内的特殊字符如$等，可以保持原本的特性如下所示:
+#+BEGIN_EXAMPLE
+var="lang is $LANG"
+echo $var
+#+END_EXAMPLE
+结果是lang is lang is zh_CN.UTF-8
++ 单引号内的特殊字符则仅为一般字符（纯文本）
+** 可用转义字符“\”将特殊符号（如[Enter]、$、\、空格符、！等变成一般字符。
+** 在一串命令中，还需要通过其他的命令提供的信息，可以使用反单引号
+“`命令`”或“$命。
++ 获取内核版本
+#+BEGIN_EXAMPLE
+version=$(uname -r)/version=`uname -r`
+echo $version
+#+END_EXAMPLE
+结果是3.19.0-33-generic
+** 若该变量为了增加变量内容时，则可用"$变量名称"或${变量}累加内容,如下所示：
++ PATH="$PATH":/home/bin
+** 若该变量需要在其他子进程执行，则需要以export来使变量变成环境变量
+** 取消变量的方法为使用“unset变量名称”
