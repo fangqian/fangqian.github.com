@@ -1,0 +1,95 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: MySQL
+#+TITLE: MySQL的基本使用
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/12/02
+
+* MySQL的基本命令
+** MySQL 的基本命令
+*** 连接MySQl 数据库
+mysql的基本工作是连接MySQL数据库服务器，它的命令形式如下：
+#+BEGIN_EXAMPLE
+mysql [-h host_name] [-u user_name] [-p password]
+#+END_EXAMPLE
+其中参数-h后面要给出连接的数据库的 IP地址 或者 域名，参数u后面要给出登入的
+用户名，参数p后面表示登入的密码。
++ 连接本机默认的MySQL数据库服务器
+#+BEGIN_EXAMPLE
+# mysql -p root -p
+# ******   (输入密码)
+#+END_EXAMPLE
+登入成功后会出现MySQL的提示符mysql>
+*** mysql的基本命令
+在mysql中，输入help或?命令,即可以查看mysql支持的内部操作命令。
+*** 库的操作
+**** 显示数据库列表
+#+BEGIN_EXAMPLE
+mysql>show tables;
+#+END_EXAMPLE 
+**** 选择一个数据库
+#+BEGIN_EXAMPLE
+mysql>use dbname;
+#+END_EXAMPLE
+**** 查看一个数据库中的所有表
+#+BEGIN_EXAMPLE
+mysql>show tables;
+#+END_EXAMPLE
+* 创建一个员工信息数据库示例
+** 创建公司数据库
+创建数据库的命令是create database dbname(数据库名);
+#+BEGIN_EXAMPLE
+mysql>create database company;
+#+END_EXAMPLE
+** 创建员工信息表
+员工的信息主要包括５个基本元素（员工号，员工姓名，员工家庭住址，员工的收入
+，员工的级别）。是否为主键，如果是，加个属性unique。
+#+BEGIN_EXAMPLE
+mysql> use company;
+mysql> create table worker (nid int unique, name varchar(20),address 
+varchar(200), salary float, level int);
+#+END_EXAMPLE
+** 插入基本数据
+#+BEGIN_EXAMPLE
+mysql> insert into worker values (100, 'Tom', 'beijing', 2000.0, 0);
+mysql> insert into worker values (101, 'jim', 'shanghai', 2000.0, 1);
+mysql> insert into worker values (102, 'mali', 'shanghai', 3000.0,2);
+#+END_EXAMPLE
+** 查询全部数据
+利用select语句查询全部记录
+#+BEGIN_EXAMPLE
+mysql> select * from worker;
+#+END_EXAMPLE
+** 删除其中一条记录
+#+BEGIN_EXAMPLE
+mysql>delete from worker where nid = 100;
+#+END_EXAMPLE
+** 更新其中一条记录
+#+BEGIN_EXAMPLE
+mysql>update worker set level =2,salary=3000.0 where nid=101;
+#+END_EXAMPLE
+** 删除数据库
++ 删除所有的数据表，SQL语句为：
+#+BEGIN_EXAMPLE
+mysql>drop table worker;
+#+END_EXAMPLE
++ 删除数据库，SQL语句为：
+#+BEGIN_EXAMPLE
+mysql>delete database company;
+#+END_EXAMPLE

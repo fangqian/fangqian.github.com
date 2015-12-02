@@ -29,10 +29,14 @@
 $ virtualenv --version
 13.1.2(on my computer)
 #+END_EXAMPLE
+
+
 + 大多数Linux发行版都提供了virtualenv包,Ubantu用户(管理员权限)可以使用以下命令安装它：
 #+BEGIN_EXAMPLE
 $ sudo apt-get install python-virtualenv
 #+END_EXAMPLE
+
+
 + 下述命令从Github下载示例代码(Create a new folder to save it),并把程序文件夹切换到"1a"版本，
 即程序的初始版本：
 #+BEGIN_EXAMPLE
@@ -40,3 +44,22 @@ $ git clone http://github.com/miguelgrinberg/flasky.git
 $ cd flasky
 $ git checkout 1a
 #+END_EXAMPLE
++ 使用virtualenv命令在flasku文件夹中创建Python虚拟环境。
+#+BEGIN_EXAMPLE
+$ virtualenv venv    #参数venv是虚拟环境的名字，执行这句会再flasky目录下生成一个文件夹venv
+#+END_EXAMPLE
+
+
++ 在venv文件夹（虚拟环境）中，有一个私有的Python解释器。使用虚拟环境前要先激活。
+#+BEGIN_EXAMPLE
+$ source venv/bin/activate(激活虚拟环境)
+(venv)$     ----这是激活后的命令行提示符，加入了环境名venv
+$ deactivate(退出虚拟环境)  
+#+END_EXAMPLE
+
+
++ 在虚拟环境中安装Flask
+#+BEGIN_EXAMPLE
+(venv)$ pip install flask
+#+END_EXAMPLE
+在我执行这个命令的时候出现了问题Retrying (Retry(total=4, connect=None, read=None, redirect=None)) 

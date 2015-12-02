@@ -1,6 +1,7 @@
+- [[./notes/2015/12/02/MySQL.html][MySQL的基本使用]]
+- [[./notes/2015/12/02/Python_Connect_MySQL.html][MySQL 数据库的连接]]
 - [[./notes/2015/11/14/pythonbase.html][不积跬步无以至千里！]]
 - [[./notes/2015/11/12/Emacs.html][Emacs]]
 - [[./notes/2015/11/12/v.html][vim编辑器]]
 - [[./notes/2015/11/13/simplecommand.html][Simple Command]]
 - [[./notes/2015/11/12/comeback.html][Comeback]]
-

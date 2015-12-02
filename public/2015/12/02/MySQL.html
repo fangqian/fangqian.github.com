@@ -53,7 +53,7 @@
         <div class="content">
         
         <div class="page-header">                   <!-- page-header begin -->
-        <h1>不积跬步无以至千里！</h1>
+        <h1>MySQL的基本使用</h1>
         </div>                                      <!-- page-header end -->
         
         <div class="row page">                      <!-- row-page begin -->
@@ -62,7 +62,7 @@
         
         <div class="slogan">                        <!-- slogan begin -->
         <i class="fa fa-heart"></i>
-        标签: <a href="/public/tags/Python.html"><i class="Python"></i>Python</a>
+        标签: <a href="/public/tags/MySQL.html"><i class="MySQL"></i>MySQL</a>
         </div>                                     <!-- slogan end -->
         
 <div id="content">
@@ -71,15 +71,26 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. python基础知识</a>
+<li><a href="#sec-1">1. MySQL的基本命令</a>
 <ul>
-<li><a href="#sec-1-1">1.1. About</a></li>
-<li><a href="#sec-1-2">1.2. 文件相关的命令</a></li>
-<li><a href="#sec-1-3">1.3. if语句的规则</a></li>
-<li><a href="#sec-1-4">1.4. 循环规则</a></li>
-<li><a href="#sec-1-5">1.5. 调试（debug）的小技巧</a></li>
-<li><a href="#sec-1-6">1.6. Python语句中一些基本规则和特殊字符：</a></li>
-<li><a href="#sec-1-7">1.7. Python中下划线的特殊用法</a></li>
+<li><a href="#sec-1-1">1.1. MySQL 的基本命令</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. 连接MySQl 数据库</a></li>
+<li><a href="#sec-1-1-2">1.1.2. mysql的基本命令</a></li>
+<li><a href="#sec-1-1-3">1.1.3. 库的操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 创建一个员工信息数据库示例</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 创建公司数据库</a></li>
+<li><a href="#sec-2-2">2.2. 创建员工信息表</a></li>
+<li><a href="#sec-2-3">2.3. 插入基本数据</a></li>
+<li><a href="#sec-2-4">2.4. 查询全部数据</a></li>
+<li><a href="#sec-2-5">2.5. 删除其中一条记录</a></li>
+<li><a href="#sec-2-6">2.6. 更新其中一条记录</a></li>
+<li><a href="#sec-2-7">2.7. 删除数据库</a></li>
 </ul>
 </li>
 </ul>
@@ -87,155 +98,151 @@
 </div>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> python基础知识</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> MySQL的基本命令</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> About</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> MySQL 的基本命令</h3>
 <div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 连接MySQl 数据库</h4>
+<div class="outline-text-4" id="text-1-1-1">
 <p>
-这篇主要记录自己学习中遇见的一些好的笔记或者自己不熟悉的东西，可能会比较杂乱无章
-因为是见到一些就记录下来，看的书籍比较多，也很杂。会时常往这里面加笔记。
+mysql的基本工作是连接MySQL数据库服务器，它的命令形式如下：
+</p>
+<pre class="example">
+mysql [-h host_name] [-u user_name] [-p password]
+</pre>
+<p>
+其中参数-h后面要给出连接的数据库的 IP地址 或者 域名，参数u后面要给出登入的
+用户名，参数p后面表示登入的密码。
+</p>
+<ul class="org-ul">
+<li>连接本机默认的MySQL数据库服务器
+</li>
+</ul>
+<pre class="example">
+# mysql -p root -p
+# ******   (输入密码)
+</pre>
+<p>
+登入成功后会出现MySQL的提示符mysql&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 文件相关的命令</h3>
-<div class="outline-text-3" id="text-1-2">
-<ul class="org-ul">
-<li>close        ——关闭文件。跟你编辑器的 文件 -&gt; 保存..一个意思。
-</li>
-<li>read         ——读取文件内容。你可以把结果赋给一个变量。
-</li>
-<li>readline     ——读取文本文件中的一行。
-</li>
-<li>truncate     ——清空文件，请小心使用该命令。
-</li>
-<li>write(stuff) ——将stuff写入文件。
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> if语句的规则</h3>
-<div class="outline-text-3" id="text-1-3">
-<ul class="org-ul">
-<li>每一个"if语句"必须包含一个else.
-</li>
-<li>如果这个else永远都不应该被执行到，因为它本身没有任何意义，那你必须在else
-</li>
-</ul>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> mysql的基本命令</h4>
+<div class="outline-text-4" id="text-1-1-2">
 <p>
-语句后面使用一个叫die的函数,让它打印出错误信息并且死给你看。
-</p>
-<ul class="org-ul">
-<li>"if语句"的嵌套不要超过两层,最好尽量保持只有一层。这意味着如果在if里边
-</li>
-</ul>
-<p>
-又有了一个if,那你就需要把第二个if移到另一个函数里面。
-</p>
-<ul class="org-ul">
-<li>将"if语句"当做段落来对待，其中的每一个if,elif,else组合就跟一个段落的
-</li>
-</ul>
-<p>
-句子组合一样。这种组合的最前面和最后面留一个空行以作区分。
-</p>
-<ul class="org-ul">
-<li>布尔测试应该很简单，如果很复杂的话，你需要将它们的运算事先放到一个变量
-</li>
-</ul>
-<p>
-里，并且为变量取一个好名字。
-</p>
-<ul class="org-ul">
-<li>再日常编程中不要成为这个规则的奴隶
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 循环规则</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li>对于Python，只有再循环永不停在时使用"while循环"，这意味着可能永远都用不到。
-</li>
-<li>其它类型的循环都用"for循环"，尤其是在对象数量固定或有限的情况下。
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 调试（debug）的小技巧</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>不要使用"debugger"。Debugger所做的相当于对病人的全身扫描。并不会得到某方面的有用
-</li>
-</ul>
-<p>
-信息，而且你会发现它的输出的信息态度，并且大部分没有用，或者只会让你更困惑。
-</p>
-<ul class="org-ul">
-<li>最好的调试程序的方法是使用print在各个你想要检查的关键环节将关键变量打印出来，从而
-</li>
-</ul>
-<p>
-检查哪里是否有错。
-</p>
-<ul class="org-ul">
-<li>让程序一部分一部分地运行起来。不要等一个很长的脚本写完后才去运行它。写一点，运行一点，
-</li>
-</ul>
-<p>
-再修改一点。
+在mysql中，输入help或?命令,即可以查看mysql支持的内部操作命令。
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Python语句中一些基本规则和特殊字符：</h3>
-<div class="outline-text-3" id="text-1-6">
-<ul class="org-ul">
-<li>井号（#）表示之后的字符为Pythond注释
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> 库的操作</h4>
+<div class="outline-text-4" id="text-1-1-3">
+</div><ol class="org-ol"><li><a id="sec-1-1-3-1" name="sec-1-1-3-1"></a>显示数据库列表<br  /><div class="outline-text-5" id="text-1-1-3-1">
+<pre class="example">
+mysql&gt;show tables;
+</pre>
+</div>
 </li>
-<li>换行(\n)是标准的行分隔符（通常一个语句一行）
+<li><a id="sec-1-1-3-2" name="sec-1-1-3-2"></a>选择一个数据库<br  /><div class="outline-text-5" id="text-1-1-3-2">
+<pre class="example">
+mysql&gt;use dbname;
+</pre>
+</div>
 </li>
-<li>反斜线（\）继续上一行
-</li>
-<li>分号（；）将两个语句连接在一行中
-</li>
-<li>冒号（：）将代码快的头和体分开
-</li>
-<li>语句（代码快）用缩进块的方式体现
-</li>
-<li>不同的缩进程度分割不同的代码快
-</li>
-<li>Python 文件以模块的形式组织
-</li>
-</ul>
+<li><a id="sec-1-1-3-3" name="sec-1-1-3-3"></a>查看一个数据库中的所有表<br  /><div class="outline-text-5" id="text-1-1-3-3">
+<pre class="example">
+mysql&gt;show tables;
+</pre>
+</div>
+</li></ol>
 </div>
 </div>
-<div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Python中下划线的特殊用法</h3>
-<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 创建一个员工信息数据库示例</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 创建公司数据库</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+创建数据库的命令是create database dbname(数据库名);
+</p>
+<pre class="example">
+mysql&gt;create database company;
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 创建员工信息表</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+员工的信息主要包括５个基本元素（员工号，员工姓名，员工家庭住址，员工的收入
+，员工的级别）。是否为主键，如果是，加个属性unique。
+</p>
+<pre class="example">
+mysql&gt; use company;
+mysql&gt; create table worker (nid int unique, name varchar(20),address 
+varchar(200), salary float, level int);
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 插入基本数据</h3>
+<div class="outline-text-3" id="text-2-3">
+<pre class="example">
+mysql&gt; insert into worker values (100, 'Tom', 'beijing', 2000.0, 0);
+mysql&gt; insert into worker values (101, 'jim', 'shanghai', 2000.0, 1);
+mysql&gt; insert into worker values (102, 'mali', 'shanghai', 3000.0,2);
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 查询全部数据</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+利用select语句查询全部记录
+</p>
+<pre class="example">
+mysql&gt; select * from worker;
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 删除其中一条记录</h3>
+<div class="outline-text-3" id="text-2-5">
+<pre class="example">
+mysql&gt;delete from worker where nid = 100;
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 更新其中一条记录</h3>
+<div class="outline-text-3" id="text-2-6">
+<pre class="example">
+mysql&gt;update worker set level =2,salary=3000.0 where nid=101;
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 删除数据库</h3>
+<div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
-<li>_XXX        不用'from modele import *'导入
-</li>
-<li><span class="underline"><span class="underline">XXX</span></span>     系统定义名字
-</li>
-<li>__XXX       类中的私用变量名
+<li>删除所有的数据表，SQL语句为：
 </li>
 </ul>
-
-<p>
-避免用下划线作为变量名的开始
-</p>
-
-<p>
-因为下滑线对于解释器有特殊的意义，而且是内建标识符所使用的符号。一般地，变量
-名_XXX被看做是"私有的"，在模块或类外不可以使用。当变量私有的时候，用_XXX来表示
-变量名是很好的习惯。因为变量名__XXX__对Python来说有特殊的含义，普通的变量应该
-避免这种风格。
-</p>
+<pre class="example">
+mysql&gt;drop table worker;
+</pre>
+<ul class="org-ul">
+<li>删除数据库，SQL语句为：
+</li>
+</ul>
+<pre class="example">
+mysql&gt;delete database company;
+</pre>
 </div>
 </div>
 </div>
@@ -245,9 +252,9 @@
             <center>
             <div class="pagination">
             <ul class="pagination">
-            <li class="prev"><a href="/public/2015/12/02/Python_Connect_MySQL.html" class=alignright prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
             <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
-            <li class="next"><a href="/public/2015/11/12/Emacs.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            <li class="next"><a href="/public/2015/12/02/Python_Connect_MySQL.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
             </ul>
             </div>
             </center>

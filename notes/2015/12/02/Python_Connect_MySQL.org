@@ -1,0 +1,105 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Python
+#+TITLE: MySQL 数据库的连接
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/12/02
+
+* 安装MySQL-python
+MySQL db 是Python连接MySQL的模块。
+测试：
+使用之前首先要确定Python环境里有没有这个库，打开Python shell,输入：
+#+BEGIN_EXAMPLE
+import MySQLdb
+#+END_EXAMPLE
+
+如果返回错误信息，就表示还没有安装这个模块。需要下载安装。
+下载地址：[[https://pypi.python.org/pypi/MySQL-python/]]
+下载压缩文件之后直接解压，进入解压文件夹：
+$ python setup.py install
+
+* 连接
+** 使用MySQLdb连接MySQL的函数为connect()。声明如下:
+#+BEGIN_EXAMPLE
+connect (parameters...)
+#+END_EXAMPLE
+常用参数如下：
++ host: MySQL 主机名或者IP地址。本地的为localhost/127.0.0.1
++ user: 连接使用的用户名。本地的为root。
++ password: 连接使用的用户名的密码。
++ dbname: 默认打开的数据库。
++ port: MySQL 服务端口。MySQL服务端口的TCP端口，默认是3306。
+如果连接成功返回一个连接对象。若输入的数据库信息不对，连接失败，会触发
+OperationalError,返回错误信息。
+** 创建连接对象：
+#+BEGIN_EXAMPLE
+import MySQLdb
+conn = MySQLdb.Connection('host','user','password',dbname)
+#+END_EXAMPLE 
+
+这个连接对象也提供了对事物操作的支持，标准的方法如下：
++ 提交：commit()
++ 回滚：rollback()
+* 数据操作
+** 获取cursor游标对象
+数据操作包括查询(select),插入(insert),更新(update),删除(delete)等。由于MySQLdb模块
+底层其实是调用C API的，所以,需要先得到当前所指向数据库的指针(游标对象):
+#+BEGIN_EXAMPLE
+cur =conn.cursor()
+#+END_EXAMPLE
+** 数据操作
+现在可以使用cursor对象的execute()执行SQL语句进行数据操作了。例如：
+#+BEGIN_SRC python
+＃创建数据表
+cur.execute("create table student(id int,name varchar(20))")
+
+# 获取表中有多少条数据
+cur.execute('select * from tables')
+
+#插入一条数据
+cur.execute("insect into student ('2','Tom')...")
+
+＃修改　满足查询条件的数据
+cur.execute("update student set id = '3' where name = 'Tom'")
+
+#删除　满足查询条件的数据
+cur.execute("delete from student where id = '3'")
+#+END_SRC  
+查询数据的操作并没有把表中的数据打印出来，只得到了表中数据的行数。fetchone()
+方法可以帮助我们获得表中的数据，可是每次执行cur.fetchone() 获得的数据都不一样，换句话说我每执行一次，
+游标会从表中的第一条数据移动到下一条数据的位置，所以，我再次执行的时候得到的是第二条数据。
+scroll(0,'absolute')方法可以将游标定位到表中的第一条数据。
++ 打印表中的数据
+fetchmany()方法可以获得多条数据，但需要指定数据的条数，通过
+一个for循环就可以把多条数据打印出啦！
+#+BEGIN_SRC python
+aa = cur.execute("select * from student")
+info = cur.fetchmany(aa)
+for ii in info:
+    print ii
+#+END_SRC
++ 注意
+在执行完插入或修改或删除操作后，需要调用一下conn.commit()方法
+进行提交，否则操作不会生效，即数据不会被真的插入。
+** 关闭连接
++ 关闭操作分两步，需要分表地关闭指针对象cursor和连接对象connection
+#+BEGIN_EXAMPLE
+cur.close()
+connection.close()
+#+END_EXAMPLE
