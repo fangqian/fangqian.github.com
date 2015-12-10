@@ -1,0 +1,205 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: MySQL
+#+TITLE: SQL语言基础
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/12/03
+
+* 数据库操作
+** 创建数据库
+#+BEGIN_EXAMPLE
+CREATE DATABASE db_name;
+#+END_EXAMPLE
+合法的数据库名以及其他数据表等对象的命名规则如下：
++ 名称可由任意字母、数字、下划线"_"或"$"组成和开头，但不能是纯数字（这样会与数值相混）。
++ 名称的长度限制为——数据库、表、列和索引最多64个字符，别名最多256个字符。
++ 不能使用MySQL的关键字作为数据库、表名。
+** 删除数据库
+#+BEGIN_EXAMPLE
+DROP DATABASE db_name;
+#+END_EXAMPLE
++ 应该谨慎使用DROP DATABASE 语句，它将不可恢复地删除数据库以及所有的表(删除前可以考虑备份)。
+* 表的操作
+** 创建表
+创建表的SQL语句是CREATE TABLE，语法如下：
+#+BEGIN_EXAMPLE
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+(
+   列名 数据类型 列级完整性约束条件,
+   列名 数据类型 列级完整性约束条件,
+   ...
+);
+#+END_EXAMPLE
+其中TEMPORARY参数表示创建临时表，这种表会在与服务器交互结束时自动删除。
+** 修改表
+#+BEGIN_EXAMPLE
+ALTER TABLE 表名
+  ADD 新列名 数据类型 完整性约束
+  DROP 完整性约束名
+  ALTER COLUMN 列名 数据类型;
+#+END_EXAMPLE
+例如，原来的student_info 表中没有"入学时间"属性(日期型数据),修改的SQL语句如下：
+#+BEGIN_EXAMPLE
+ALTER TABLE student_info ADD stu_entrance DATE;
+#+END_EXAMPLE
+** 删除表
+可以一次删除一个或多个表
+#+BEGIN_EXAMPLE
+DROP TABLE table_name1,table_name2...;
+#+END_EXAMPLE
+如果不能肯定一个表是否存在,可以在DROP TBALE语句中增加IF EXISTS。例如:
+#+BEGIN_EXAMPLE
+DROP TABLE IF EXISTS students;
+#+END_EXAMPLE
+
+* 记录的操作
+** 插入记录
+SQL 语言使用INSERT语句向指定的数据表中插入新的数据行。语法格式如下:
+#+BEGIN_EXAMPLE
+INSERT INTO 表名
+(属性列1，属性列2，...)
+values(常量1，常量2,...)
+#+END_EXAMPLE
+例如：将一个新学生（学号：9028; 姓名: 李东; 性别: 男; 年龄: 18）插入到student_info表中。
+#+BEGIN_EXAMPLE
+INSERT INTO student_info (stu_id, stu_name, stu_sex, stu_age)
+  VALUES (9028, '李东', '男', '18');
+#+END_EXAMPLE
+** 更新记录
+SQL语言使用UPDATE语句更新或修改满足规定条件的现有记录。UPDATE语句的格式为：
+#+BEGIN_EXAMPLE
+UPDATE 表名
+SET 列名=表达式，列名=表达式...
+WHERE 条件;
+#+END_EXAMPLE
++ UPDATE语句包括SET字句和WHERE字句,SET字句用于指定修改方式，要修改的列以及修改后的取值。
+WHERE字句用于指定要修改的数据记录，默认修改表中的所有记录。
+
+例如,将学号9028的学生的年龄改为22岁，SQL语句如下:
+UPDATE student_info SET stu_age=22 WHERE stu_id=9028
+** 删除记录
+SQL语言使用DELETE语句删除数据表中满足指定条件的记录。DELETE语句的格式为：
+DELETE FROM 表名 WHERE 条件;   若不设定WHETE从句,则删除整张表。
+#+BEGIN_EXAMPLE
+DELETE FROM student_info WHERE stu_id=9028
+#+END_EXAMPLE
+* 查询
+SQL使用SELECT语句进行查询操作。使用SELECT语句可经行单表查询，连接查询，嵌套查询，集合查询等查询操作。检索从
+一个或多个表中选取出的行。格式：
+#+BEGIN_EXAMPLE
+SELECT [ALL | DISTINCT] 目标表达式,目标表达式,...
+FROM 表名或视图名，表名或视图名,...
+WHERE 条件表达式
+GROUP BY 列名1 HAVING 表达式
+ORDER BY 列名2 ASC|DESC;
+#+END_EXAMPLE
+SELECT 可以查询表中的指定的满足条件的若干列,同时可对查询结果按一定的顺序排序。例如
++ 查询student_info表中的所有学生记录的SQL语句如下
+#+BEGIN_EXAMPLE
+SELECT * FROM student_info;
+#+END_EXAMPLE
+在SELECT语句里使用"*"将检索出表中的所有字段信息。
++ 查询指定字段的信息,例如查询所有学生的学号与姓名:
+#+BEGIN_EXAMPLE
+SELECT stu_id, stu_name FROM student_info;
+#+END_EXAMPLE
++ 查询所有学生的学号与姓名,并按年龄排序:
+#+BEGIN_EXAMPLE
+SELECT stu_id, stu_name FROM student_info ORDER BY stu_age
+#+END_EXAMPLE
++ 用WHERE字句指定条件查询所需信息。如查询年龄在20岁以上的所有学生信息：
+#+BEGIN_EXAMPLE
+SELECT * FROM student_info WHERE stu_age>20;
+#+END_EXAMPLE
+
+* 学生选课系统数据库设计
+#+BEGIN_SRC SQL
+# Student 
+CREATE TABLE IF NOT EXISTS Studen (
+    SId VARCHAR(20) NOT NULL PRIMARY KEY,
+    SKey VARCHAR(40) NULL ，
+    SName VARCHAR(20) NULL ,
+    SSex VARCHAR(2) NULL ，
+    SAge TINYINT NULL ,
+    SCredit FLOAT NULL ,
+    SAddress VARCHAR(50) NULL,
+    SPhone VARCHAR(50) NULL,
+    SEmail VARCHAR(20) NULL,
+    SLocked BIT NULL
+);
+
+# Teacher
+CREATE TABLE IF NOT EXISTS Teacher(
+    TId VARCHAR(20) NOT NULL PRIMARY KEY,
+    TKey VARCHAR(40) NULL,
+    TName VARCHAR(20) NULL,
+    TSex VARCHAR(2) NULL,
+    TAge TINYINT NULL,
+    TPhone VARCHAR(50) NULL,
+    TMail VARCHAR(50) NULL
+);
+
+# Course
+CREATE TABLE IF NOT EXISTS Course(
+    CId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TId VARCHAR(20) NOT NULL ,
+    CName VARCHAR(20) NULL ,
+    CTyoe VARCHAR(20) NULL ,
+    CCredit FLOAT NULL ,
+    CMax INT NULL ,
+    CNote TEXT NULL ,
+    CPreCId INT NULL
+);
+
+# SC
+CREATE TABLE IF NOT EXISTS SC (
+   SId VARCHAR(20) NOT NULL ,
+   CId INT NOT NULL ,
+   Score FLOAT NULL ,   
+);
+
+# CourseTime
+CREATE TABLE IF NOT EXISTS CourseTime(
+   CId INT NOT NULL ,
+   RoomId INT NOT NULL ,
+   CWeekStart INT NOT NULL,
+   CWeekend INT NOT NULL ,
+   CTime VARCHAR(50) NOT NULL
+);
+
+# Building
+CREATE TABLE IF NOT EXISTS Building(
+   BuildingId INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   BuildingName VARCHAR(50) NULL
+);
+
+# Room 
+CREATE TABLE IF NOT EXISTS Room(
+   RoomId INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   BuildingId INT NOT NULL ,
+   RoomName VARCHAR(50) NULL ,
+   RoomSize INT NULL 
+);
+
+# Admin
+CREATE TABLE IF NOT EXISTS Admin(
+   AId VARCHAR(20) NOT NULL ,
+   AKey VARCHAR(40) NULL
+);
+#+END_SRC

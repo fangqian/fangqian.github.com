@@ -1,0 +1,464 @@
+
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        
+        <title>StudyNotes</title>
+        <meta name="author" content="FangQian">
+        <meta name="description" content="Use OrgNote.">
+        <meta property="og:site_name" content="StudyNotes"/>
+        <meta name="Keywords" content="OrgNote,Emacs,org-mode,blog,python,geek">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="undefined"/>
+
+        <link href="/favicon.ico" rel="icon">
+        
+        <link rel="stylesheet" href="/theme/freemind/css/bootstrap.min.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        </head>
+        
+
+        <body>  
+        <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+        
+        <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    
+        <a class="navbar-brand" href="/index.html">StudyNotes</a>
+        
+
+        <div class="collapse navbar-collapse nav-menu">
+        
+        <ul class="nav navbar-nav">
+        <li><a href="/public/minyi.html" title="归档"><i class="fa fa-sitemap"></i>MinYi</a></li><li><a href="/public/archive.html" title="归档"><i class="fa fa-archive"></i>归档</a></li><li><a href="/public/about.html" title="关于"><i class="fa fa-user"></i>关于</a></li>
+        </ul>
+        
+        </div> <!-- navbar -->
+        </div> <!-- container -->
+        </nav>
+        
+
+        <div class="clearfix"></div>
+        <div class="container">
+        <div class="content">
+        
+        <div class="page-header">                   <!-- page-header begin -->
+        <h1>SQL语言基础</h1>
+        </div>                                      <!-- page-header end -->
+        
+        <div class="row page">                      <!-- row-page begin -->
+        <div class="col-md-9">                      <!-- col-md-9 begin -->
+        <div class="mypage">                        <!-- mypage begin -->
+        
+        <div class="slogan">                        <!-- slogan begin -->
+        <i class="fa fa-heart"></i>
+        标签: <a href="/public/tags/MySQL.html"><i class="MySQL"></i>MySQL</a>
+        </div>                                     <!-- slogan end -->
+        
+<div id="content">
+
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 数据库操作</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 创建数据库</a></li>
+<li><a href="#sec-1-2">1.2. 删除数据库</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 表的操作</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 创建表</a></li>
+<li><a href="#sec-2-2">2.2. 修改表</a></li>
+<li><a href="#sec-2-3">2.3. 删除表</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 记录的操作</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 插入记录</a></li>
+<li><a href="#sec-3-2">3.2. 更新记录</a></li>
+<li><a href="#sec-3-3">3.3. 删除记录</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. 查询</a></li>
+<li><a href="#sec-5">5. 学生选课系统数据库设计</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 数据库操作</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 创建数据库</h3>
+<div class="outline-text-3" id="text-1-1">
+<pre class="example">
+CREATE DATABASE db_name;
+</pre>
+<p>
+合法的数据库名以及其他数据表等对象的命名规则如下：
+</p>
+<ul class="org-ul">
+<li>名称可由任意字母、数字、下划线"_"或"$"组成和开头，但不能是纯数字（这样会与数值相混）。
+</li>
+<li>名称的长度限制为——数据库、表、列和索引最多64个字符，别名最多256个字符。
+</li>
+<li>不能使用MySQL的关键字作为数据库、表名。
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 删除数据库</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example">
+DROP DATABASE db_name;
+</pre>
+<ul class="org-ul">
+<li>应该谨慎使用DROP DATABASE 语句，它将不可恢复地删除数据库以及所有的表(删除前可以考虑备份)。
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 表的操作</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 创建表</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+创建表的SQL语句是CREATE TABLE，语法如下：
+</p>
+<pre class="example">
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+(
+   列名 数据类型 列级完整性约束条件,
+   列名 数据类型 列级完整性约束条件,
+   ...
+);
+</pre>
+<p>
+其中TEMPORARY参数表示创建临时表，这种表会在与服务器交互结束时自动删除。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 修改表</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
+ALTER TABLE 表名
+  ADD 新列名 数据类型 完整性约束
+  DROP 完整性约束名
+  ALTER COLUMN 列名 数据类型;
+</pre>
+<p>
+例如，原来的student_info 表中没有"入学时间"属性(日期型数据),修改的SQL语句如下：
+</p>
+<pre class="example">
+ALTER TABLE student_info ADD stu_entrance DATE;
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 删除表</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+可以一次删除一个或多个表
+</p>
+<pre class="example">
+DROP TABLE table_name1,table_name2...;
+</pre>
+<p>
+如果不能肯定一个表是否存在,可以在DROP TBALE语句中增加IF EXISTS。例如:
+</p>
+<pre class="example">
+DROP TABLE IF EXISTS students;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 记录的操作</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 插入记录</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+SQL 语言使用INSERT语句向指定的数据表中插入新的数据行。语法格式如下:
+</p>
+<pre class="example">
+INSERT INTO 表名
+(属性列1，属性列2，...)
+values(常量1，常量2,...)
+</pre>
+<p>
+例如：将一个新学生（学号：9028; 姓名: 李东; 性别: 男; 年龄: 18）插入到student_info表中。
+</p>
+<pre class="example">
+INSERT INTO student_info (stu_id, stu_name, stu_sex, stu_age)
+  VALUES (9028, '李东', '男', '18');
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 更新记录</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+SQL语言使用UPDATE语句更新或修改满足规定条件的现有记录。UPDATE语句的格式为：
+</p>
+<pre class="example">
+UPDATE 表名
+SET 列名=表达式，列名=表达式...
+WHERE 条件;
+</pre>
+<ul class="org-ul">
+<li>UPDATE语句包括SET字句和WHERE字句,SET字句用于指定修改方式，要修改的列以及修改后的取值。
+</li>
+</ul>
+<p>
+WHERE字句用于指定要修改的数据记录，默认修改表中的所有记录。
+</p>
+
+<p>
+例如,将学号9028的学生的年龄改为22岁，SQL语句如下:
+UPDATE student_info SET stu_age=22 WHERE stu_id=9028
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 删除记录</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+SQL语言使用DELETE语句删除数据表中满足指定条件的记录。DELETE语句的格式为：
+DELETE FROM 表名 WHERE 条件;   若不设定WHETE从句,则删除整张表。
+</p>
+<pre class="example">
+DELETE FROM student_info WHERE stu_id=9028
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 查询</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+SQL使用SELECT语句进行查询操作。使用SELECT语句可经行单表查询，连接查询，嵌套查询，集合查询等查询操作。检索从
+一个或多个表中选取出的行。格式：
+</p>
+<pre class="example">
+SELECT [ALL | DISTINCT] 目标表达式,目标表达式,...
+FROM 表名或视图名，表名或视图名,...
+WHERE 条件表达式
+GROUP BY 列名1 HAVING 表达式
+ORDER BY 列名2 ASC|DESC;
+</pre>
+<p>
+SELECT 可以查询表中的指定的满足条件的若干列,同时可对查询结果按一定的顺序排序。例如
+</p>
+<ul class="org-ul">
+<li>查询student_info表中的所有学生记录的SQL语句如下
+</li>
+</ul>
+<pre class="example">
+SELECT * FROM student_info;
+</pre>
+<p>
+在SELECT语句里使用"*"将检索出表中的所有字段信息。
+</p>
+<ul class="org-ul">
+<li>查询指定字段的信息,例如查询所有学生的学号与姓名:
+</li>
+</ul>
+<pre class="example">
+SELECT stu_id, stu_name FROM student_info;
+</pre>
+<ul class="org-ul">
+<li>查询所有学生的学号与姓名,并按年龄排序:
+</li>
+</ul>
+<pre class="example">
+SELECT stu_id, stu_name FROM student_info ORDER BY stu_age
+</pre>
+<ul class="org-ul">
+<li>用WHERE字句指定条件查询所需信息。如查询年龄在20岁以上的所有学生信息：
+</li>
+</ul>
+<pre class="example">
+SELECT * FROM student_info WHERE stu_age&gt;20;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 学生选课系统数据库设计</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-SQL">CREATE DATABASE db_students;
+USE db_students;
+
+# Student 
+CREATE TABLE IF NOT EXISTS Studen (
+    SId VARCHAR(20) NOT NULL PRIMARY KEY,
+    SKey VARCHAR(40) NULL ,
+    SName VARCHAR(20) NULL ,
+    SSex VARCHAR(2) NULL ,
+    SAge TINYINT NULL ,
+    SCredit FLOAT NULL ,
+    SAddress VARCHAR(50) NULL,
+    SPhone VARCHAR(50) NULL,
+    SEmail VARCHAR(20) NULL,
+    SLocked BIT NULL
+);
+
+# Teacher
+CREATE TABLE IF NOT EXISTS Teacher(
+    TId VARCHAR(20) NOT NULL PRIMARY KEY,
+    TKey VARCHAR(40) NULL,
+    TName VARCHAR(20) NULL,
+    TSex VARCHAR(2) NULL,
+    TAge TINYINT NULL,
+    TPhone VARCHAR(50) NULL,
+    TMail VARCHAR(50) NULL
+);
+
+# Course
+CREATE TABLE IF NOT EXISTS Course(
+    CId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TId VARCHAR(20) NOT NULL ,
+    CName VARCHAR(20) NULL ,
+    CTyoe VARCHAR(20) NULL ,
+    CCredit FLOAT NULL ,
+    CMax INT NULL ,
+    CNote TEXT NULL ,
+    CPreCId INT NULL
+);
+
+# SC
+CREATE TABLE IF NOT EXISTS SC (
+   SId VARCHAR(20) NOT NULL ,
+   CId INT NOT NULL ,
+   Score FLOAT NULL    
+);
+
+# CourseTime
+CREATE TABLE IF NOT EXISTS CourseTime(
+   CId INT NOT NULL ,
+   RoomId INT NOT NULL ,
+   CWeekStart INT NOT NULL,
+   CWeekend INT NOT NULL ,
+   CTime VARCHAR(50) NOT NULL
+);
+
+# Building
+CREATE TABLE IF NOT EXISTS Building(
+   BuildingId INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   BuildingName VARCHAR(50) NULL
+);
+
+# Room 
+CREATE TABLE IF NOT EXISTS Room(
+   RoomId INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   BuildingId INT NOT NULL ,
+   RoomName VARCHAR(50) NULL ,
+   RoomSize INT NULL 
+);
+
+# Admin
+CREATE TABLE IF NOT EXISTS Admin(
+   AId VARCHAR(20) NOT NULL ,
+   AKey VARCHAR(40) NULL
+);
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+            <div>
+            <center>
+            <div class="pagination">
+            <ul class="pagination">
+            <li class="prev"><a href="/public/2015/12/10/file_operate.html" class=alignright prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
+            <li class="next"><a href="/public/2015/11/23/RegularExpression.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            </ul>
+            </div>
+            </center>
+            </div>
+            
+            </div> <!-- my-page --></div> <!-- col-md -->
+
+        <div class="col-md-3">
+        <div id="sidebar">
+        
+        <div class="widget">
+        <h4>最新文章</h4>
+        <ul class="entry list-unstyled">
+        <li><a href="/public/2015/12/10/file_operate.html"><i class="fa fa-file-o"></i>文件的操作</a></li><li><a href="/public/2015/12/03/SQL_Base.html"><i class="fa fa-file-o"></i>SQL语言基础</a></li><li><a href="/public/2015/11/23/RegularExpression.html"><i class="fa fa-file-o"></i>正则表达式</a></li><li><a href="/public/2015/12/02/MySQL.html"><i class="fa fa-file-o"></i>MySQL的基本使用</a></li><li><a href="/public/2015/12/02/Python_Connect_MySQL.html"><i class="fa fa-file-o"></i>MySQL 数据库的连接</a></li><li><a href="/public/2015/11/14/pythonbase.html"><i class="fa fa-file-o"></i>不积跬步无以至千里！</a></li>
+        </ul>   
+        </div> 
+        
+        <div class="widget">
+        <h4>标签云</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/Python.html">Python<span>2</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>3</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>时间机器</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/201512.html">201512<span>4</span></a></li><li><a href="/public/tags/201511.html">201511<span>4</span></a></li><li><a href="/public/tags/201412.html">201412<span>1</span></a></li><li><a href="/public/tags/201411.html">201411<span>1</span></a></li><li><a href="/public/archive.html">All<span>10</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>快速链接</h4>
+        <ul class="entry list-unstyled">
+        
+            <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
+            
+            <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+        </ul>
+        </div>
+        
+        </div> <!-- sidebar -->
+        </div> <!-- col-md-3 -->
+        
+
+        </div> <!-- row-fluid -->
+        </div>
+        </div>
+        
+
+        <div class="container-narrow">
+        <footer>
+        <p>&copy; 2014 FangQian
+        with help from <a href="https://github.com/LeslieZhu/OrgNote" target="_blank">OrgNote</a>. Theme by <a href="https://github.com/LeslieZhu/orgnote-theme-freemind">orgnote-theme-freemind</a>.  Published with GitHub Pages. 
+        </p> </footer>
+        </div> <!-- container-narrow -->
+        
+        <a id="gotop" href="#">   
+        <span>▲</span> 
+        </a>
+        
+        </body>
+        </html>
+        

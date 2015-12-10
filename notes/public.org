@@ -1,3 +1,6 @@
+- [[./notes/2015/12/10/file_operate.html][文件的操作]]
+- [[./notes/2015/12/03/SQL_Base.html][SQL语言基础]]
+- [[./notes/2015/11/23/RegularExpression.html][正则表达式]]
 - [[./notes/2015/12/02/MySQL.html][MySQL的基本使用]]
 - [[./notes/2015/12/02/Python_Connect_MySQL.html][MySQL 数据库的连接]]
 - [[./notes/2015/11/14/pythonbase.html][不积跬步无以至千里！]]
