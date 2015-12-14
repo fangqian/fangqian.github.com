@@ -16,12 +16,12 @@
 #+LANGUAGE: zh-CN
         
 #+KEYWORDS: 默认
-#+TITLE: djan
+#+TITLE: it
 #+AUTHOR: FangQian
-#+EMAIL: qinagu_fang@163.com
-#+DATE: 2015/11/16
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2015/12/11
 
-* Django
-[[https://docs.djangoproject.com/en/1.8/intro/tutorial01/]]   
-You can tell Django is installed and which version by running the following command:
-$python3 -c "import django; print(django.get_version)"
+* Hello OrgNote
+
+[[https://github.com/LeslieZhu/OrgNote][OrgNote]] is a simple blog based on org-mode, enjoy it:)
+

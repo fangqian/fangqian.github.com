@@ -1,0 +1,441 @@
+
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        
+        <title>StudyNotes</title>
+        <meta name="author" content="FangQian">
+        <meta name="description" content="Use OrgNote.">
+        <meta property="og:site_name" content="StudyNotes"/>
+        <meta name="Keywords" content="OrgNote,Emacs,org-mode,blog,python,geek">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="undefined"/>
+
+        <link href="/favicon.ico" rel="icon">
+        
+        <link rel="stylesheet" href="/theme/freemind/css/bootstrap.min.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        </head>
+        
+
+        <body>  
+        <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+        
+        <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    
+        <a class="navbar-brand" href="/index.html">StudyNotes</a>
+        
+
+        <div class="collapse navbar-collapse nav-menu">
+        
+        <ul class="nav navbar-nav">
+        <li><a href="/public/minyi.html" title="归档"><i class="fa fa-sitemap"></i>MinYi</a></li><li><a href="/public/archive.html" title="归档"><i class="fa fa-archive"></i>归档</a></li><li><a href="/public/about.html" title="关于"><i class="fa fa-user"></i>关于</a></li>
+        </ul>
+        
+        </div> <!-- navbar -->
+        </div> <!-- container -->
+        </nav>
+        
+
+        <div class="clearfix"></div>
+        <div class="container">
+        <div class="content">
+        
+        <div class="page-header">                   <!-- page-header begin -->
+        <h1>常用git命令清单</h1>
+        </div>                                      <!-- page-header end -->
+        
+        <div class="row page">                      <!-- row-page begin -->
+        <div class="col-md-9">                      <!-- col-md-9 begin -->
+        <div class="mypage">                        <!-- mypage begin -->
+        
+        <div class="slogan">                        <!-- slogan begin -->
+        <i class="fa fa-heart"></i>
+        标签: <a href="/public/tags/Linux.html"><i class="Linux"></i>Linux</a>
+        </div>                                     <!-- slogan end -->
+        
+<div id="content">
+
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 新建代码库</a></li>
+<li><a href="#sec-2">2. 配置</a></li>
+<li><a href="#sec-3">3. 增加/删除文件</a></li>
+<li><a href="#sec-4">4. 代码提交</a></li>
+<li><a href="#sec-5">5. 分支</a></li>
+<li><a href="#sec-6">6. 标签</a></li>
+<li><a href="#sec-7">7. 查看信息</a></li>
+<li><a href="#sec-8">8. 远程同步</a></li>
+<li><a href="#sec-9">9. 撤销</a></li>
+<li><a href="#sec-10">10. 其他</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 新建代码库</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+# 在当前目录新建一个Git代码库
+$ git init
+
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]
+
+# 下载一个项目和它的整个代码历史
+$ git clone [url]
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 配置</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+git的设置文件为.gitconfig,它可以在用户主目录下(全局配置)，也可以在项目目录下(项目配置)。
+</p>
+<pre class="example">
+# 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]
+
+# 设置提交代码时的用户信息
+$ git config [--global] user.name "[name]"
+$ git config [--global] user.email "[email address]"
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 增加/删除文件</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+# 添加指定文件到暂存区
+$ git add [file1] [file2]...
+
+# 添加指定目录到暂存区,包括子目录
+$ git add [dir]
+
+# 添加当前目录的所有文件到暂存区
+$ git add .
+
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2]...
+
+#停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]
+
+# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original] [file-renamed]
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 代码提交</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example">
+# 提交暂存区到仓库区
+$ git commit -m [message]
+
+# 提交暂存区的指定文件到仓库区
+$ git commit [file1] [file2]... -m [message]
+
+# 提交工作区字上次commit之后的变化,直接到仓库
+$ git commit -a
+
+# 提交时显示所有的diff信息
+$ git commit -v
+
+# 使用一次行的commit,替代上一次提交
+# 如果代码没有任何新变化,则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]
+
+# 重做上一次commit，并包括指定文件的新变化
+$ git commit --amend [file1] [file2]...
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 分支</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example">
+# 列出所有本地分支
+$ git branch
+
+# 列出所有远程分支
+$ git branch -r
+
+# 列出所有本地分支和远程分支
+$ git branch -a
+
+# 新建一个分支,但依然停留在当前分支
+$ git branch [branch-name]
+
+# 新建一个分支,并切换到该分支
+$ git checkout -b [branch]
+
+# 新建一个分支，指向指定commit
+$ git branch [branch] [commit]
+
+# 新建一个分支,与指定的远程分支建立追踪关系
+$ git branch --track [branch] [remote-branch]
+
+# 切换到指定分支,并更新工作区
+$ git checkout [branch-name]
+
+# 建立追踪关系,在现有分支与指定的远程分支之间
+$ git branch --set-upstream [branch] [remote-branch]
+
+# 合并指定分支到当前分支
+$ git merge [branch]
+
+# 选择一个commit,合并进当前分支
+$ git cherry-pick [commit]
+
+# 删除分支
+$ git branch -d [branch-name]
+
+# 删除远程分支
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch]
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 标签</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example">
+# 列出所有tag
+$ git tag
+
+# 新建一个tag在当前commit
+$ git tag [tag]
+
+# 新建一个tag在指定commit
+# git tag [tag] [commit]
+
+# 查看tag信息
+$ git show [tag]
+
+# 提交指定tag
+$ git push [remote] [tag]
+
+# 提交所有tag
+$ git push [remote] --tags
+
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch] [tag]
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 查看信息</h2>
+<div class="outline-text-2" id="text-7">
+<pre class="example">
+# 显示有变更的文件
+$ git status
+
+# 显示当前分支的版本历史
+$ git log
+
+# 显示commit历史,以及每次commit发生变更的文件
+$ git log --stat
+
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]
+
+# 显示指定文件相关的每一次diff
+$ git log -p [file]
+
+# 显示指定文件是什么人在什么时间修改过
+$ git blame [file]
+
+# 显示暂存区和工作区的差异
+$ git diff
+
+# 显示暂存区和上一个commit的差异
+$ git diff --cached [file]
+
+# 显示工作区与当前分支最新commit之间的差异
+$ git diff HEAD
+
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]
+
+# 显示某次提交的元数据和内容变化
+$ git show [commit]
+
+# 显示某次提交发生变化的文件
+$ git show --name-only [commit]
+
+# 显示某次提交时,某个文件的内容
+$ git show [commit]:[filename]
+
+# 显示当前分支的最近几次提交
+$ git reflog
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 远程同步</h2>
+<div class="outline-text-2" id="text-8">
+<pre class="example">
+# 下载远程仓库的所有变动
+$ git fetch [remote]
+
+# 显示所有远程仓库
+$ git remote -v
+
+# 显示某个远程仓库的信息
+$ git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+$ git remote add [shortname] [url]
+
+# 取回远程仓库的变化,并与本地分支合并
+$ git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+
+# 强行推送当前分支到远程仓库,即使有冲突
+$ git push [remote] --force
+
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> 撤销</h2>
+<div class="outline-text-2" id="text-9">
+<pre class="example">
+# 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到工作区
+$ git checkout [commit] [file]
+
+# 恢复上一个commit的所有文件到工作区
+$ git checkout
+
+# 重置暂存区的指定文件,与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区,与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit,同时重置暂存区,但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit,同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit,保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit,用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> 其他</h2>
+<div class="outline-text-2" id="text-10">
+<pre class="example">
+# 生成一个可供发布的压缩包
+$ git archive
+</pre>
+</div>
+</div>
+</div>
+
+            <div>
+            <center>
+            <div class="pagination">
+            <ul class="pagination">
+            <li class="prev"><a href="/public/2015/11/13/simplecommand.html" class=alignright prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
+            <li class="next"><a href="/public/2015/12/14/html_css.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            </ul>
+            </div>
+            </center>
+            </div>
+            
+            </div> <!-- my-page --></div> <!-- col-md -->
+
+        <div class="col-md-3">
+        <div id="sidebar">
+        
+        <div class="widget">
+        <h4>最新文章</h4>
+        <ul class="entry list-unstyled">
+        <li><a href="/public/2015/11/14/pythonbase.html"><i class="fa fa-file-o"></i>Python基础知识</a></li><li><a href="/public/2015/11/13/simplecommand.html"><i class="fa fa-file-o"></i>简单的Linux命令</a></li><li><a href="/public/2015/12/11/git.html"><i class="fa fa-file-o"></i>常用git命令清单</a></li><li><a href="/public/2015/12/14/html_css.html"><i class="fa fa-file-o"></i>HTML+CSS基础</a></li><li><a href="/public/2015/12/10/file_operate.html"><i class="fa fa-file-o"></i>文件的操作</a></li><li><a href="/public/2015/12/03/SQL_Base.html"><i class="fa fa-file-o"></i>SQL语言基础</a></li>
+        </ul>   
+        </div> 
+        
+        <div class="widget">
+        <h4>标签云</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&amp;CSS.html">HTML&amp;CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>时间机器</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/201512.html">201512<span>6</span></a></li><li><a href="/public/tags/201511.html">201511<span>6</span></a></li><li><a href="/public/tags/201412.html">201412<span>1</span></a></li><li><a href="/public/tags/201411.html">201411<span>1</span></a></li><li><a href="/public/archive.html">All<span>14</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>快速链接</h4>
+        <ul class="entry list-unstyled">
+        
+            <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
+            
+            <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+        </ul>
+        </div>
+        
+        </div> <!-- sidebar -->
+        </div> <!-- col-md-3 -->
+        
+
+        </div> <!-- row-fluid -->
+        </div>
+        </div>
+        
+
+        <div class="container-narrow">
+        <footer>
+        <p>&copy; 2014 FangQian
+        with help from <a href="https://github.com/LeslieZhu/OrgNote" target="_blank">OrgNote</a>. Theme by <a href="https://github.com/LeslieZhu/orgnote-theme-freemind">orgnote-theme-freemind</a>.  Published with GitHub Pages. 
+        </p> </footer>
+        </div> <!-- container-narrow -->
+        
+        <a id="gotop" href="#">   
+        <span>▲</span> 
+        </a>
+        
+        </body>
+        </html>
+        

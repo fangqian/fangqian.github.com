@@ -16,7 +16,7 @@
 #+LANGUAGE: zh-CN
         
 #+KEYWORDS: Linux
-#+TITLE: Simple Command
+#+TITLE: 简单的Linux命令
 #+AUTHOR: FangQian
 #+EMAIL: qinagu_fang@163.com
 #+DATE: 2015/11/13

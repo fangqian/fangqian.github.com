@@ -15,13 +15,62 @@
 #+OPTIONS: num:t
 #+LANGUAGE: zh-CN
         
-#+KEYWORDS: 默认
-#+TITLE: djan
+#+KEYWORDS: PythonWeb
+#+TITLE: 使用功能测试协助安装Django
 #+AUTHOR: FangQian
 #+EMAIL: qinagu_fang@163.com
 #+DATE: 2015/11/16
 
-* Hello OrgNote
+* 检查是否安装了Django
+** 遵从测试山羊的教诲,没有测试什么也别做
+要检查是否安装了Django,并且能够正常运行。检查的方法是，在本地电脑中能否启动Django的开发服务器，并在浏览器中查看能否打开网页。使用浏览器自动化工具
+Selenium完成这个任务。
 
-[[https://github.com/LeslieZhu/OrgNote][OrgNote]] is a simple blog based on org-mode, enjoy it:)
+在想要保存项目代码的地方新建一个Python文件，命名为functional_tests.py,并输入以下代码
+#+BEGIN_SRC python
+from selenium import webdriver    
 
+browser = webdriver.Firefox()
+
+browser.get('heep://localhost:8000')
+
+assert 'Django' in browser.title
+#+END_SRC
+
+下面是一个功能测试(Functional Test,FT)
++ 启动一个Selenium webdriver,打开一个真正的Firefox浏览器窗口;
++ 在这个浏览器中打开我们期望本地电脑伺服的网页;
++ 检查(做一个测试断言)这个网页的标题中是否包含单词"Django"。
+
+运行
+#+BEGIN_EXAMPLE
+python3 functional_tests.py
+#+END_EXAMPLE
+这样会弹出一个浏览器窗口，尝试打开localhost:8000,然后会出现错误消息。Firefox窗口停留在桌面，等待关闭。这样显然是个失败的测试。
+** 让Django运行起来
+使用Django的第一步是创建项目，Django为此提供了一个命令行工具:
+$ django-admin.py startproject superlists
+这个命令创建一个名为superlists的文件夹,并在其中创建一些文件和子文件夹
+.
+  functional_tests.py
+  superlists
+    manage.py
+    superlists
+      __init__.py
+      settings.py
+      urls.py
+      wsgi.py
+
+其中superlists/superlists文件夹的作用是保存应用于整个项目的文件，如setting.py的作用是存储网站的全局配置信息。
+manage.py这个文件是Django的瑞士军刀，作用之一是运行开发服务器。
+
+在顶层superlists中执行:
+#+BEGIN_EXAMPLE
+$ python3 manage.py runserver
+#+END_EXAMPLE
+
+让这个命令一直运行着，在另一个命令窗口(在刚刚打开的文件夹中)再次尝试运行测试:
+#+BEGIN_EXAMPLE
+python3 functional_tests.py
+#+END_EXAMPLE
+** 建立Git仓库

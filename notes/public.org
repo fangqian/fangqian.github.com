@@ -1,3 +1,7 @@
+- [[./notes/2015/11/14/pythonbase.html][Python基础知识]]
+- [[./notes/2015/11/13/simplecommand.html][简单的Linux命令]]
+- [[./notes/2015/12/11/git.html][常用git命令清单]]
+- [[./notes/2015/12/14/html_css.html][HTML+CSS基础]]
 - [[./notes/2015/12/10/file_operate.html][文件的操作]]
 - [[./notes/2015/12/03/SQL_Base.html][SQL语言基础]]
 - [[./notes/2015/11/23/RegularExpression.html][正则表达式]]

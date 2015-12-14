@@ -16,7 +16,7 @@
 #+LANGUAGE: zh-CN
         
 #+KEYWORDS: Python
-#+TITLE: 不积跬步无以至千里！
+#+TITLE: Python基础知识
 #+AUTHOR: FangQian
 #+EMAIL: qinagu_fang@163.com
 #+DATE: 2015/11/14

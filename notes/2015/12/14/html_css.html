@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<head>
+<title>HTML+CSS基础</title>
+<!-- 2015-12-14 一 23:29 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="FangQian" />
+<meta  name="keywords" content="HTML&amp;CSS" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">HTML+CSS基础</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Html介绍</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Html和CSS的关系</a></li>
+<li><a href="#sec-1-2">1.2. 认识html标签</a></li>
+<li><a href="#sec-1-3">1.3. 标签的语法</a></li>
+<li><a href="#sec-1-4">1.4. html文件基本结构</a></li>
+<li><a href="#sec-1-5">1.5. head标签</a></li>
+<li><a href="#sec-1-6">1.6. HTML的代码注释</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 认识标签</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Html介绍</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Html和CSS的关系</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>HTML是网页内容的载体。
+内容就是网页制作者放在页面上想要让用户浏览的信息,可以包含文字,图片，视频等。
+</li>
+<li>CSS样式是表现
+就像网页的外衣。比如，标题字体，颜色变化，或为标题加入背景图片、边框等。所有这些用来改变内容外观的东西称之为表现。
+</li>
+<li>JavaScript是用来实现网页上的特效效果。如:鼠标滑过弹出下拉菜单&#x2026;可以这么理解，有动画的，有交互的一般都是用JavaScript来实现的。
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 认识html标签</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+网页中每一个内容在浏览器中的显示,都要存放到各种标签中。
+</p>
+<pre class="example">
+&lt;h1&gt;&lt;/h1&gt;   #标题标签
+&lt;p&gt;&lt;/p&gt;     #段落标签
+&lt;img src="*.jpg"&gt;   #图片标签,引号里面的图片名
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 标签的语法</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+1.标签由英文尖括号 &lt; 和 &gt; 括起来，如 &lt;html&gt;就是一个标签。
+</p>
+
+<p>
+2.html中的标签一般都是成对出现的,分开始标签和结束标签。结束标签比开始标签多了一个 / 。如
+</p>
+<pre class="example">
+&lt;p&gt;&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;span&gt;&lt;/span&gt;
+</pre>
+
+<p>
+3.标签与标签之间是可以嵌套的,但先后顺序必须保持一致。
+</p>
+
+<p>
+4.HTML标签不区分大小写,&lt;h1&gt;和&lt;H1&gt;是一样的，但是建议小写。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> html文件基本结构</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;<span style="font-weight: bold;">html</span>&gt;
+    &lt;<span style="font-weight: bold;">head</span>&gt;...&lt;/<span style="font-weight: bold;">head</span>&gt;
+    &lt;<span style="font-weight: bold;">body</span>&gt;...&lt;/<span style="font-weight: bold;">body</span>&gt;
+&lt;/<span style="font-weight: bold;">html</span>&gt;
+</pre>
+</div>
+<p>
+代码说明:
+1.&lt;html&gt;&lt;html&gt;称为根标签，所有的网页标签都在&lt;html&gt;&lt;/html&gt;中。
+</p>
+
+<p>
+2.&lt;head&gt; 标签用于定义文档的头部,它是所有头部元素的容器。头部元素有&lt;title&gt;、&lt;script&gt;、&lt;style&gt;、&lt;link&gt;、&lt;meta&gt;等标签。
+</p>
+
+<p>
+3.在&lt;body&gt;和&lt;/body&gt;标签之间的内容是网页的主要内容，如&lt;h1&gt;、&lt;p&gt;、&lt;a&gt;、&lt;img&gt;等网页内容标签，这里的标签中的内容会在浏览器中显示出来。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> head标签</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+下面这些内容可用在head部分:
+</p>
+<pre class="example">
+&lt;head&gt;
+    &lt;title&gt;...&lt;/title&gt;
+    &lt;meta&gt;
+    &lt;link&gt;
+    &lt;style&gt;...&lt;/style&gt;
+    &lt;script&gt;...&lt;/script&gt; 
+&lt;/head&gt;
+</pre>
+
+<p>
+&lt;title&gt; 标签:在&lt;title&gt;和&lt;/title&gt;标签之间的文字内容是网页的标题信息，它会出现中在网页的标题栏中。网页的title标签用于告诉用户和搜索引擎这个网页的
+主要内容是说明,搜索引擎可以通过网页标题，迅速的判断出网页的主题。每个网页的内容都是不同的，每个网页都应该有一个独一无二的title。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> HTML的代码注释</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+语法:
+</p>
+<pre class="example">
+&lt;!--注释文字--&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 认识标签</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>语义化,让你的网页更好的被搜索引擎理解
+</li>
+</ul>
+
+<p>
+标签的用途
+</p>
+
+<p>
+1.更容易被搜索引擎收录。
+</p>
+
+<p>
+2.更容易让屏幕阅读器读出网页的内容
+</p>
+
+<ul class="org-ul">
+<li>&lt;body&gt;标签，存放网页上显示的内容
+</li>
+
+<li>&lt;p&gt;标签,添加段落
+</li>
+</ul>
+<pre class="example">
+&lt;p&gt;段落文本&lt;/p&gt;    #注意，一个段落对应一个&lt;p&gt;标签
+</pre>
+<p>
+&lt;/p&gt; 标签的默认样式，段前和断后都会有空白，如果不喜欢这个空白，可以用CSS样式来删除或者改变它。
+</p>
+
+<ul class="org-ul">
+<li>&lt;hx&gt;标签,为网页添加标题
+</li>
+</ul>
+<p>
+标题标签一共有6个，h1~h6(依据重要性递减)，语法如下:
+</p>
+<pre class="example">
+&lt;hx&gt;标题文本&lt;/hx&gt;   #(x为1-6)
+</pre>
+
+<ul class="org-ul">
+<li>加入强调语气,使用&lt;strong&gt;和&lt;em&gt;标签
+在一段话中强调某几个文字(如人名)，可以用&lt;em&gt;或&lt;strong&gt;标签。语法如下:
+</li>
+</ul>
+<pre class="example">
+&lt;em&gt;需要强调的文本&lt;/em&gt;    #表示强调,在浏览器中默认是斜体
+&lt;strong&gt;需要强调的文本&lt;/strong&gt;    #更强烈的强调,默认是粗体
+</pre>
+
+<ul class="org-ul">
+<li>使用&lt;span&gt;标签为文字设置单独样式
+</li>
+</ul>
+<p>
+1.&lt;em&gt;和&lt;strong&gt;标签是为了强调一段话中的关键字时使用,他们的语义是强调。
+</p>
+
+<p>
+2.&lt;span&gt;标签的没有语义的，它的左右就是为了设置单独的样式用的。
+</p>
+
+<p>
+语法:
+</p>
+<pre class="example">
+&lt;style&gt;
+span{
+    color:blue;   #设置样式
+}
+&lt;/style&gt;
+
+&lt;body&gt;
+&lt;span&gt;文本&lt;/span&gt;
+&lt;/body&gt;
+</pre>
+
+<ul class="org-ul">
+<li>&lt;q&gt;标签,短文本引用
+</li>
+</ul>
+<pre class="example">
+&lt;q&gt;引用文本&lt;/q&gt;      #引用文本不需要加双引号,浏览器会对&lt;q&gt;标签自动添加。
+</pre>
+
+<ul class="org-ul">
+<li>&lt;blockquote&gt;标签，长文本引用
+</li>
+</ul>
+<pre class="example">
+&lt;blockquote&gt;引用文本&lt;/blockquote&gt;　#浏览器对此标签的解析是缩进样式。左右两边缩进对齐。引用的文本不需要加双引号，文本前后会留有空行。
+</pre>
+
+<p>
++　
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: 2015/12/14</p>
+<p class="author">&#20316;&#32773;: FangQian</p>
+<p class="date">Created: 2015-12-14 一 23:29</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
