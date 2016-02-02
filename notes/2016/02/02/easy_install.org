@@ -1,0 +1,86 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: python
+#+TITLE: easy_install
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2016/02/02
+
+* python easy_install的安装和使用
+
+** 意义何在？
+正常情况下，我们要给Python安装第三方的扩展包，我们必须下载压缩包，解压到一个目录，然后在命令行或者终端打开这个目录，然后
+执行python setup.py install 来进行安装。这样太繁琐了，我们可以直接在命令行执行easy_install Twisted,这样就轻松的把最新版的
+Twisted包装上去了
+** 常见的问题
+当在安装包的时候，不管是手动安装，还是easy_install,如果提示错误：找不到python文件，那说明我们安装的python不是开发版，在
+ubuntu下面的解决办法如下,
+#+BEGIN_EXAMPLE
+sudo apt-get install python-2.7-dev
+#+END_EXAMPLE
+安装对应python版本的dev就可以了
+
+* pip
+** pip介绍
+Pip 是安装python包的工具，提供了安装包，升级包以及卸载包的功能。
+pip是对easy_install的取代，提供了和easy_install相同的查找包的功能，因此可以使用easy_install安装的包同样也可以使用pip进行安装
+** pip的使用
++ 安装package
+#+BEGIN_EXAMPLE
+pip install package-name
+#+END_EXAMPLE
++ 列出安装的package
+#+BEGIN_EXAMPLE
+pip freeze
+#+END_EXAMPLE
++ 安装特定版本的package
+通过使用==,>=,<=,>,<
+#+BEGIN_EXAMPLE
+$ pip install 'package-name<2.0'
+$ pip install 'package-name>2.0,<3.0'
+#+END_EXAMPLE
++ 升级包
+升级包到当前最新版本，可以使用-U 或者 --upgrade
+#+BEGIN_EXAMPLE
+$ pip install -U package-name
+#+END_EXAMPLE
++ 卸载包
+#+BEGIN_EXAMPLE
+$ pip uninstall package-name
+#+END_EXAMPLE
++ 查询包
+pip search package-name
+#+BEGIN_SRC 
+#pip --help
+Usage
+  pip <command> [options]
+Commands:
+  install          安装包
+  uninstall        卸载包
+  freeze           按照一定格式输出已安装列表
+　list             列出已安装的包
+  show             显示包的详细信息
+  search           搜索包，类似yum里的search
+  wheel            Bulid wheels from your requirements
+  help             当前帮助
+General Options:
+  -h  --help       显示帮助
+  -v  --verbose    更多的输出，最多可以使用3次
+  -V  --version    显示版本信息然后退出
+  -q  --quiet      最少的输出 
+#+END_SRC

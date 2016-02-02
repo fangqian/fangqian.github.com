@@ -1,3 +1,4 @@
+- [[./notes/2016/02/02/easy_install.html][easy_install]]
 - [[./notes/2015/11/14/pythonbase.html][Python基础知识]]
 - [[./notes/2015/11/13/simplecommand.html][简单的Linux命令]]
 - [[./notes/2015/12/11/git.html][常用git命令清单]]
