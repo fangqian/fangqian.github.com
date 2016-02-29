@@ -1,0 +1,40 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Flask
+#+TITLE: SQLALchemy
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2016/02/24
+
+* Version Check
+A quick check to verify(v.核实，查证) that we are on at least version 1.0.11 of SQLAlchemy:
+#+BEGIN_EXAMPLE
+>>> import sqlalchemy
+>>> sqlalchemy.__version__
+'1.0.11'
+#+END_EXAMPLE
+* Connecting
+For this tutorial we will use an in-memory-only SQLite database. To connect we use [[http://docs.sqlalchemy.org/en/rel_1_0/core/engines.html#sqlalchemy.create_engine ][create_engine()]]:
+#+BEGIN_EXAMPLE
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('sqlite:///:memory:', echo=True)
+#+END_EXAMPLE
+The echo flag is a shortcut(捷径) to setting up SQLAlchemy logging, which is accomplished via(渠道) Python’s standard
+ logging module. With it enabled(开启，授权), we’ll see all the generate(生成的) SQL produced. If you are working through thi 
+tutorial and want less output generated, set it to False. This tutorial will format(使格式化) the SQL behind a popup(弹出) 
+window so it doesn’t get in our way; just click the “SQ li links to see what’s being generated.

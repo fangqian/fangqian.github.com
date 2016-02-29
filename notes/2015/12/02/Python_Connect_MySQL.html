@@ -1,92 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
 <head>
 <title>MySQL 数据库的连接</title>
-<!-- 2016-02-02 二 22:59 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="FangQian" />
-<meta  name="keywords" content="Python" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="MySQL 数据库的连接"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015/12/02"/>
+<meta name="author" content="FangQian"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="Python"/>
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
   .title  { text-align: center; }
-  .todo   { font-family: monospace; color: red; }
+  .todo   { color: red; }
   .done   { color: green; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
   }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
     background: #ffffcc;
   }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
   textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
   /*]]>*/-->
 </style>
 <script type="text/javascript">
@@ -135,43 +106,56 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+
 </head>
 <body>
+
+<div id="preamble">
+
+</div>
+
 <div id="content">
 <h1 class="title">MySQL 数据库的连接</h1>
+
+
+
+
+
 <div id="table-of-contents">
-<h2>&#30446;&#24405;</h2>
+<h2>目录</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 安装MySQL-python</a></li>
-<li><a href="#sec-2">2. 连接</a>
+<li><a href="#sec-1">1 安装MySQL-python</a></li>
+<li><a href="#sec-2">2 连接</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 使用MySQLdb连接MySQL的函数为connect()。声明如下:</a></li>
-<li><a href="#sec-2-2">2.2. 创建连接对象：</a></li>
+<li><a href="#sec-2-1">2.1 使用MySQLdb连接MySQL的函数为connect()。声明如下:</a></li>
+<li><a href="#sec-2-2">2.2 创建连接对象：</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. 数据操作</a>
+<li><a href="#sec-3">3 数据操作</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 获取cursor游标对象</a></li>
-<li><a href="#sec-3-2">3.2. 数据操作</a></li>
-<li><a href="#sec-3-3">3.3. 关闭连接</a></li>
+<li><a href="#sec-3-1">3.1 获取cursor游标对象</a></li>
+<li><a href="#sec-3-2">3.2 数据操作</a></li>
+<li><a href="#sec-3-3">3.3 关闭连接</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
+<div id="outline-container-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> 安装MySQL-python</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-MySQL db 是Python连接MySQL的模块。
+
+<p>MySQL db 是Python连接MySQL的模块。
 测试：
 使用之前首先要确定Python环境里有没有这个库，打开Python shell,输入：
 </p>
-<pre class="example">
-import MySQLdb
+
+
+<pre class="example">import MySQLdb
 </pre>
+
 
 <p>
 如果返回错误信息，就表示还没有安装这个模块。需要下载安装。
@@ -180,21 +164,29 @@ import MySQLdb
 $ python setup.py install
 </p>
 </div>
+
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
+<div id="outline-container-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> 连接</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
 <h3 id="sec-2-1"><span class="section-number-3">2.1</span> 使用MySQLdb连接MySQL的函数为connect()。声明如下:</h3>
 <div class="outline-text-3" id="text-2-1">
-<pre class="example">
-connect (parameters...)
+
+
+
+
+<pre class="example">connect (parameters...)
 </pre>
+
 <p>
 常用参数如下：
-</p>
-<ul class="org-ul">
+</p><ul>
 <li>host: MySQL 主机名或者IP地址。本地的为localhost/127.0.0.1
 </li>
 <li>user: 连接使用的用户名。本地的为root。
@@ -206,54 +198,69 @@ connect (parameters...)
 <li>port: MySQL 服务端口。MySQL服务端口的TCP端口，默认是3306。
 </li>
 </ul>
-<p>
-如果连接成功返回一个连接对象。若输入的数据库信息不对，连接失败，会触发
+
+<p>如果连接成功返回一个连接对象。若输入的数据库信息不对，连接失败，会触发
 OperationalError,返回错误信息。
-</p>
+</p></div>
+
 </div>
-</div>
-<div id="outline-container-sec-2-2" class="outline-3">
+
+<div id="outline-container-2-2" class="outline-3">
 <h3 id="sec-2-2"><span class="section-number-3">2.2</span> 创建连接对象：</h3>
 <div class="outline-text-3" id="text-2-2">
-<pre class="example">
-import MySQLdb
+
+
+
+
+<pre class="example">import MySQLdb
 conn = MySQLdb.Connection('host','user','password',dbname)
 </pre>
 
+
 <p>
 这个连接对象也提供了对事物操作的支持，标准的方法如下：
-</p>
-<ul class="org-ul">
+</p><ul>
 <li>提交：commit()
 </li>
 <li>回滚：rollback()
 </li>
 </ul>
+
 </div>
 </div>
+
 </div>
-<div id="outline-container-sec-3" class="outline-2">
+
+<div id="outline-container-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> 数据操作</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
 <h3 id="sec-3-1"><span class="section-number-3">3.1</span> 获取cursor游标对象</h3>
 <div class="outline-text-3" id="text-3-1">
-<p>
-数据操作包括查询(select),插入(insert),更新(update),删除(delete)等。由于MySQLdb模块
+
+<p>数据操作包括查询(select),插入(insert),更新(update),删除(delete)等。由于MySQLdb模块
 底层其实是调用C API的，所以,需要先得到当前所指向数据库的指针(游标对象):
 </p>
-<pre class="example">
-cur =conn.cursor()
+
+
+<pre class="example">cur =conn.cursor()
 </pre>
+
 </div>
+
 </div>
-<div id="outline-container-sec-3-2" class="outline-3">
+
+<div id="outline-container-3-2" class="outline-3">
 <h3 id="sec-3-2"><span class="section-number-3">3.2</span> 数据操作</h3>
 <div class="outline-text-3" id="text-3-2">
-<p>
-现在可以使用cursor对象的execute()执行SQL语句进行数据操作了。例如：
+
+<p>现在可以使用cursor对象的execute()执行SQL语句进行数据操作了。例如：
 </p>
-<div class="org-src-container">
+
 
 <pre class="src src-python">&#65283;&#21019;&#24314;&#25968;&#25454;&#34920;
 cur.execute(<span style="font-style: italic;">"create table student(id int,name varchar(20))"</span>)
@@ -270,60 +277,66 @@ cur.execute(<span style="font-style: italic;">"update student set id = '3' where
 <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">&#21024;&#38500;&#12288;&#28385;&#36275;&#26597;&#35810;&#26465;&#20214;&#30340;&#25968;&#25454;</span>
 cur.execute(<span style="font-style: italic;">"delete from student where id = '3'"</span>)
 </pre>
-</div>
+
 <p>
 查询数据的操作并没有把表中的数据打印出来，只得到了表中数据的行数。fetchone()
 方法可以帮助我们获得表中的数据，可是每次执行cur.fetchone() 获得的数据都不一样，换句话说我每执行一次，
 游标会从表中的第一条数据移动到下一条数据的位置，所以，我再次执行的时候得到的是第二条数据。
 scroll(0,'absolute')方法可以将游标定位到表中的第一条数据。
-</p>
-<ul class="org-ul">
+</p><ul>
 <li>打印表中的数据
 </li>
 </ul>
-<p>
-fetchmany()方法可以获得多条数据，但需要指定数据的条数，通过
+
+<p>fetchmany()方法可以获得多条数据，但需要指定数据的条数，通过
 一个for循环就可以把多条数据打印出啦！
 </p>
-<div class="org-src-container">
+
 
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">aa</span> = cur.execute(<span style="font-style: italic;">"select * from student"</span>)
 <span style="font-weight: bold; font-style: italic;">info</span> = cur.fetchmany(aa)
 <span style="font-weight: bold;">for</span> ii <span style="font-weight: bold;">in</span> info:
     <span style="font-weight: bold;">print</span> ii
 </pre>
-</div>
-<ul class="org-ul">
+
+<ul>
 <li>注意
 </li>
 </ul>
-<p>
-在执行完插入或修改或删除操作后，需要调用一下conn.commit()方法
+
+<p>在执行完插入或修改或删除操作后，需要调用一下conn.commit()方法
 进行提交，否则操作不会生效，即数据不会被真的插入。
-</p>
+</p></div>
+
 </div>
-</div>
-<div id="outline-container-sec-3-3" class="outline-3">
+
+<div id="outline-container-3-3" class="outline-3">
 <h3 id="sec-3-3"><span class="section-number-3">3.3</span> 关闭连接</h3>
 <div class="outline-text-3" id="text-3-3">
-<ul class="org-ul">
+
+<ul>
 <li>关闭操作分两步，需要分表地关闭指针对象cursor和连接对象connection
 </li>
 </ul>
-<pre class="example">
-cur.close()
+
+
+
+
+<pre class="example">cur.close()
 connection.close()
 </pre>
+
 </div>
 </div>
 </div>
 </div>
-<div id="postamble" class="status">
-<p class="date">&#26085;&#26399;: 2015/12/02</p>
-<p class="author">&#20316;&#32773;: FangQian</p>
-<p class="date">Created: 2016-02-02 二 22:59</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+
+<div id="postamble">
+<p class="date">日期: 2015/12/02</p>
+<p class="author">作者: FangQian</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
 </div>
 </body>
 </html>

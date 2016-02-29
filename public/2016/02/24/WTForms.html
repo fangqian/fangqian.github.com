@@ -1,0 +1,597 @@
+
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        
+        <title>StudyNotes</title>
+        <meta name="author" content="FangQian">
+        <meta name="description" content="Use OrgNote.">
+        <meta property="og:site_name" content="StudyNotes"/>
+        <meta name="Keywords" content="OrgNote,Emacs,org-mode,blog,python,geek">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="undefined"/>
+
+        <link href="/favicon.ico" rel="icon">
+        
+        <link rel="stylesheet" href="/theme/freemind/css/bootstrap.min.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        </head>
+        
+
+        <body>  
+        <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+        
+        <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    
+        <a class="navbar-brand" href="/index.html">StudyNotes</a>
+        
+
+        <div class="collapse navbar-collapse nav-menu">
+        
+        <ul class="nav navbar-nav">
+        <li><a href="/public/minyi.html" title="归档"><i class="fa fa-sitemap"></i>MinYi</a></li><li><a href="/public/archive.html" title="归档"><i class="fa fa-archive"></i>归档</a></li><li><a href="/public/about.html" title="关于"><i class="fa fa-user"></i>关于</a></li>
+        </ul>
+        
+        </div> <!-- navbar -->
+        </div> <!-- container -->
+        </nav>
+        
+
+        <div class="clearfix"></div>
+        <div class="container">
+        <div class="content">
+        
+        <div class="page-header">                   <!-- page-header begin -->
+        <h1>WTForms</h1>
+        </div>                                      <!-- page-header end -->
+        
+        <div class="row page">                      <!-- row-page begin -->
+        <div class="col-md-9">                      <!-- col-md-9 begin -->
+        <div class="mypage">                        <!-- mypage begin -->
+        
+        <div class="slogan">                        <!-- slogan begin -->
+        <i class="fa fa-heart"></i>
+        标签: <a href="/public/tags/Flask.html"><i class="Flask"></i>Flask</a>
+        </div>                                     <!-- slogan end -->
+        
+<div id="content">
+
+
+
+
+
+
+<div id="table-of-contents">
+<h2>目录</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Downloads and Install</a></li>
+<li><a href="#sec-2">2 主要概念</a></li>
+<li><a href="#sec-3">3 开始</a>
+<ul>
+<li><a href="#sec-3-1">3.1 在控制台中探索</a></li>
+<li><a href="#sec-3-2">3.2 使用表单</a></li>
+<li><a href="#sec-3-3">3.3 编辑现存对象</a></li>
+<li><a href="#sec-3-4">3.4 表单如何获取数据</a></li>
+<li><a href="#sec-3-5">3.5 验证器</a></li>
+<li><a href="#sec-3-6">3.6 渲染域</a></li>
+<li><a href="#sec-3-7">3.7 显示错误消息</a></li>
+<li><a href="#sec-3-8">3.8 定制验证器</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Downloads and Install</h2>
+<div class="outline-text-2" id="text-1">
+
+
+
+
+<pre class="example">easy_install WTForms
+# or
+pip install WTForms
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 主要概念</h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li><code>Forms</code> 类是WTForms的核心容器，表单(Forms)表示(fields)的集合，域能通过表单的字典形式或者属性形式访问。
+</li>
+<li><code>Fields</code> (域)做最繁重的工作，每个域(field)代表一个数据类型，并且操作强制表单输入那个数据类型。例如， <code>InputRequired</code> 和 <code>StringField</code> 表示两种不同的
+</li>
+</ul>
+
+<p>数据类型，域除了包含的数据(data)之外，还包含大量有用的属性，例如标签，描述，验证错误的列表。
+</p><ul>
+<li>每个域(field)拥有一个 <code>Widget</code> (部件)实例。Widget的工作是渲染域(field)的HTML表示。每个域可以指定Widget实例，但
+</li>
+</ul>
+
+<p>每个域默认拥有一个合理的widget。有些域是简单方便的，比如 <code>TextAreaField</code> 就仅仅是默认部件(widget)为 <code>TextArea</code> 的 <code>StringField</code> 。
+</p><ul>
+<li>为了指定验证规则，域包含验证器(Validators)列表。
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 开始</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>让我们直接进入正题并定义我们的第一个表单:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">from</span> wtforms <span style="font-weight: bold;">import</span> Form, BooleanField, StringField, validators
+
+<span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">RegistrationForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">username</span>     = StringField(<span style="font-style: italic;">'Username'</span>,[validators.Length(<span style="font-weight: bold;">min</span>=4, <span style="font-weight: bold;">max</span>=25)])
+    <span style="font-weight: bold; font-style: italic;">email</span>        = StringField(<span style="font-style: italic;">'Email Address'</span>, [validators.Length(<span style="font-weight: bold;">min</span>=6, <span style="font-weight: bold;">max</span>=35)])
+    <span style="font-weight: bold; font-style: italic;">accept_rules</span> = BooleanField(<span style="font-style: italic;">'I accept the site rules'</span>,[validators.InputRequired()])
+    <span style="font-weight: bold; font-style: italic;">apk_id</span>       = TextField(u<span style="font-style: italic;">'APP_ID'</span>, validators=[validators.Length(<span style="font-weight: bold;">max</span>=100, message=u<span style="font-style: italic;">'&#23383;&#31526;&#38271;&#24230;&#26368;&#22823;100'</span>),validators.required(message=u<span style="font-style: italic;">'&#19981;&#33021;&#20026;&#31354;'</span>)]) 
+</pre>
+
+<p>
+当你创建一个表单(form),你定义域(field)的方法类似于很多ORM定义它们的列(colums):通过定义类变量，即域的实例。
+</p>
+<p>
+因为表单是常规的Python类，你可以很容易的把它们扩展成为你期望的:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">ProfileForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">birthday</span>  = DateTimeField(<span style="font-style: italic;">'Your Birthday'</span>, <span style="font-weight: bold;">format</span>=<span style="font-style: italic;">'%m/%d/%y'</span>)
+    <span style="font-weight: bold; font-style: italic;">signature</span> = TextAreaField(<span style="font-style: italic;">'Forum Signature'</span>)
+
+<span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">AdminProfileForm</span>(ProfileForm):
+    <span style="font-weight: bold; font-style: italic;">username</span> = StringField(<span style="font-style: italic;">'Username'</span>, [validators.Length(<span style="font-weight: bold;">max</span>=40)])
+    <span style="font-weight: bold; font-style: italic;">level</span>    = IntegerField(<span style="font-style: italic;">'User Level'</span>, [validators.NumberRange(<span style="font-weight: bold;">min</span>=0, <span style="font-weight: bold;">max</span>=10)])
+</pre>
+
+<p>
+通过子类, <code>AdminProfileForm</code> 类获得了已经定义的 = ProfileForm= 类的所有域。这允许你轻易地在不同表单之间
+共享域的共同子集，例如上面的例子，我们增加 admin-only 的域到 <code>ProfileForm</code> 。
+</p>
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 在控制台中探索</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<p>WTForms 表单是非常简单的容器对象，也许找出表单中什么对你有用的最简单的方法就是在控制台中玩弄表单:
+</p>
+
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="font-weight: bold;">from</span> wtforms <span style="font-weight: bold;">import</span> Form, StringField, validators
+&gt;&gt;&gt; <span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">UsernameForm</span>(Form):
+...     <span style="font-weight: bold; font-style: italic;">username</span> = StringField(<span style="font-style: italic;">'Username'</span>, [validators.Length(<span style="font-weight: bold;">min</span>=5)], default=u<span style="font-style: italic;">'test'</span>)
+...
+&gt;&gt;&gt; <span style="font-weight: bold; font-style: italic;">form</span> = UsernameForm()
+&gt;&gt;&gt; form[<span style="font-style: italic;">'username'</span>]
+&lt;wtforms.fields.StringField <span style="font-weight: bold;">object</span> at 0x827eccc&gt;
+&gt;&gt;&gt; form.username.data
+u<span style="font-style: italic;">'test'</span>
+&gt;&gt;&gt; form.validate()
+<span style="font-weight: bold; text-decoration: underline;">False</span>
+&gt;&gt;&gt; form.errors
+{<span style="font-style: italic;">'username'</span>: [u<span style="font-style: italic;">'Field must be at least 5 characters long.'</span>]}
+</pre>
+
+<p>
+我们看到的是当你实例化一个表单的时候，表单包含所有域的实例，访问域可以通过字典形式或者属性形式。这些域拥有它们自己
+的属性，就和封闭的表单一样。
+</p>
+<p>
+当我们验证表单，它返回逻辑假值，意味着至少一个验证规则不满足。 = form.errors= 会给你一个错误的概要。
+</p>
+
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="font-weight: bold; font-style: italic;">form2</span> = UsernameForm(username=u<span style="font-style: italic;">'Robert'</span>)
+&gt;&gt;&gt; form2.data
+{<span style="font-style: italic;">'username'</span>: u<span style="font-style: italic;">'Robert'</span>}
+&gt;&gt;&gt; form2.validate()
+<span style="font-weight: bold; text-decoration: underline;">True</span>
+</pre>
+
+<p>
+这次，我们实例化 <code>UserForm</code> 时给 <code>username</code> 传送一个新值，验证表单是足够了。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 使用表单</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<p>使用表单和实例化它们一样简单，相想下面这个django风格的视图函数，它使用之前定义的 <code>RegistrationForm</code> 类:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">register</span>(request):
+    <span style="font-weight: bold; font-style: italic;">form</span> = RegistrationForm(request.POST)
+    <span style="font-weight: bold;">if</span> request.method == <span style="font-style: italic;">'POST'</span> <span style="font-weight: bold;">and</span> form.validate():
+        user = User()
+        user.username = form.username.data
+        user.email = form.email.data
+        user.save()
+        redirect(<span style="font-style: italic;">'register'</span>)
+    <span style="font-weight: bold;">return</span> render_response(<span style="font-style: italic;">'register.html'</span>, form=form)
+</pre>
+
+<p>
+首先，我们实例化表单，给它提供一些 <code>request.POST</code> 中可用的数据。然后我们检查请求(request)是不是使用POST方式，如果
+它是，我们就验证表单，并检查用户是否遵守这些规则。如果成功了，我们创建新的 <code>User</code> 模型，并从已验证的表单分派数据给它，
+最后保存它。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 编辑现存对象</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<p>我们之前的注册例子展示了如何为新条目接收输入并验证，只是如果我们想要编辑现有对象怎么办？很简单:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">edit_profile</span>(request):
+    <span style="font-weight: bold; font-style: italic;">user</span> = request.current_user
+    <span style="font-weight: bold; font-style: italic;">form</span> = ProfileForm(request.POST, user)
+    <span style="font-weight: bold;">if</span> request.method == <span style="font-style: italic;">'POST'</span> <span style="font-weight: bold;">and</span> form.validate():
+        form.populate_obj(user)
+        user.save()
+        redirect(<span style="font-style: italic;">'edit_profile'</span>)
+    <span style="font-weight: bold;">return</span> render_response(<span style="font-style: italic;">'edit_profile.html'</span>, form=form)
+</pre>
+
+<p>
+这里，我们通过给表单同时提供 <code>request.POST</code> 和用户(user)对象来实例化表单，通过这样做，表单会从 <code>user</code> 对象得到
+在未提交数据中出现的任何数据。
+</p>
+<p>
+我们也使用表单的 <code>populate_obj</code> 方法来重新填充用户对象，用以验证表单的内容，这个方法提供便利，用于当域(field)名称
+和你提供的数据的对象的名称配对时。通常的你会想要手动分配值，但对于这个例子，它是最好的。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 表单如何获取数据</h3>
+<div class="outline-text-3" id="text-3-4">
+
+<p>除了使用前两个参数( <code>formdata</code> 和 <code>obj</code> )提供数据之外，你可以传送关键词参数来填充表单，请注意一些参数名是被保留的:
+ <code>formdata</code> , <code>obj</code> , <code>prefix</code> 。
+ <code>formdata</code> 比 <code>obj</code> 优先级高，=obj= 比关键词参数优先级高。例如:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">change_username</span>(request):
+    <span style="font-weight: bold; font-style: italic;">user</span> = request.current_user
+    <span style="font-weight: bold; font-style: italic;">form</span> = ChangeUsernameForm(request.POST, user, username=<span style="font-style: italic;">'silly'</span>)
+    <span style="font-weight: bold;">if</span> request.method == <span style="font-style: italic;">'POST'</span> <span style="font-weight: bold;">and</span> form.validate():
+        user.username = form.username.data
+        user.save()
+        <span style="font-weight: bold;">return</span> redirect(<span style="font-style: italic;">'change_username'</span>)
+    <span style="font-weight: bold;">return</span> render_response(<span style="font-style: italic;">'change_username.html'</span>, form=form)
+</pre>
+
+<p>
+虽然你在实践中几乎从未一起使用所有3种方式，举例说明WTForms是如何查找 <code>username</code> 域:
+1.如果表单被提交( <code>request.POST</code> 非空)，则处理表单输入，实践中，即使这个域没有表单输入，而如果存在任何种类的表单输入，
+那么我们会处理表单输入。
+</p>
+<p>
+2.如果没有表单输入，则按下面的顺序尝试:
+</p>
+<p>
+3.检查 <code>user</code> 是否有一个名为 <code>username</code> 的属性。
+</p>
+<p>
+4.检查是否提供一个名为 <code>username</code> 的关键词参数。
+</p>
+<p>
+5.最后，如果都失败了，使用域的默认值，如果有的话。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 验证器</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<p>WTForms中的验证器(Validators)为域(field)提供一套验证器，当包含域的表单进行验证时运行。你提供验证器可通过域构造函数
+的第二个参数 <code>validators</code> :
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">ChangeEmailForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">email</span> = StringField(<span style="font-style: italic;">'Email'</span>, [validators.Length(<span style="font-weight: bold;">min</span>=6, <span style="font-weight: bold;">max</span>=120), validators.Email()])
+</pre>
+
+<p>
+你可以为一个域提供任意数量的验证器。通常，你会想要提供一个定制的错误消息:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">ChangeEmailForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">email</span> = StringField(<span style="font-style: italic;">'Email'</span>, [
+        validators.Length(<span style="font-weight: bold;">min</span>=6, message=_(u<span style="font-style: italic;">'Little short for an email address?'</span>)),
+        validators.Email(message=_(u<span style="font-style: italic;">'That\'s not a valid email address.'</span>))
+    ])
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> 渲染域</h3>
+<div class="outline-text-3" id="text-3-6">
+
+<p>渲染域和强制它为字符串一样简单:
+</p>
+
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="font-weight: bold;">from</span> wtforms <span style="font-weight: bold;">import</span> Form, StringField
+&gt;&gt;&gt; <span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">SimpleForm</span>(Form):
+...   <span style="font-weight: bold; font-style: italic;">content</span> = StringField(<span style="font-style: italic;">'content'</span>)
+...
+&gt;&gt;&gt; <span style="font-weight: bold; font-style: italic;">form</span> = SimpleForm(content=<span style="font-style: italic;">'foobar'</span>)
+&gt;&gt;&gt; <span style="font-weight: bold;">str</span>(form.content)
+<span style="font-style: italic;">'&lt;input id="content" name="content" type="text" value="foobar" /&gt;'</span>
+&gt;&gt;&gt; <span style="font-weight: bold;">unicode</span>(form.content)
+u<span style="font-style: italic;">'&lt;input id="content" name="content" type="text" value="foobar" /&gt;'</span>
+</pre>
+
+<p>
+然而，渲染域的真正力量来自于它的 <code>__call__()</code> 方法，调用(callig)域，你可以提供关键词参数，它们会在输出中作为HTML
+属性注入。
+</p>
+
+
+<pre class="src src-python">&gt;&gt;&gt; form.content(style=<span style="font-style: italic;">"width: 200px;"</span>, class_=<span style="font-style: italic;">"bar"</span>)
+u<span style="font-style: italic;">'&lt;input class="bar" id="content" name="content" style="width: 200px;" type="text" value="foobar" /&gt;'</span>
+</pre>
+
+<p>
+现在，让我们应用这个力量在 Jinja 模板中渲染表单，首先，我们的表单:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">LoginForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">username</span> = StringField(<span style="font-style: italic;">'Username'</span>)
+    <span style="font-weight: bold; font-style: italic;">password</span> = PasswordField(<span style="font-style: italic;">'Password'</span>)
+
+<span style="font-weight: bold; font-style: italic;">form</span> = LoginForm()
+</pre>
+
+
+<p>
+然后是模板文件:
+</p>
+
+
+<pre class="src src-HTML">&lt;form method=<span style="font-style: italic;">"POST"</span> action=<span style="font-style: italic;">"/login"</span>&gt;
+    &lt;div&gt;{{ form.username.label }}: {{ form.username(class=<span style="font-style: italic;">"css_class"</span>) }}&lt;/div&gt;
+    &lt;div&gt;{{ form.password.label }}: {{ form.password() }}&lt;/div&gt;
+&lt;/form&gt;
+</pre>
+
+<p>
+相同的，如果你使用Django模板，当你想要传达关键词参数时，你可以使用我们在Django扩展中提供的模板标签 <code>form_field</code> :
+</p>
+
+
+<pre class="src src-HTML">{% load wtforms %}
+&lt;form method=<span style="font-style: italic;">"POST"</span> action=<span style="font-style: italic;">"/login"</span>&gt;
+    &lt;div&gt;
+        {{ form.username.label }}:
+        {% form_field form.username class=<span style="font-style: italic;">"css_class"</span> %}
+    &lt;/div&gt;
+    &lt;div&gt;
+        {{ form.password.label }}:
+        {{ form.password }}
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+
+<p>
+这两个将会输出:
+</p>
+
+
+<pre class="src src-HTML">&lt;form method=<span style="font-style: italic;">"POST"</span> action=<span style="font-style: italic;">"/login"</span>&gt;
+    &lt;div&gt;
+        &lt;label for=<span style="font-style: italic;">"username"</span>&gt;Username&lt;/label&gt;:
+        &lt;input class=<span style="font-style: italic;">"css_class"</span> id=<span style="font-style: italic;">"username"</span> name=<span style="font-style: italic;">"username"</span> type=<span style="font-style: italic;">"text"</span> value=<span style="font-style: italic;">""</span> /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=<span style="font-style: italic;">"password"</span>&gt;Password&lt;/label&gt;:
+        &lt;input id=<span style="font-style: italic;">"password"</span> name=<span style="font-style: italic;">"password"</span> type=<span style="font-style: italic;">"password"</span> value=<span style="font-style: italic;">""</span> /&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+
+<p>
+WTForms是模板引擎不可知的, 同时会和任何允许属性存取、字符串强制(string coercion)、函数调用的引擎共事. 在 Django 模板中, 当你不能传送参数时, 模板标签form_field 提供便利.
+</p></div>
+
+</div>
+
+<div id="outline-container-3-7" class="outline-3">
+<h3 id="sec-3-7"><span class="section-number-3">3.7</span> 显示错误消息</h3>
+<div class="outline-text-3" id="text-3-7">
+
+
+
+
+<pre class="src src-HTML">&lt;div class=<span style="font-style: italic;">"form-group"</span>&gt;
+    &lt;label for=<span style="font-style: italic;">"name"</span> class=<span style="font-style: italic;">"col-sm-2 control-label"</span>&gt;APP_ID&lt;/label&gt;
+    &lt;div class=<span style="font-style: italic;">"col-sm-5"</span>&gt;
+      {{ form.apk_id(class=<span style="font-style: italic;">"form-control"</span>) }}
+      {% if form.apk_id.errors %}
+      &lt;span class=<span style="font-style: italic;">"help-block error"</span>&gt;{{ form.apk_id.errors[0] }}&lt;/span&gt;
+      {% endif %}
+    &lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+
+
+<pre class="src src-HTML">&lt;form method=<span style="font-style: italic;">"POST"</span> action=<span style="font-style: italic;">"/login"</span>&gt;
+    &lt;div&gt;{{ form.username.label }}: {{ form.username(class=<span style="font-style: italic;">"css_class"</span>) }}&lt;/div&gt;
+    {% if form.username.errors %}
+        &lt;ul class=<span style="font-style: italic;">"errors"</span>&gt;{% for error in form.username.errors %}&lt;li&gt;{{ error }}&lt;/li&gt;{% endfor %}&lt;/ul&gt;
+    {% endif %}
+
+    &lt;div&gt;{{ form.password.label }}: {{ form.password() }}&lt;/div&gt;
+    {% if form.password.errors %}
+        &lt;ul class=<span style="font-style: italic;">"errors"</span>&gt;{% for error in form.password.errors %}&lt;li&gt;{{ error }}&lt;/li&gt;{% endfor %}&lt;/ul&gt;
+    {% endif %}
+&lt;/form&gt;
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-8" class="outline-3">
+<h3 id="sec-3-8"><span class="section-number-3">3.8</span> 定制验证器</h3>
+<div class="outline-text-3" id="text-3-8">
+
+<p>这里有两种方法定制验证器。
+通过定义一个定制的验证器并在域中使用它:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">from</span> wtforms.validators <span style="font-weight: bold;">import</span> ValidationError
+
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">is_42</span>(form, field):
+    <span style="font-weight: bold;">if</span> field.data != 42:
+        <span style="font-weight: bold;">raise</span> ValidationError(<span style="font-style: italic;">'Must be 42'</span>)
+
+<span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">FourtyTwoForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">num</span> = IntegerField(<span style="font-style: italic;">'Number'</span>, [is_42])
+</pre>
+
+<p>
+或者通过提供一个在表单内的特定域(in-form field-specific)的验证器:
+</p>
+
+
+<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">FourtyTwoForm</span>(Form):
+    <span style="font-weight: bold; font-style: italic;">num</span> = IntegerField(<span style="font-style: italic;">'Number'</span>)
+
+    <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">validate_num</span>(form, field):
+        <span style="font-weight: bold;">if</span> field.data != 42:
+            <span style="font-weight: bold;">raise</span> ValidationError(u<span style="font-style: italic;">'Must be 42'</span>)
+</pre>
+
+
+<p>
+from
+<a href="http://flask123.sinaapp.com/article/60/">http://flask123.sinaapp.com/article/60/</a>
+English origin distribution:
+<a href="http://pythonhosted.org//WTForms/crash_course.html">http://pythonhosted.org//WTForms/crash_course.html</a>
+</p></div>
+</div>
+</div>
+</div>
+
+
+            <div>
+            <center>
+            <div class="pagination">
+            <ul class="pagination">
+            <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
+            <li class="next"><a href="/public/2016/02/02/easy_install.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            </ul>
+            </div>
+            </center>
+            </div>
+            
+            </div> <!-- my-page --></div> <!-- col-md -->
+
+        <div class="col-md-3">
+        <div id="sidebar">
+        
+        <div class="widget">
+        <h4>最新文章</h4>
+        <ul class="entry list-unstyled">
+        <li><a href="/public/2016/02/24/WTForms.html"><i class="fa fa-file-o"></i>WTForms</a></li><li><a href="/public/2016/02/02/easy_install.html"><i class="fa fa-file-o"></i>easy_install</a></li><li><a href="/public/2015/11/14/pythonbase.html"><i class="fa fa-file-o"></i>Python基础知识</a></li><li><a href="/public/2015/11/13/simplecommand.html"><i class="fa fa-file-o"></i>简单的Linux命令</a></li><li><a href="/public/2015/12/11/git.html"><i class="fa fa-file-o"></i>常用git命令清单</a></li><li><a href="/public/2015/12/14/html_css.html"><i class="fa fa-file-o"></i>HTML+CSS基础</a></li>
+        </ul>   
+        </div> 
+        
+        <div class="widget">
+        <h4>标签云</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&amp;CSS.html">HTML&amp;CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>时间机器</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/201602.html">201602<span>2</span></a></li><li><a href="/public/tags/201512.html">201512<span>6</span></a></li><li><a href="/public/tags/201511.html">201511<span>6</span></a></li><li><a href="/public/tags/201412.html">201412<span>1</span></a></li><li><a href="/public/tags/201411.html">201411<span>1</span></a></li><li><a href="/public/archive.html">All<span>16</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>快速链接</h4>
+        <ul class="entry list-unstyled">
+        
+            <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
+            
+            <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+        </ul>
+        </div>
+        
+        </div> <!-- sidebar -->
+        </div> <!-- col-md-3 -->
+        
+
+        </div> <!-- row-fluid -->
+        </div>
+        </div>
+        
+
+        <div class="container-narrow">
+        <footer>
+        <p>&copy; 2014 FangQian
+        with help from <a href="https://github.com/LeslieZhu/OrgNote" target="_blank">OrgNote</a>. Theme by <a href="https://github.com/LeslieZhu/orgnote-theme-freemind">orgnote-theme-freemind</a>.  Published with GitHub Pages. 
+        </p> </footer>
+        </div> <!-- container-narrow -->
+        
+        <a id="gotop" href="#">   
+        <span>▲</span> 
+        </a>
+        
+        </body>
+        </html>
+        

@@ -1,92 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
 <head>
 <title>使用功能测试协助安装Django</title>
-<!-- 2016-02-02 二 22:59 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="FangQian" />
-<meta  name="keywords" content="PythonWeb" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="使用功能测试协助安装Django"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015/11/16"/>
+<meta name="author" content="FangQian"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="PythonWeb"/>
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
   .title  { text-align: center; }
-  .todo   { font-family: monospace; color: red; }
+  .todo   { color: red; }
   .done   { color: green; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
   }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
     background: #ffffcc;
   }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
   textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
   /*]]>*/-->
 </style>
 <script type="text/javascript">
@@ -135,40 +106,54 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+
 </head>
 <body>
+
+<div id="preamble">
+
+</div>
+
 <div id="content">
 <h1 class="title">使用功能测试协助安装Django</h1>
+
+
+
+
+
 <div id="table-of-contents">
-<h2>&#30446;&#24405;</h2>
+<h2>目录</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 检查是否安装了Django</a>
+<li><a href="#sec-1">1 检查是否安装了Django</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 遵从测试山羊的教诲,没有测试什么也别做</a></li>
-<li><a href="#sec-1-2">1.2. 让Django运行起来</a></li>
-<li><a href="#sec-1-3">1.3. 建立Git仓库</a></li>
+<li><a href="#sec-1-1">1.1 遵从测试山羊的教诲,没有测试什么也别做</a></li>
+<li><a href="#sec-1-2">1.2 让Django运行起来</a></li>
+<li><a href="#sec-1-3">1.3 建立Git仓库</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
+<div id="outline-container-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> 检查是否安装了Django</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> 遵从测试山羊的教诲,没有测试什么也别做</h3>
 <div class="outline-text-3" id="text-1-1">
-<p>
-要检查是否安装了Django,并且能够正常运行。检查的方法是，在本地电脑中能否启动Django的开发服务器，并在浏览器中查看能否打开网页。使用浏览器自动化工具
+
+<p>要检查是否安装了Django,并且能够正常运行。检查的方法是，在本地电脑中能否启动Django的开发服务器，并在浏览器中查看能否打开网页。使用浏览器自动化工具
 Selenium完成这个任务。
 </p>
-
 <p>
 在想要保存项目代码的地方新建一个Python文件，命名为functional_tests.py,并输入以下代码
 </p>
-<div class="org-src-container">
+
 
 <pre class="src src-python"><span style="font-weight: bold;">from</span> selenium <span style="font-weight: bold;">import</span> webdriver    
 
@@ -178,12 +163,11 @@ browser.get(<span style="font-style: italic;">'heep://localhost:8000'</span>)
 
 <span style="font-weight: bold;">assert</span> <span style="font-style: italic;">'Django'</span> <span style="font-weight: bold;">in</span> browser.title
 </pre>
-</div>
+
 
 <p>
 下面是一个功能测试(Functional Test,FT)
-</p>
-<ul class="org-ul">
+</p><ul>
 <li>启动一个Selenium webdriver,打开一个真正的Firefox浏览器窗口;
 </li>
 <li>在这个浏览器中打开我们期望本地电脑伺服的网页;
@@ -192,22 +176,26 @@ browser.get(<span style="font-style: italic;">'heep://localhost:8000'</span>)
 </li>
 </ul>
 
+
 <p>
 运行
 </p>
-<pre class="example">
-python3 functional_tests.py
+
+
+<pre class="example">python3 functional_tests.py
 </pre>
+
 <p>
 这样会弹出一个浏览器窗口，尝试打开localhost:8000,然后会出现错误消息。Firefox窗口停留在桌面，等待关闭。这样显然是个失败的测试。
-</p>
+</p></div>
+
 </div>
-</div>
-<div id="outline-container-sec-1-2" class="outline-3">
+
+<div id="outline-container-1-2" class="outline-3">
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> 让Django运行起来</h3>
 <div class="outline-text-3" id="text-1-2">
-<p>
-使用Django的第一步是创建项目，Django为此提供了一个命令行工具:
+
+<p>使用Django的第一步是创建项目，Django为此提供了一个命令行工具:
 $ django-admin.py startproject superlists
 这个命令创建一个名为superlists的文件夹,并在其中创建一些文件和子文件夹
 .
@@ -215,43 +203,51 @@ $ django-admin.py startproject superlists
   superlists
     manage.py
     superlists
-      <span class="underline"><span class="underline">init</span></span>.py
+      __init__.py
       settings.py
       urls.py
       wsgi.py
 </p>
-
 <p>
 其中superlists/superlists文件夹的作用是保存应用于整个项目的文件，如setting.py的作用是存储网站的全局配置信息。
 manage.py这个文件是Django的瑞士军刀，作用之一是运行开发服务器。
 </p>
-
 <p>
 在顶层superlists中执行:
 </p>
-<pre class="example">
-$ python3 manage.py runserver
+
+
+<pre class="example">$ python3 manage.py runserver
 </pre>
+
 
 <p>
 让这个命令一直运行着，在另一个命令窗口(在刚刚打开的文件夹中)再次尝试运行测试:
 </p>
-<pre class="example">
-python3 functional_tests.py
+
+
+<pre class="example">python3 functional_tests.py
 </pre>
+
 </div>
+
 </div>
-<div id="outline-container-sec-1-3" class="outline-3">
+
+<div id="outline-container-1-3" class="outline-3">
 <h3 id="sec-1-3"><span class="section-number-3">1.3</span> 建立Git仓库</h3>
+<div class="outline-text-3" id="text-1-3">
+
 </div>
 </div>
 </div>
-<div id="postamble" class="status">
-<p class="date">&#26085;&#26399;: 2015/11/16</p>
-<p class="author">&#20316;&#32773;: FangQian</p>
-<p class="date">Created: 2016-02-02 二 22:59</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+
+<div id="postamble">
+<p class="date">日期: 2015/11/16</p>
+<p class="author">作者: FangQian</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
 </div>
 </body>
 </html>
