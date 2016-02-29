@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<head>
+<title>Redis基础</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Redis基础"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2016/02/29"/>
+<meta name="author" content="FangQian"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="Redis"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Redis基础</h1>
+
+
+
+
+
+<div id="table-of-contents">
+<h2>目录</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 前言</a></li>
+<li><a href="#sec-2">2 Redis在Linux Ubantu中安装</a></li>
+<li><a href="#sec-3">3 通过命令行客户端访问Redis</a></li>
+<li><a href="#sec-4">4 基本操作</a></li>
+<li><a href="#sec-5">5 修改Redis的配置</a>
+<ul>
+<li><a href="#sec-5-1">5.1 使用Redis的访问帐号</a></li>
+<li><a href="#sec-5-2">5.2 让Redis服务器被远程访问</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 前言</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Redis是常用基于内存的Key-Value数据库, 比Memcache更先进，支持多种数据结构，高效，快速。用Redis可以轻松
+解决高并发的数据访问问题；作为实时监控信号处理也非常不错。
+</p></div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Redis在Linux Ubantu中安装</h2>
+<div class="outline-text-2" id="text-2">
+
+
+
+
+<pre class="example"># 安装Redis服务器端
+$ sudo apt-get install redis-server
+</pre>
+
+<p>
+安装完成后，Redis服务器会自动启动,我们检查Redis服务器程序
+</p>
+
+
+<pre class="example"># 检查Redis服务器系统进程
+$ ps -aux|grep redis
+24330  0.2  0.3 244200 28156 pts/13   S+   19:29   0:01 emacs -nw ./notes/2016/02/29/redis.org
+26105  0.0  0.0  15964  2304 pts/5    S+   19:38   0:00 grep --color=auto redis
+
+# 通过启动命令检查Redis服务器状态
+$ netstat -nlt|grep 6397
+tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN 
+
+# 通过启动命令检查Redis服务器状态
+$ sudo /etc/init.d/redis-server status
+redis-server is running
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 通过命令行客户端访问Redis</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>安装Redis服务器，会自动地一起安装Redis命令行客户端程序。
+</p>
+<p>
+在本机输入redis-cli命令就可以启动，客户端程序访问Redis服务器。
+</p>
+
+
+<pre class="example">$ redis-cli   (means:redis-client)
+127.0.0.1:6379&gt;
+
+# 命令行的帮助
+127.0.0.1:6379&gt; help
+redis-cli 2.8.4
+Type: "help @&lt;group&gt;" to get a list of commands in &lt;group&gt;
+      "help &lt;command&gt;" for help on &lt;command&gt;
+      "help &lt;tab&gt;" to get a list of possible help topics
+      "quit" to exit
+# 查看所有的key列表
+127.0.0.1:6379&gt; keys *
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 基本操作</h2>
+<div class="outline-text-2" id="text-4">
+
+
+
+
+<pre class="example"># 增加一条记录key1
+6379&gt; set key1 "hello"
+OK
+
+# 打印记录
+6379&gt; get key1
+"hello"
+
+# 增加一条数字记录key2
+6379&gt; set key2 1
+OK
+
+#让数字自增
+6379 &gt; INCR key2
+(integer)2
+
+# 增加列表记录key3
+6379&gt; LPUSH key3 a 
+(integer)1
+
+# 从左边插入列表
+6379&gt; LPUSH key3 b
+(integer)2
+
+# 从右边插入列表
+6379&gt; RPUSH key3 c
+(integer)3
+
+# 打印列表记录，按从左到右的顺序
+6379&gt; LRANGE key3 0 3
+1) "b"
+2) "a"
+3) "c"
+
+# 增加一条哈希表记录key4
+6379&gt; HSET key4 name "John Smith"
+(integer)1
+
+# 在哈希表中插入,email的Key和Value的值
+6379&gt; HSET key4 email "abc@gmail,com"
+(integer)1
+
+# 打印哈希表中,name为key的值
+6379&gt; HGET key4 name
+
+# 打印整个哈希表
+6379&gt; HGETALL key4
+
+# 增加一条哈希表记录key5,一次插入多个Key和Value的值
+6379&gt; HMSET key5 username antirezpassword P1 pp0 age 3
+OK
+
+# 打印哈希表中, username和age为key的值
+6379&gt; HMGET key5 username age
+1) "antirez"
+2) "3"
+
+# 打印完整的哈希表记录
+&gt; HGETALL key5
+1) "username"
+2) "antirez"
+3) "password"
+4) "P1pp0"
+5) "age"
+6) "3"
+
+# 删除记录
+# 查看所有的key列表keys *
+
+# 删除key1,key5
+6379&gt; del key1
+(integer)1
+6379&gt; del key5
+(integer)1
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 修改Redis的配置</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 使用Redis的访问帐号</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<p>默认情况下，访问Redis服务器是不需要密码的，为了增加安全性我们需要设置Redis服务器的访问密码。设置访问密码为
+redisredis。
+用vi打开Redis服务器的配置文件redis.conf
+</p>
+
+
+<pre class="example">$ sudo vi /etc/redis.conf
+
+#取消注释requirepass
+requirepass redisredis
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 让Redis服务器被远程访问</h3>
+<div class="outline-text-3" id="text-5-2">
+
+<p>默认情况下，Redis服务器不允许远程访问，只允许本机访问，所以我们需要设置打开远程访问的功能。
+用vi打开Redis服务器的配置文件redis.conf
+</p>
+
+
+<pre class="example">sudo vi /etc/redis/redis.conf
+
+#注释bind
+#bind 127.0.0.1
+</pre>
+
+
+<ul>
+<li>From 
+</li>
+</ul>
+
+<p><a href="http://blog.fens.me/linux-redis-install/">在Ubantu中安装Redis</a> 
+</p></div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">日期: 2016/02/29</p>
+<p class="author">作者: FangQian</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

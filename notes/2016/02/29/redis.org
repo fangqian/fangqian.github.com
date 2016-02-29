@@ -1,0 +1,165 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: Redis
+#+TITLE: Redis基础
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2016/02/29
+
+* 前言
+Redis是常用基于内存的Key-Value数据库, 比Memcache更先进，支持多种数据结构，高效，快速。用Redis可以轻松
+解决高并发的数据访问问题；作为实时监控信号处理也非常不错。
+* Redis在Linux Ubantu中安装
+#+BEGIN_EXAMPLE
+# 安装Redis服务器端
+$ sudo apt-get install redis-server
+#+END_EXAMPLE
+安装完成后，Redis服务器会自动启动,我们检查Redis服务器程序
+#+BEGIN_EXAMPLE
+# 检查Redis服务器系统进程
+$ ps -aux|grep redis
+24330  0.2  0.3 244200 28156 pts/13   S+   19:29   0:01 emacs -nw ./notes/2016/02/29/redis.org
+26105  0.0  0.0  15964  2304 pts/5    S+   19:38   0:00 grep --color=auto redis
+
+# 通过启动命令检查Redis服务器状态
+$ netstat -nlt|grep 6397
+tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN 
+
+# 通过启动命令检查Redis服务器状态
+$ sudo /etc/init.d/redis-server status
+redis-server is running
+#+END_EXAMPLE
+* 通过命令行客户端访问Redis
+安装Redis服务器，会自动地一起安装Redis命令行客户端程序。
+
+在本机输入redis-cli命令就可以启动，客户端程序访问Redis服务器。
+#+BEGIN_EXAMPLE
+$ redis-cli   (means:redis-client)
+127.0.0.1:6379>
+
+# 命令行的帮助
+127.0.0.1:6379> help
+redis-cli 2.8.4
+Type: "help @<group>" to get a list of commands in <group>
+      "help <command>" for help on <command>
+      "help <tab>" to get a list of possible help topics
+      "quit" to exit
+# 查看所有的key列表
+127.0.0.1:6379> keys *
+#+END_EXAMPLE
+* 基本操作
+#+BEGIN_EXAMPLE
+# 增加一条记录key1
+6379> set key1 "hello"
+OK
+
+# 打印记录
+6379> get key1
+"hello"
+
+# 增加一条数字记录key2
+6379> set key2 1
+OK
+
+#让数字自增
+6379 > INCR key2
+(integer)2
+
+# 增加列表记录key3
+6379> LPUSH key3 a 
+(integer)1
+
+# 从左边插入列表
+6379> LPUSH key3 b
+(integer)2
+
+# 从右边插入列表
+6379> RPUSH key3 c
+(integer)3
+
+# 打印列表记录，按从左到右的顺序
+6379> LRANGE key3 0 3
+1) "b"
+2) "a"
+3) "c"
+
+# 增加一条哈希表记录key4
+6379> HSET key4 name "John Smith"
+(integer)1
+
+# 在哈希表中插入,email的Key和Value的值
+6379> HSET key4 email "abc@gmail,com"
+(integer)1
+
+# 打印哈希表中,name为key的值
+6379> HGET key4 name
+
+# 打印整个哈希表
+6379> HGETALL key4
+
+# 增加一条哈希表记录key5,一次插入多个Key和Value的值
+6379> HMSET key5 username antirezpassword P1 pp0 age 3
+OK
+
+# 打印哈希表中, username和age为key的值
+6379> HMGET key5 username age
+1) "antirez"
+2) "3"
+
+# 打印完整的哈希表记录
+> HGETALL key5
+1) "username"
+2) "antirez"
+3) "password"
+4) "P1pp0"
+5) "age"
+6) "3"
+
+# 删除记录
+# 查看所有的key列表keys *
+
+# 删除key1,key5
+6379> del key1
+(integer)1
+6379> del key5
+(integer)1
+#+END_EXAMPLE
+
+* 修改Redis的配置
+** 使用Redis的访问帐号
+默认情况下，访问Redis服务器是不需要密码的，为了增加安全性我们需要设置Redis服务器的访问密码。设置访问密码为
+redisredis。
+用vi打开Redis服务器的配置文件redis.conf
+#+BEGIN_EXAMPLE
+$ sudo vi /etc/redis.conf
+
+#取消注释requirepass
+requirepass redisredis
+#+END_EXAMPLE
+** 让Redis服务器被远程访问
+默认情况下，Redis服务器不允许远程访问，只允许本机访问，所以我们需要设置打开远程访问的功能。
+用vi打开Redis服务器的配置文件redis.conf
+#+BEGIN_EXAMPLE
+sudo vi /etc/redis/redis.conf
+
+#注释bind
+#bind 127.0.0.1
+#+END_EXAMPLE
+
++ From 
+[[http://blog.fens.me/linux-redis-install/][在Ubantu中安装Redis]] 
