@@ -1,0 +1,40 @@
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: showeverything
+#+STARTUP: indent
+#+STARTUP: nohideblocks
+#+OPTIONS: ^:{}
+#+OPTIONS: LaTeX:t
+#+OPTIONS: LaTeX:dvipng
+#+OPTIONS: LaTeX:nil
+#+OPTIONS: LaTeX:verbatim
+        
+#+OPTIONS: H:3
+#+OPTIONS: toc:t
+#+OPTIONS: num:t
+#+LANGUAGE: zh-CN
+        
+#+KEYWORDS: 默认
+#+TITLE: Python标准库urllib2的使用细节
+#+AUTHOR: FangQian
+#+EMAIL: qiangu_fang@163.com
+#+DATE: 2016/03/23
+
+* Proxy的设置
+urllib2默认会使用环境变量http_proxy来设置HTTP Proxy。如果想在程序中明确控制Proxy而不受环境变量的影响，可以使用下面的方式
+#+BEGIN_SRC python
+import urllib2
+
+enable_proxy = True
+proxy_handler = urllib2.ProxyHandler
+#+END_SRC
+* Timeout设置
+* 在HTTP Request中加入特定的Header
+* Redirect
+* Cookie
+* 使用HTTP的PUT和DELETE方法
+* 得到HTTP的返回码
+* Debug Log
+from [[http://zhuoqiang.me/python-urllib2-usage.html]]
+
