@@ -1,3 +1,4 @@
+- [[./notes/2016/03/23/urllib2.html][Python标准库urllib2的使用细节]]
 - [[./notes/2016/02/29/redis.html][Redis基础]]
 - [[./notes/2016/02/24/WTForms.html][WTForms]]
 - [[./notes/2016/02/02/easy_install.html][easy_install]]
