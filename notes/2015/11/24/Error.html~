@@ -1,92 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
 <head>
 <title>Python错误和异常</title>
-<!-- 2015-12-14 一 23:29 -->
+<<<<<<< Updated upstream
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Python错误和异常"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015/11/24"/>
+<meta name="author" content="FangQian"/>
+<meta name="description" content=""/>
+<meta name="keywords" content="Python"/>
+=======
+<!-- 2016-02-29 一 21:06 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="FangQian" />
 <meta  name="keywords" content="Python" />
+>>>>>>> Stashed changes
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
   .title  { text-align: center; }
-  .todo   { font-family: monospace; color: red; }
+  .todo   { color: red; }
   .done   { color: green; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
   }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
     background: #ffffcc;
   }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
   textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
   /*]]>*/-->
 </style>
 <script type="text/javascript">
@@ -135,28 +114,41 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+
 </head>
 <body>
+
+<div id="preamble">
+
+</div>
+
 <div id="content">
 <h1 class="title">Python错误和异常</h1>
+
+
+
+
+
 <div id="table-of-contents">
-<h2>&#30446;&#24405;</h2>
+<h2>目录</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Python中的异常</a></li>
-<li><a href="#sec-2">2. 检测和处理异常</a>
+<li><a href="#sec-1">1 Python中的异常</a></li>
+<li><a href="#sec-2">2 检测和处理异常</a>
 <ul>
-<li><a href="#sec-2-1">2.1. try-except语句</a></li>
+<li><a href="#sec-2-1">2.1 try-except语句</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
+<div id="outline-container-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> Python中的异常</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
+
+
+<ul>
 <li>NameError:                   尝试访问一个未声明的的变量
 </li>
 <li>ZeroDivisionError:           除数为0
@@ -164,10 +156,9 @@ for the JavaScript code in this tag.
 <li>SyntaxError:                 Python 解释器语法错误，代表Python代码总有一个不正确的结构，在它改正之前程序无法执行，一般是在
 </li>
 </ul>
-<p>
-编译时发生。Python解释器无法把脚本转化为Python字节代码。
-</p>
-<ul class="org-ul">
+
+<p>编译时发生。Python解释器无法把脚本转化为Python字节代码。
+</p><ul>
 <li>IndexError:                  请求的索引超出序列范围。
 </li>
 <li>KeyError:                    请求一个不存在的字典关键字。
@@ -175,36 +166,54 @@ for the JavaScript code in this tag.
 <li>IOError:                     输入/输出错误
 </li>
 </ul>
+
 </div>
+
 </div>
-<div id="outline-container-sec-2" class="outline-2">
+
+<div id="outline-container-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> 检测和处理异常</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-异常可以通过 try 语句来检测，任何在 try 语句块里的代码都会被监测，检查有无异常发生。
+
+<p>异常可以通过 try 语句来检测，任何在 try 语句块里的代码都会被监测，检查有无异常发生。
 </p>
 </div>
-<div id="outline-container-sec-2-1" class="outline-3">
+
+<div id="outline-container-2-1" class="outline-3">
 <h3 id="sec-2-1"><span class="section-number-3">2.1</span> try-except语句</h3>
 <div class="outline-text-3" id="text-2-1">
-<div class="org-src-container">
+
+
+
 
 <pre class="src src-python"><span style="font-weight: bold;">try</span>:
     try_suite    <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">watch for exceptions here &#30417;&#25511;&#36825;&#37324;&#30340;&#24322;&#24120;</span>
 <span style="font-weight: bold;">except</span> <span style="font-weight: bold; text-decoration: underline;">Exception</span>[,reason]:
     except_suite    <span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">exception-handling code   &#24322;&#24120;&#22788;&#29702;&#20195;&#30721;</span>
+
 </pre>
+
 </div>
 </div>
 </div>
 </div>
+<<<<<<< Updated upstream
+
+<div id="postamble">
+<p class="date">日期: 2015/11/24</p>
+<p class="author">作者: FangQian</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+=======
 </div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: 2015/11/24</p>
 <p class="author">&#20316;&#32773;: FangQian</p>
-<p class="date">Created: 2015-12-14 一 23:29</p>
+<p class="date">Created: 2016-02-29 一 21:06</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+>>>>>>> Stashed changes
 </div>
 </body>
 </html>

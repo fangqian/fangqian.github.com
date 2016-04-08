@@ -1,63 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
 <head>
 <title>WTForms</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="WTForms"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2016/02/24"/>
-<meta name="author" content="FangQian"/>
-<meta name="description" content=""/>
-<meta name="keywords" content="Flask"/>
+<!-- 2016-03-01 二 00:16 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="FangQian" />
+<meta  name="keywords" content="Flask" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
   .title  { text-align: center; }
-  .todo   { color: red; }
+  .todo   { font-family: monospace; color: red; }
   .done   { color: green; }
-  .tag    { background-color: #add8e6; font-weight:normal }
-  .target { }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
-  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
-  .center {margin-left:auto; margin-right:auto; text-align:center;}
-  p.verse { margin-left: 3% }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
   pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
   }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top;  }
-  th.right  { text-align:center;  }
-  th.left   { text-align:center;   }
-  th.center { text-align:center; }
-  td.right  { text-align:right;  }
-  td.left   { text-align:left;   }
-  td.center { text-align:center; }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  div.inlinetask {
-    padding:10px;
-    border:2px solid gray;
-    margin:10px;
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
     background: #ffffcc;
   }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
   textarea { overflow-x: auto; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
 <script type="text/javascript">
@@ -106,90 +135,71 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
 <h1 class="title">WTForms</h1>
-
-
-
-
-
 <div id="table-of-contents">
-<h2>目录</h2>
+<h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 Downloads and Install</a></li>
-<li><a href="#sec-2">2 主要概念</a></li>
-<li><a href="#sec-3">3 开始</a>
+<li><a href="#sec-1">1. Downloads and Install</a></li>
+<li><a href="#sec-2">2. 主要概念</a></li>
+<li><a href="#sec-3">3. 开始</a>
 <ul>
-<li><a href="#sec-3-1">3.1 在控制台中探索</a></li>
-<li><a href="#sec-3-2">3.2 使用表单</a></li>
-<li><a href="#sec-3-3">3.3 编辑现存对象</a></li>
-<li><a href="#sec-3-4">3.4 表单如何获取数据</a></li>
-<li><a href="#sec-3-5">3.5 验证器</a></li>
+<li><a href="#sec-3-1">3.1. 在控制台中探索</a></li>
+<li><a href="#sec-3-2">3.2. 使用表单</a></li>
+<li><a href="#sec-3-3">3.3. 编辑现存对象</a></li>
+<li><a href="#sec-3-4">3.4. 表单如何获取数据</a></li>
+<li><a href="#sec-3-5">3.5. 验证器</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> Downloads and Install</h2>
 <div class="outline-text-2" id="text-1">
-
-
-
-
-<pre class="example">easy_install WTForms
+<pre class="example">
+easy_install WTForms
 # or
 pip install WTForms
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> 主要概念</h2>
 <div class="outline-text-2" id="text-2">
-
-<ul>
+<ul class="org-ul">
 <li><code>Forms</code> 类是WTForms的核心容器，表单(Forms)表示(fields)的集合，域能通过表单的字典形式或者属性形式访问。
 </li>
 <li><code>Fields</code> (域)做最繁重的工作，每个域(field)代表一个数据类型，并且操作强制表单输入那个数据类型。例如， <code>InputRequired</code> 和 <code>StringField</code> 表示两种不同的
 </li>
 </ul>
-
-<p>数据类型，域除了包含的数据(data)之外，还包含大量有用的属性，例如标签，描述，验证错误的列表。
-</p><ul>
+<p>
+数据类型，域除了包含的数据(data)之外，还包含大量有用的属性，例如标签，描述，验证错误的列表。
+</p>
+<ul class="org-ul">
 <li>每个域(field)拥有一个 <code>Widget</code> (部件)实例。Widget的工作是渲染域(field)的HTML表示。每个域可以指定Widget实例，但
 </li>
 </ul>
-
-<p>每个域默认拥有一个合理的widget。有些域是简单方便的，比如 <code>TextAreaField</code> 就仅仅是默认部件(widget)为 <code>TextArea</code> 的 <code>StringField</code> 。
-</p><ul>
+<p>
+每个域默认拥有一个合理的widget。有些域是简单方便的，比如 <code>TextAreaField</code> 就仅仅是默认部件(widget)为 <code>TextArea</code> 的 <code>StringField</code> 。
+</p>
+<ul class="org-ul">
 <li>为了指定验证规则，域包含验证器(Validators)列表。
 </li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> 开始</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>让我们直接进入正题并定义我们的第一个表单:
+<p>
+让我们直接进入正题并定义我们的第一个表单:
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">from</span> wtforms <span style="font-weight: bold;">import</span> Form, BooleanField, StringField, validators
 
@@ -197,16 +207,17 @@ pip install WTForms
     <span style="font-weight: bold; font-style: italic;">username</span>     = StringField(<span style="font-style: italic;">'Username'</span>,[validators.Length(<span style="font-weight: bold;">min</span>=4, <span style="font-weight: bold;">max</span>=25)])
     <span style="font-weight: bold; font-style: italic;">email</span>        = StringField(<span style="font-style: italic;">'Email Address'</span>, [validators.Length(<span style="font-weight: bold;">min</span>=6, <span style="font-weight: bold;">max</span>=35)])
     <span style="font-weight: bold; font-style: italic;">accept_rules</span> = BooleanField(<span style="font-style: italic;">'I accept the site rules'</span>,[validators.InputRequired()])
-    <span style="font-weight: bold; font-style: italic;">apk_id</span>       = TextField(u<span style="font-style: italic;">'APP_ID'</span>, validators=[validators.Length(<span style="font-weight: bold;">max</span>=100, message=u<span style="font-style: italic;">'&#23383;&#31526;&#38271;&#24230;&#26368;&#22823;100'</span>),validators.required(message=u<span style="font-style: italic;">'&#19981;&#33021;&#20026;&#31354;'</span>)]) 
+    <span style="font-weight: bold; font-style: italic;">apk_id</span>       = TextField(u<span style="font-style: italic;">'APP_ID'</span>, validators=[validators.Length(<span style="font-weight: bold;">max</span>=100, message=u<span style="font-style: italic;">'&#23383;&#31526;&#38271;&#24230;&#26368;&#22823;100'</span>),validators.required(message=u<span style="font-style: italic;">'&#19981;&#33021;&#20026;&#31354;'</span>)])
 </pre>
-
+</div>
 <p>
 当你创建一个表单(form),你定义域(field)的方法类似于很多ORM定义它们的列(colums):通过定义类变量，即域的实例。
 </p>
+
 <p>
 因为表单是常规的Python类，你可以很容易的把它们扩展成为你期望的:
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">ProfileForm</span>(Form):
     <span style="font-weight: bold; font-style: italic;">birthday</span>  = DateTimeField(<span style="font-style: italic;">'Your Birthday'</span>, <span style="font-weight: bold;">format</span>=<span style="font-style: italic;">'%m/%d/%y'</span>)
@@ -216,31 +227,31 @@ pip install WTForms
     <span style="font-weight: bold; font-style: italic;">username</span> = StringField(<span style="font-style: italic;">'Username'</span>, [validators.Length(<span style="font-weight: bold;">max</span>=40)])
     <span style="font-weight: bold; font-style: italic;">level</span>    = IntegerField(<span style="font-style: italic;">'User Level'</span>, [validators.NumberRange(<span style="font-weight: bold;">min</span>=0, <span style="font-weight: bold;">max</span>=10)])
 </pre>
-
+</div>
 <p>
 通过子类, <code>AdminProfileForm</code> 类获得了已经定义的 = ProfileForm= 类的所有域。这允许你轻易地在不同表单之间
 共享域的共同子集，例如上面的例子，我们增加 admin-only 的域到 <code>ProfileForm</code> 。
 </p>
-
-
-
-
-
-
-
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
+
+
+
+
+
+
+<div id="outline-container-sec-3-1" class="outline-3">
 <h3 id="sec-3-1"><span class="section-number-3">3.1</span> 在控制台中探索</h3>
 <div class="outline-text-3" id="text-3-1">
-
-<p>WTForms 表单是非常简单的容器对象，也许找出表单中什么对你有用的最简单的方法就是在控制台中玩弄表单:
+<p>
+WTForms 表单是非常简单的容器对象，也许找出表单中什么对你有用的最简单的方法就是在控制台中玩弄表单:
 </p>
+
 <p>
 我们看到的是当你实例化一个表单的时候，表单包含所有域的实例，访问域可以通过字典形式或者属性形式。这些域拥有它们自己
 的属性，就和封闭的表单一样。
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python">&gt;&gt;&gt; <span style="font-weight: bold;">from</span> wtforms <span style="font-weight: bold;">import</span> Form, StringField, validators
 &gt;&gt;&gt; <span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">UsernameForm</span>(Form):
@@ -256,12 +267,12 @@ u<span style="font-style: italic;">'test'</span>
 &gt;&gt;&gt; form.errors
 {<span style="font-style: italic;">'username'</span>: [u<span style="font-style: italic;">'Field must be at least 5 characters long.'</span>]}
 </pre>
-
+</div>
 
 <p>
 当我们验证表单，它返回逻辑假值，意味着至少一个验证规则不满足。 = form.errors= 会给你一个错误的概要。
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python">&gt;&gt;&gt; <span style="font-weight: bold; font-style: italic;">form2</span> = UsernameForm(username=u<span style="font-style: italic;">'Robert'</span>)
 &gt;&gt;&gt; form2.data
@@ -269,53 +280,51 @@ u<span style="font-style: italic;">'test'</span>
 &gt;&gt;&gt; form2.validate()
 <span style="font-weight: bold; text-decoration: underline;">True</span>
 </pre>
-
+</div>
 <p>
 这次，我们实例化 <code>UserForm</code> 时给 <code>username</code> 传送一个新值，验证表单是足够了。
 </p>
-
+</div>
 </div>
 
-</div>
 
-<div id="outline-container-3-2" class="outline-3">
+<div id="outline-container-sec-3-2" class="outline-3">
 <h3 id="sec-3-2"><span class="section-number-3">3.2</span> 使用表单</h3>
 <div class="outline-text-3" id="text-3-2">
-
-<p>使用表单和实例化它们一样简单，相想下面这个django风格的视图函数，它使用之前定义的 <code>RegistrationForm</code> 类:
+<p>
+使用表单和实例化它们一样简单，相想下面这个django风格的视图函数，它使用之前定义的 <code>RegistrationForm</code> 类:
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">register</span>(request):
     <span style="font-weight: bold; font-style: italic;">form</span> = RegistrationForm(request.POST)
     <span style="font-weight: bold;">if</span> request.method == <span style="font-style: italic;">'POST'</span> <span style="font-weight: bold;">and</span> form.validate():
-        user = User()
-        user.username = form.username.data
-        user.email = form.email.data
+        <span style="font-weight: bold; font-style: italic;">user</span> = User()
+        <span style="font-weight: bold; font-style: italic;">user.username</span> = form.username.data
+        <span style="font-weight: bold; font-style: italic;">user.email</span> = form.email.data
         user.save()
         redirect(<span style="font-style: italic;">'register'</span>)
     <span style="font-weight: bold;">return</span> render_response(<span style="font-style: italic;">'register.html'</span>, form=form)
 </pre>
-
+</div>
 <p>
 首先，我们实例化表单，给它提供一些 <code>request.POST</code> 中可用的数据。然后我们检查请求(request)是不是使用POST方式，如果
 它是，我们就验证表单，并检查用户是否遵守这些规则。如果成功了，我们创建新的 <code>User</code> 模型，并从已验证的表单分派数据给它，
 最后保存它。
 </p>
-
-
-
+</div>
 </div>
 
-</div>
 
-<div id="outline-container-3-3" class="outline-3">
+
+
+<div id="outline-container-sec-3-3" class="outline-3">
 <h3 id="sec-3-3"><span class="section-number-3">3.3</span> 编辑现存对象</h3>
 <div class="outline-text-3" id="text-3-3">
-
-<p>我们之前的注册例子展示了如何为新条目接收输入并验证，只是如果我们想要编辑现有对象怎么办？很简单:
+<p>
+我们之前的注册例子展示了如何为新条目接收输入并验证，只是如果我们想要编辑现有对象怎么办？很简单:
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">edit_profile</span>(request):
     <span style="font-weight: bold; font-style: italic;">user</span> = request.current_user
@@ -326,78 +335,81 @@ u<span style="font-style: italic;">'test'</span>
         redirect(<span style="font-style: italic;">'edit_profile'</span>)
     <span style="font-weight: bold;">return</span> render_response(<span style="font-style: italic;">'edit_profile.html'</span>, form=form)
 </pre>
-
+</div>
 <p>
 这里，我们通过给表单同时提供 <code>request.POST</code> 和用户(user)对象来实例化表单，通过这样做，表单会从 <code>user</code> 对象得到
 在未提交数据中出现的任何数据。
 </p>
+
 <p>
 我们也使用表单的 <code>populate_obj</code> 方法来重新填充用户对象，用以验证表单的内容，这个方法提供便利，用于当域(field)名称
 和你提供的数据的对象的名称配对时。通常的你会想要手动分配值，但对于这个例子，它是最好的。
-</p></div>
-
+</p>
 </div>
-
-<div id="outline-container-3-4" class="outline-3">
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
 <h3 id="sec-3-4"><span class="section-number-3">3.4</span> 表单如何获取数据</h3>
 <div class="outline-text-3" id="text-3-4">
-
-<p>除了使用前两个参数( <code>formdata</code> 和 <code>obj</code> )提供数据之外，你可以传送关键词参数来填充表单，请注意一些参数名是被保留的:
+<p>
+除了使用前两个参数( <code>formdata</code> 和 <code>obj</code> )提供数据之外，你可以传送关键词参数来填充表单，请注意一些参数名是被保留的:
  <code>formdata</code> , <code>obj</code> , <code>prefix</code> 。
  <code>formdata</code> 比 <code>obj</code> 优先级高，=obj= 比关键词参数优先级高。例如:
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">change_username</span>(request):
     <span style="font-weight: bold; font-style: italic;">user</span> = request.current_user
     <span style="font-weight: bold; font-style: italic;">form</span> = ChangeUsernameForm(request.POST, user, username=<span style="font-style: italic;">'silly'</span>)
     <span style="font-weight: bold;">if</span> request.method == <span style="font-style: italic;">'POST'</span> <span style="font-weight: bold;">and</span> form.validate():
-        user.username = form.username.data
+        <span style="font-weight: bold; font-style: italic;">user.username</span> = form.username.data
         user.save()
         <span style="font-weight: bold;">return</span> redirect(<span style="font-style: italic;">'change_username'</span>)
     <span style="font-weight: bold;">return</span> render_response(<span style="font-style: italic;">'change_username.html'</span>, form=form)
 </pre>
-
+</div>
 <p>
 虽然你在实践中几乎从未一起使用所有3种方式，举例说明WTForms是如何查找 <code>username</code> 域:
 1.如果表单被提交( <code>request.POST</code> 非空)，则处理表单输入，实践中，即使这个域没有表单输入，而如果存在任何种类的表单输入，
 那么我们会处理表单输入。
 </p>
+
 <p>
 2.如果没有表单输入，则按下面的顺序尝试:
 </p>
+
 <p>
 3.检查 <code>user</code> 是否有一个名为 <code>username</code> 的属性。
 </p>
+
 <p>
 4.检查是否提供一个名为 <code>username</code> 的关键词参数。
 </p>
+
 <p>
 5.最后，如果都失败了，使用域的默认值，如果有的话。
 </p>
-
-
+</div>
 </div>
 
-</div>
 
-<div id="outline-container-3-5" class="outline-3">
+
+<div id="outline-container-sec-3-5" class="outline-3">
 <h3 id="sec-3-5"><span class="section-number-3">3.5</span> 验证器</h3>
 <div class="outline-text-3" id="text-3-5">
-
-<p>WTForms中的验证器(Validators)为域(field)提供一套验证器，当包含域的表单进行验证时运行。你提供验证器可通过域构造函数
+<p>
+WTForms中的验证器(Validators)为域(field)提供一套验证器，当包含域的表单进行验证时运行。你提供验证器可通过域构造函数
 的第二个参数 <code>validators</code> :
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">ChangeEmailForm</span>(Form):
     <span style="font-weight: bold; font-style: italic;">email</span> = StringField(<span style="font-style: italic;">'Email'</span>, [validators.Length(<span style="font-weight: bold;">min</span>=6, <span style="font-weight: bold;">max</span>=120), validators.Email()])
 </pre>
-
+</div>
 <p>
 你可以为一个域提供任意数量的验证器。通常，你会想要提供一个定制的错误消息:
 </p>
-
+<div class="org-src-container">
 
 <pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">ChangeEmailForm</span>(Form):
     <span style="font-weight: bold; font-style: italic;">email</span> = StringField(<span style="font-style: italic;">'Email'</span>, [
@@ -405,25 +417,17 @@ u<span style="font-style: italic;">'test'</span>
         validators.Email(message=_(u<span style="font-style: italic;">'That\'s not a valid email address.'</span>))
     ])
 </pre>
-
-
-
-
-
-
-
-
 </div>
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="date">日期: 2016/02/24</p>
-<p class="author">作者: FangQian</p>
-<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
-<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
-
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: 2016/02/24</p>
+<p class="author">&#20316;&#32773;: FangQian</p>
+<p class="date">Created: 2016-03-01 二 00:16</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

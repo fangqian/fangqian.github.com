@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
         <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
         <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/default-highlight.css" media="screen" type="text/css">
         </head>
         
 
@@ -67,25 +68,20 @@
         
 <div id="content">
 
-
-
-
-
-
 <div id="table-of-contents">
 <h2>目录</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 学Vim的原因(摘自鸟哥的Linux私房菜)</a></li>
-<li><a href="#sec-2">2 Vi的使用</a>
+<li><a href="#sec-1">1. 学Vim的原因(摘自)</a></li>
+<li><a href="#sec-2">2. Vi的使用</a>
 <ul>
-<li><a href="#sec-2-1">2.1 vi分为3种模式:</a>
+<li><a href="#sec-2-1">2.1. vi分为3种模式:</a>
 <ul>
-<li><a href="#sec-2-1-1">2.1.1 光标移动(一般模式下):</a></li>
-<li><a href="#sec-2-1-2">2.1.2 第一部分 : 搜寻与取代</a></li>
-<li><a href="#sec-2-1-3">2.1.3 第二部份：一般模式切换到编辑模式的可用的按钮说明</a></li>
-<li><a href="#sec-2-1-4">2.1.4 第三部份：一般模式切换到指令列模式的可用的按钮说明</a></li>
-<li><a href="#sec-2-1-5">2.1.5 vim 环境的变更</a></li>
+<li><a href="#sec-2-1-1">2.1.1. 光标移动(一般模式下):</a></li>
+<li><a href="#sec-2-1-2">2.1.2. 第一部分 : 搜寻与取代</a></li>
+<li><a href="#sec-2-1-3">2.1.3. 第二部份：一般模式切换到编辑模式的可用的按钮说明</a></li>
+<li><a href="#sec-2-1-4">2.1.4. 第三部份：一般模式切换到指令列模式的可用的按钮说明</a></li>
+<li><a href="#sec-2-1-5">2.1.5. vim 环境的变更</a></li>
 </ul>
 </li>
 </ul>
@@ -93,39 +89,28 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 学Vim的原因(摘自<span class="target">鸟哥的Linux私房菜</span> )</h2>
+<div class="outline-2" id="outline-container-sec-1">
+<h2 id="sec-1"><span class="section-number-2">1</span> 学Vim的原因(摘自<a id="Linux" name="Linux"></a>)</h2>
 <div class="outline-text-2" id="text-1">
-
-<ul>
+<ul class="org-ul">
 <li>所有的UNIX Like系统都会内置vi文本编辑器,其它文本编辑器则不一定会存 
 </li>
 <li>很多软件的编辑接口都会主动调用vi(重点)
 </li>
 <li>vim具有程序编辑的能力,可以主动以字体颜色辨别语法的正确性
 </li>
-<li>程序简单,编辑速度相当快.(个人感觉和Emacs比较还是挺简单的,惭愧还没有学会Emacs,以至于还在用gedit编辑博客&hellip;)
+<li>程序简单,编辑速度相当快.(个人感觉和Emacs比较还是挺简单的,惭愧还没有学会Emacs,以至于还在用gedit编辑博客…)
 </li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
+<div class="outline-2" id="outline-container-sec-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> Vi的使用</h2>
 <div class="outline-text-2" id="text-2">
-
-
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
+</div><div class="outline-3" id="outline-container-sec-2-1">
 <h3 id="sec-2-1"><span class="section-number-3">2.1</span> vi分为3种模式:</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<ul>
+<ul class="org-ul">
 <li>一般模式 
 </li>
 <li>编辑模式 
@@ -133,251 +118,172 @@
 <li>命令行模式
 </li>
 </ul>
-
-
-
 </div>
-
-<div id="outline-container-2-1-1" class="outline-4">
+<div class="outline-4" id="outline-container-sec-2-1-1">
 <h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> 光标移动(一般模式下):</h4>
 <div class="outline-text-4" id="text-2-1-1">
-
-
-<ul>
+<ul class="org-ul">
 <li>[Ctrl] + [f]         屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)
-
 </li>
 <li>[Ctrl] + [b]         屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)
-
 </li>
-<li>0 或功能键[Home]     这是数字『 0 』：移动到这一行的最前面字符处 (常用)
-
+<li>0 或功能键[Home]         这是数字『 0 』：移动到这一行的最前面字符处 (常用)
 </li>
-<li>$ 或功能键[End]      移动到这一行的最后面字符处(常用)
-
+<li>$ 或功能键[End]         移动到这一行的最后面字符处(常用)
 </li>
 <li>H                    光标移动到这个屏幕的最上方那一行的第一个字符
-
 </li>
-<li>M                    光标移动到这个屏幕的中央那一行的第一个字符
-
+<li>M                     光标移动到这个屏幕的中央那一行的第一个字符
 </li>
-<li>L                    光标移动到这个屏幕的最下方那一行的第一个字符
-
+<li>L                         光标移动到这个屏幕的最下方那一行的第一个字符
 </li>
-<li>G                    移动到这个档案的最后一行(常用)
-
+<li>G                         移动到这个档案的最后一行(常用)
 </li>
-<li>nG                   n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)
-
+<li>nG                         n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)
 </li>
-<li>gg                   移动到这个档案的第一行，相当于 1G 啊！ (常用)
-
+<li>gg                         移动到这个档案的第一行，相当于 1G 啊！ (常用)
 </li>
-<li>n&lt;Enter&gt;             n 为数字。光标向下移动 n 行(常用) 
+<li>n&lt;Enter&gt;                 n 为数字。光标向下移动 n 行(常用) 
 </li>
 </ul>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-2-1-2" class="outline-4">
+<div class="outline-4" id="outline-container-sec-2-1-2">
 <h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> 第一部分 : 搜寻与取代</h4>
 <div class="outline-text-4" id="text-2-1-2">
-
-
-<ul>
+<ul class="org-ul">
 <li>/word         向光标之下寻找一个名称为 word 的字符串。例如要在档案内搜寻 vbird 这个字符串，就输入 /vbird 即可！ (常用)
-
 </li>
 <li>?word         向光标之上寻找一个字符串名称为 word 的字符串。
-
 </li>
-<li>n             这个 n 是英文按键。代表『重复前一个搜寻的动作』。
-
+<li>n                 这个 n 是英文按键。代表『重复前一个搜寻的动作』。
 </li>
-<li>N             这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。 例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。
-                        使用 /word 配合 n 及 N 是非常有帮助的！可以让你重复的找到一些你搜寻的关键词！
-
+<li>N                 这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。 例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。
+使用 /word 配合 n 及 N 是非常有帮助的！可以让你重复的找到一些你搜寻的关键词！
 </li>
 <li>:n1,n2s/word1/word2/g         n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为 word2 
-
 </li>
-<li>:1,$s/word1/word2/g   从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)
-
+<li>:1,$s/word1/word2/g         从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)
 </li>
-<li>:1,$s/word1/word2/gc  从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认是否需要取代！(常用)**** 删除、复制与贴上
-
+<li>:1,$s/word1/word2/gc         从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认是否需要取代！(常用)**** 删除、复制与贴上
 </li>
-<li>x, X  在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)
-
+<li>x, X         在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)
 </li>
-<li>nx    n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符， 『10x』。
-
+<li>nx         n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符， 『10x』。
 </li>
-<li>dd    删除游标所在的那一整列(常用)
-
+<li>dd         删除游标所在的那一整列(常用)
 </li>
-<li>ndd   n 为数字。删除光标所在的向下 n 列，例如 20dd 则是删除 20 列 (常用)
-
+<li>ndd         n 为数字。删除光标所在的向下 n 列，例如 20dd 则是删除 20 列 (常用)
 </li>
-<li>d1G   删除光标所在到第一行的所有数据
-
+<li>d1G         删除光标所在到第一行的所有数据
 </li>
-<li>dG    删除光标所在到最后一行的所有数据
-
+<li>dG         删除光标所在到最后一行的所有数据
 </li>
-<li>d$    删除游标所在处，到该行的最后一个字符
-
+<li>d$         删除游标所在处，到该行的最后一个字符
 </li>
-<li>d0    那个是数字的 0 ，删除游标所在处，到该行的最前面一个字符
-
+<li>d0         那个是数字的 0 ，删除游标所在处，到该行的最前面一个字符
 </li>
-<li>yy    复制游标所在的那一行(常用)
-
+<li>yy         复制游标所在的那一行(常用)
 </li>
-<li>nyy   n 为数字。复制光标所在的向下 n 列，例如 20yy 则是复制 20 列(常用)
-
+<li>nyy         n 为数字。复制光标所在的向下 n 列，例如 20yy 则是复制 20 列(常用)
 </li>
-<li>y1G   复制游标所在列到第一列的所有数据
-
+<li>y1G         复制游标所在列到第一列的所有数据
 </li>
-<li>yG    复制游标所在列到最后一列的所有数据
-
+<li>yG         复制游标所在列到最后一列的所有数据
 </li>
-<li>y0    复制光标所在的那个字符到该行行首的所有数据
-
+<li>y0         复制光标所在的那个字符到该行行首的所有数据
 </li>
-<li>y$    复制光标所在的那个字符到该行行尾的所有数据
-
+<li>y$         复制光标所在的那个字符到该行行尾的所有数据
 </li>
-<li>p, P  p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！ 
-
+<li>p, P         p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！ 
 </li>
-<li>J     将光标所在列与下一列的数据结合成同一列
-
+<li>J         将光标所在列与下一列的数据结合成同一列
 </li>
-<li>c     重复删除多个数据，例如向下删除 10 行，[ 10cj ]
-
+<li>c         重复删除多个数据，例如向下删除 10 行，[ 10cj ]
 </li>
-<li>u     复原前一个动作。(常用)
-
+<li>u         复原前一个动作。(常用)
 </li>
-<li>[Ctrl]+r      重做上一个动作。(常用)
-          这个 u 与 [Ctrl]+r 是很常用的指令！一个是复原，另一个则是重做一次～ 利用这两个功能按键，你的编辑，嘿嘿！很快乐的啦！
-          如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)
+<li>[Ctrl]+r         重做上一个动作。(常用)
+这个 u 与 [Ctrl]+r 是很常用的指令！一个是复原，另一个则是重做一次～ 利用这两个功能按键，你的编辑，嘿嘿！很快乐的啦！
+ 如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)
 </li>
 </ul>
-
 </div>
-
 </div>
-
-<div id="outline-container-2-1-3" class="outline-4">
+<div class="outline-4" id="outline-container-sec-2-1-3">
 <h4 id="sec-2-1-3"><span class="section-number-4">2.1.3</span> 第二部份：一般模式切换到编辑模式的可用的按钮说明</h4>
 <div class="outline-text-4" id="text-2-1-3">
-
-
 <p>
-          进入插入或取代的编辑模式
+进入插入或取代的编辑模式
 </p>
-<ul>
-<li>i, I  进入插入模式(Insert mode)：
-
+<ul class="org-ul">
+<li>i, I         进入插入模式(Insert mode)：
 </li>
-<li>a, A  进入插入模式(Insert mode)：
-
+<li>a, A         进入插入模式(Insert mode)：
 </li>
-<li>o, O  进入插入模式(Insert mode)：
-
+<li>o, O         进入插入模式(Insert mode)：
 </li>
-<li>r, R  进入取代模式(Replace mode)：
+<li>r, R         进入取代模式(Replace mode)：
 
 <p>
-                r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(常用)
+r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(常用)
 </p>
 <p>
-               上面这些按键中，在 vi 画面的左下角处会出现『&ndash;INSERT&ndash;』或『&ndash;REPLACE&ndash;』的字样。 
+上面这些按键中，在 vi 画面的左下角处会出现『–INSERT–』或『–REPLACE–』的字样。 
 </p>
 <p>
-          [Esc]         退出编辑模式，回到一般模式中(常用)
-</p></li>
+[Esc]         退出编辑模式，回到一般模式中(常用)
+</p>
+</li>
 </ul>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-2-1-4" class="outline-4">
+<div class="outline-4" id="outline-container-sec-2-1-4">
 <h4 id="sec-2-1-4"><span class="section-number-4">2.1.4</span> 第三部份：一般模式切换到指令列模式的可用的按钮说明</h4>
 <div class="outline-text-4" id="text-2-1-4">
-
-
 <p>
-         指令列的储存、离开等指令
+指令列的储存、离开等指令
 </p>
-<ul>
-<li>:w      将编辑的数据写入硬盘档案中(常用)
-
+<ul class="org-ul">
+<li>:w         将编辑的数据写入硬盘档案中(常用)
 </li>
-<li>:w!     若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入， 还是跟你对该档案的档案权限有关啊！
-
+<li>:w!         若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入， 还是跟你对该档案的档案权限有关啊！
 </li>
-<li>:q      离开 vi (常用)
-
+<li>:q         离开 vi (常用)
 </li>
-<li>:q!     若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。
-                注意一下啊，那个惊叹号 (!) 在 vi 当中，常常具有『强制』的意思～
-
+<li>:q!         若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。
+注意一下啊，那个惊叹号 (!) 在 vi 当中，常常具有『强制』的意思～
 </li>
-<li>:wq     储存后离开，若为 :wq! 则为强制储存后离开 (常用)
-
+<li>:wq         储存后离开，若为 :wq! 则为强制储存后离开 (常用)
 </li>
-<li>ZZ      这是大写的 Z 喔！若档案没有更动，则不储存离开，若档案已经被更动过，则储存后离开！
-
+<li>ZZ         这是大写的 Z 喔！若档案没有更动，则不储存离开，若档案已经被更动过，则储存后离开！
 </li>
-<li>:w [filename]   将编辑的数据储存成另一个档案（类似另存新档）
-
+<li>:w [filename]         将编辑的数据储存成另一个档案（类似另存新档）
 </li>
-<li>:r [filename]   在编辑的数据中，读入另一个档案的数据。亦即将 『filename』 这个档案内容加到游标所在行后面
-
+<li>:r [filename]         在编辑的数据中，读入另一个档案的数据。亦即将 『filename』 这个档案内容加到游标所在行后面
 </li>
-<li>:n1,n2 w [filename]     将 n1 到 n2 的内容储存成 filename 这个档案。
-
+<li>:n1,n2 w [filename]         将 n1 到 n2 的内容储存成 filename 这个档案。
 </li>
-<li>:! command      暂时离开 vi 到指令列模式下执行 command 的显示结果！例如
-                        『:! ls /home』即可在 vi 当中察看 /home 底下以 ls 输出的档案信息！
+<li>:! command         暂时离开 vi 到指令列模式下执行 command 的显示结果！例如
+『:! ls /home』即可在 vi 当中察看 /home 底下以 ls 输出的档案信息！
 </li>
 </ul>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-2-1-5" class="outline-4">
+<div class="outline-4" id="outline-container-sec-2-1-5">
 <h4 id="sec-2-1-5"><span class="section-number-4">2.1.5</span> vim 环境的变更</h4>
 <div class="outline-text-4" id="text-2-1-5">
-
-
-<ul>
+<ul class="org-ul">
 <li>:set nu(number)  显示行号，设定之后，会在每一行的前缀显示该行的行号
-
 </li>
 <li>:set nonu        取消行号
 </li>
 </ul>
-
 </div>
 </div>
 </div>
 </div>
 </div>
-
-
             <div>
             <center>
             <div class="pagination">
@@ -405,7 +311,7 @@
         <div class="widget">
         <h4>标签云</h4>
         <ul class="tag_box inline list-unstyled">
-        <li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&amp;CSS.html">HTML&amp;CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
+        <li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&CSS.html">HTML&CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
         </ul>
         </div>
         
@@ -422,9 +328,9 @@
         
             <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
             
-            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
-            
             <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
             
         </ul>
         </div>

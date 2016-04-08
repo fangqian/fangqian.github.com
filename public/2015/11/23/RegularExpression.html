@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
         <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
         <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/default-highlight.css" media="screen" type="text/css">
         </head>
         
 
@@ -68,7 +69,7 @@
 <div id="content">
 
 <div id="table-of-contents">
-<h2>&#30446;&#24405;</h2>
+<h2>目录</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1. What is Regular Expression</a>
@@ -104,8 +105,7 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-sec-1" class="outline-2">
+<div class="outline-2" id="outline-container-sec-1">
 <h2 id="sec-1"><span class="section-number-2">1</span> What is Regular Expression</h2>
 <div class="outline-text-2" id="text-1">
 <p>
@@ -113,7 +113,7 @@
 一行或多行文字字符串,是用来描述某些字符串匹配规则的工具。简单的说，就是处理字符串的方法。
 </p>
 </div>
-<div id="outline-container-sec-1-1" class="outline-3">
+<div class="outline-3" id="outline-container-sec-1-1">
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> 为什么使用正则表达式</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
@@ -121,7 +121,6 @@
 规则的字符串。对于这些情况，如果单独依靠程序设计语言本身，则往往会使得用户通过复杂的代码来实现，但是
 如果通过正则表达式，则会以非常简短的代码来完成。
 </p>
-
 <p>
 目前，正则表达式在UNIX或者Linux中得到了广泛的应用。常见的支持正则表达式的UNIX工具如下:
 </p>
@@ -139,7 +138,7 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
+<div class="outline-3" id="outline-container-sec-1-2">
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> 如何学习正则表达式</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
@@ -155,7 +154,7 @@
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3">
+<div class="outline-3" id="outline-container-sec-1-3">
 <h3 id="sec-1-3"><span class="section-number-3">1.3</span> 如何实践正则表达式</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
@@ -165,14 +164,14 @@
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
+<div class="outline-2" id="outline-container-sec-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> 正则表达式基础</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 这里主要是各种元字符及其使用方法。
 </p>
 </div>
-<div id="outline-container-sec-2-1" class="outline-3">
+<div class="outline-3" id="outline-container-sec-2-1">
 <h3 id="sec-2-1"><span class="section-number-3">2.1</span> 正则表达式的原理</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
@@ -183,7 +182,7 @@
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-2" class="outline-3">
+<div class="outline-3" id="outline-container-sec-2-2">
 <h3 id="sec-2-2"><span class="section-number-3">2.2</span> 基本正则表达式</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
@@ -193,28 +192,24 @@ Basic Regular Expression(BRE),又称标准正则表达式，是最早制定的�
 "^"称为行首定位符，是正则表达式的定位符之一，用来匹配行首的字符，表示行首的字符是"^"后面那个字符。
 正则表达式中的定位符的作用与其它的元字符不同，他们不是用来匹配具体的文本，而是匹配某个具体的位置。
 </p>
-<div class="org-src-container">
+<div class="source"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<pre class="src src-shell">#!/bin/bash
+<span class="c1">#列出/etc目录中的以字母po开头的文件</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> grep <span class="s2">&quot;^po&quot;</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;str&quot;</span>
+</pre></div>
 
-#列出/etc目录中的以字母po开头的文件
-str=`ls /etc | grep "^po"`
-echo "str"
-</pre>
-</div>
 <p>
 2.行尾定位符"$"
 </p>
-<div class="org-src-container">
+<div class="source"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<pre class="src src-shell">#!/bin/bash
+<span class="c1">#列出/etc目录中以conf结尾的文件名</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> grep <span class="s2">&quot;conf</span>$<span class="s2">&quot;</span><span class="sb">`</span>
 
-#列出/etc目录中以conf结尾的文件名
-str=`ls /etc | grep "conf$"`
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span>
+</pre></div>
 
-echo "$str"
-</pre>
-</div>
 <ul class="org-ul">
 <li>如何精确的匹配一个文本行？
 </li>
@@ -235,20 +230,18 @@ echo "$str"
 3.单个字符匹配"."
 圆点"."用来匹配任意单个字符，包括空格，但是不过括换行符"\n",但使用"."符号后，意味着该位置一定有一个字符，无论它是什么字符。
 </p>
-<div class="org-src-container">
+<div class="source"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<pre class="src src-shell">#!/bin/bash
+<span class="c1">#列出所有的包含字符串&quot;samba&quot;的文件名</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> grep <span class="s2">&quot;samba&quot;</span><span class="sb">`</span>
 
-#列出所有的包含字符串"samba"的文件名
-str=`ls /etc | grep "samba"`
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;===================================&quot;</span>
 
-echo "$str"
-echo "==================================="
+<span class="c1">#列出包含字符串samba以及另外一个字符的文件名</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> grep <span class="s2">&quot;samba.&quot;</span><span class="sb">`</span>  <span class="c1">#表示samba后面至少有一个字符</span>
+</pre></div>
 
-#列出包含字符串samba以及另外一个字符的文件名
-str=`ls /etc | grep "samba."`  #表示samba后面至少有一个字符
-</pre>
-</div>
 <p>
 可以连续使用圆点符号来匹配多个字符，例如"l..p"匹配含有1个字母"l",然后是任意两个字符，接着是字母"p"。
 4.限定符"*"
@@ -264,23 +257,21 @@ str=`ls /etc | grep "samba."`  #表示samba后面至少有一个字符
 其中a、b和c表示任意的单个字符。只要某个字符串在方括号所在的位置上出现了方括号中的任意一个字符，就都满足
 匹配规则。另外，对于连续的数字或字母，可以使用连字符"-"来表示一个范围。
 </p>
-<div class="org-src-container">
+<div class="source"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<pre class="src src-shell">#!/bin/bash
+<span class="c1">#筛选所有以字符r开头，并且紧跟着1个字符c的文本行</span>
+<span class="nv">srt</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> grep <span class="s2">&quot;^rc&quot;</span><span class="sb">`</span>
 
-#筛选所有以字符r开头，并且紧跟着1个字符c的文本行
-srt=`ls /etc | grep "^rc"`
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span>
 
-echo "$str"
+<span class="nb">echo</span> <span class="s2">&quot;===================================&quot;</span>
 
-echo "==================================="
+<span class="c1">#筛选所有以字符r开头，紧跟着一个字符为c，下面一个字符为单个数字的文本行</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> grep <span class="s2">&quot;^rc[0-9]&quot;</span><span class="sb">`</span>
 
-#筛选所有以字符r开头，紧跟着一个字符为c，下面一个字符为单个数字的文本行
-str=`ls /etc | grep "^rc[0-9]"`
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span>
+</pre></div>
 
-echo "$str"
-</pre>
-</div>
 <p>
 当元字符"*"和"."位于字符集匹配符"[]"后，便变成了普通字符，只有字面意义，没有特殊意义。
 6.字符集不匹配"[^]"
@@ -291,7 +282,7 @@ echo "$str"
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-2-3" class="outline-3">
+<div class="outline-3" id="outline-container-sec-2-3">
 <h3 id="sec-2-3"><span class="section-number-3">2.3</span> 扩展正则表达式</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
@@ -306,15 +297,13 @@ echo "$str"
 <p>
 限定符"+"与限定符"*"基本相同，但是星号"*"限定前面的字符可以出现任意次，而加号"+"却限定前面的字符至少出现一次。
 </p>
-<div class="org-src-container">
+<div class="source"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<pre class="src src-shell">#!/bin/bash
+<span class="c1">#筛选以字符串&quot;ss&quot;开头，后面至少紧跟着一个字符&quot;s&quot;的文本行。</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /ect <span class="p">|</span> egrep <span class="s2">&quot;^sss+&quot;</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span>
+</pre></div>
 
-#筛选以字符串"ss"开头，后面至少紧跟着一个字符"s"的文本行。
-str=`ls /ect | egrep "^sss+"`
-echo "$str"
-</pre>
-</div>
 <p>
 扩展的正则表达式用egrep命令。
 2.限定符"?"
@@ -336,23 +325,21 @@ expression1|expression2|expression3|...|expressionn
 <p>
 圆括号"()"表示一组可选值的集合。竖线和圆括号经常在一起使用，表示一组可选值。
 </p>
-<div class="org-src-container">
+<div class="source"><pre><span></span><span class="ch">#!/bin/bash </span>
 
-<pre class="src src-shell">#!/bin/bash 
+<span class="c1">#筛选还有字符串&quot;ssh&quot;、&quot;ss1&quot;或者以字符串&quot;yum&quot;开头的文本行</span>
+<span class="nv">str</span><span class="o">=</span><span class="sb">`</span>ls /etc <span class="p">|</span> egrep <span class="s2">&quot;(ssh|ss1|^yum)&quot;</span><span class="sb">`</span>
 
-#筛选还有字符串"ssh"、"ss1"或者以字符串"yum"开头的文本行
-str=`ls /etc | egrep "(ssh|ss1|^yum)"`
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span>
+</pre></div>
 
-echo "$str"
-</pre>
-</div>
 <pre class="example">
 [abc]=(a|b|c)
 (Jeffrey|Jeffery)=Jeff(rey|ery)=Jeff(re|er)y
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-2-4" class="outline-3">
+<div class="outline-3" id="outline-container-sec-2-4">
 <h3 id="sec-2-4"><span class="section-number-3">2.4</span> 正则表达式字符集</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
@@ -362,10 +349,10 @@ echo "$str"
 </div>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
+<div class="outline-2" id="outline-container-sec-3">
 <h2 id="sec-3"><span class="section-number-2">3</span> 正则表达式应用</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
+</div><div class="outline-3" id="outline-container-sec-3-1">
 <h3 id="sec-3-1"><span class="section-number-3">3.1</span> 匹配单个字符</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
@@ -384,7 +371,7 @@ str=`grep "a" filename`
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3-2" class="outline-3">
+<div class="outline-3" id="outline-container-sec-3-2">
 <h3 id="sec-3-2"><span class="section-number-3">3.2</span> 匹配多个字符</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
@@ -393,7 +380,7 @@ srt=`grep "o[ru]" filename`
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-3-3" class="outline-3">
+<div class="outline-3" id="outline-container-sec-3-3">
 <h3 id="sec-3-3"><span class="section-number-3">3.3</span> 匹配字符串的开头或者结尾</h3>
 <div class="outline-text-3" id="text-3-3">
 <pre class="example">
@@ -402,7 +389,7 @@ srt=`grep "o[ru]" filename`
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-3-4" class="outline-3">
+<div class="outline-3" id="outline-container-sec-3-4">
 <h3 id="sec-3-4"><span class="section-number-3">3.4</span> 运算符优先级</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
@@ -423,7 +410,7 @@ srt=`grep "o[ru]" filename`
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-3-5" class="outline-3">
+<div class="outline-3" id="outline-container-sec-3-5">
 <h3 id="sec-3-5"><span class="section-number-3">3.5</span> 子表达式</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
@@ -437,14 +424,14 @@ srt=`egrep "^([[:digit:]]{1,3}\.){3}[[:digit:]]{1,3}$" filename`
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-3-6" class="outline-3">
+<div class="outline-3" id="outline-container-sec-3-6">
 <h3 id="sec-3-6"><span class="section-number-3">3.6</span> 通配符</h3>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
+<div class="outline-2" id="outline-container-sec-4">
 <h2 id="sec-4"><span class="section-number-2">4</span> grep命令</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
+</div><div class="outline-3" id="outline-container-sec-4-1">
 <h3 id="sec-4-1"><span class="section-number-3">4.1</span> grep命令的基本语法</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
@@ -457,7 +444,6 @@ grep [options] pattern [file...]
 其中options表示选项。pattern表示要匹配的模式，file表示一系列的文件名。grep命令会从一个或者多个文件中搜索满足指定模式的文本行，并且打印出来。
 模式后面的所有的字符串参数都被看做文件名。
 </p>
-
 <p>
 常用的grep命令选项
 </p>
@@ -497,7 +483,6 @@ grep [options] pattern [file...]
 </div>
 </div>
 </div>
-
             <div>
             <center>
             <div class="pagination">
@@ -525,7 +510,7 @@ grep [options] pattern [file...]
         <div class="widget">
         <h4>标签云</h4>
         <ul class="tag_box inline list-unstyled">
-        <li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&amp;CSS.html">HTML&amp;CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
+        <li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&CSS.html">HTML&CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
         </ul>
         </div>
         
@@ -542,9 +527,9 @@ grep [options] pattern [file...]
         
             <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
             
-            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
-            
             <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
             
         </ul>
         </div>
