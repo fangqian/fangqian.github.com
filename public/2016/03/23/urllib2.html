@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
         <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
         <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/default-highlight.css" media="screen" type="text/css">
         </head>
         
 
@@ -67,11 +68,6 @@
         
 <div id="content">
 
-
-
-
-
-
 <div id="table-of-contents">
 <h2>目录</h2>
 <div id="text-table-of-contents">
@@ -87,15 +83,11 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-1" class="outline-2">
+<div class="outline-2" id="outline-container-1">
 <h2 id="sec-1"><span class="section-number-2">1</span> Proxy的设置</h2>
 <div class="outline-text-2" id="text-1">
-
 <p>urllib2默认会使用环境变量http_proxy来设置HTTP Proxy。如果想在程序中明确控制Proxy而不受环境变量的影响，可以使用下面的方式
 </p>
-
-
 <pre class="src src-python"><span style="font-weight: bold;">import</span> urllib2
 
 <span style="font-weight: bold; font-style: italic;">enable_proxy</span> = <span style="font-weight: bold; text-decoration: underline;">True</span>
@@ -109,45 +101,31 @@
 
 urllib2.install_opener(opener)
 </pre>
-
 <p>
 这里要注意的一个细节，使用urllib2.install_opener()会设置urllib2的全局opener。这样后面的使用会很方便，
 但不能做到更细粒度的控制，比如想在程序中使用两个不同的Proxy设置等。比较好的做法是不使用install_opener
 去更改全局的设置，而只是直接调用opener的open方法代替全局的urlopen方法
 </p></div>
-
 </div>
-
-<div id="outline-container-2" class="outline-2">
+<div class="outline-2" id="outline-container-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> Timeout设置</h2>
 <div class="outline-text-2" id="text-2">
-
-
-
-
 <pre class="example">import urllib2 
 response = urllib2.urlopen('http://www.google.com', timeout=10)
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-3" class="outline-2">
+<div class="outline-2" id="outline-container-3">
 <h2 id="sec-3"><span class="section-number-2">3</span> 在HTTP Request中加入特定的Header</h2>
 <div class="outline-text-2" id="text-3">
-
 <p>要加入header,需要使用Request对象:
 </p>
-
-
 <pre class="src src-python"><span style="font-weight: bold;">import</span> urllib2
 
 <span style="font-weight: bold; font-style: italic;">request</span> = urllib2.Request(url)
 request.add_header(<span style="font-style: italic;">'User-Agent'</span>, <span style="font-style: italic;">'fake-client'</span>)
 <span style="font-weight: bold; font-style: italic;">response</span> = urllib2.urlopen(request)
 </pre>
-
 <p>
 对有些header要特别留意,服务器会针对这些header做检查
 </p><ul>
@@ -156,40 +134,27 @@ request.add_header(<span style="font-style: italic;">'User-Agent'</span>, <span 
 <li>Content-Type: 在使用REST借口时，服务器会检查该值，来确定HTTP Body中的内容该怎么解析。常见的取值有:
 </li>
 </ul>
-
-
-
-
 <pre class="example">application/xml: 在XML PRC, 如RESTful/SOAP调用时使用
 application/json: 在JSON RPC 调用时使用
 application/x-www-form-urlencoded: 浏览器提交Web表单时使用
 </pre>
-
 <p>
 在使用服务器提供的RESTful或SOAP服务时,Content-Type设置错误会导致服务器拒绝服务
 </p></div>
-
 </div>
-
-<div id="outline-container-4" class="outline-2">
+<div class="outline-2" id="outline-container-4">
 <h2 id="sec-4"><span class="section-number-2">4</span> Redirect</h2>
 <div class="outline-text-2" id="text-4">
-
 <p>urllib2默认情况下会针对HTTP 3XX返回码自动进行redirect动作,无需人工配置。要检测是否发生了redirect动作，
 只要检查一下Response的URL和Request的URL是否一致就可以了。
 </p>
-
-
 <pre class="example">import urllib2
 response = urllib2.urlopen('http://www.google.cn')
 redirect = response.geturl() == 'http://www.google.cn'
 </pre>
-
 <p>
 如果不想自动redirect,除了使用更低层次的httplib库之外，还可以自定义HTTPRedirectHandler类。
 </p>
-
-
 <pre class="src src-python"><span style="font-weight: bold;">import</span> urllib2
 
 <span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">RedirectHandler</span>(urllib2.HTTPRedirectHandler):
@@ -201,19 +166,13 @@ redirect = response.geturl() == 'http://www.google.cn'
 <span style="font-weight: bold; font-style: italic;">opener</span> = urllib.build_opener(RedirectHandler)
 opener.<span style="font-weight: bold;">open</span>(<span style="font-style: italic;">'http://www.google.cn'</span>)
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-5" class="outline-2">
+<div class="outline-2" id="outline-container-5">
 <h2 id="sec-5"><span class="section-number-2">5</span> Cookie</h2>
 <div class="outline-text-2" id="text-5">
-
 <p>urllib2对Cookie的处理也是自动的。如果需要得到某个Cookie项的值，可以这么做:
 </p>
-
-
 <pre class="src src-python"><span style="font-weight: bold;">import</span> urllib2
 <span style="font-weight: bold;">import</span> cookielib
 
@@ -224,62 +183,44 @@ opener.<span style="font-weight: bold;">open</span>(<span style="font-style: ita
     <span style="font-weight: bold;">if</span> item.name == <span style="font-style: italic;">'some_cookie_item_name'</span>:
         <span style="font-weight: bold;">print</span> item.value
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-6" class="outline-2">
+<div class="outline-2" id="outline-container-6">
 <h2 id="sec-6"><span class="section-number-2">6</span> 使用HTTP的PUT和DELETE方法</h2>
 <div class="outline-text-2" id="text-6">
-
 <p>urllib2只支持HTTP的GET和POST方法,如果要使用HTTP PUT和DELETE,只能使用比较低层的httplib库。虽然如此，我们还是
 能通过下面的方式,使urllib2能够发出PUT和DELETE的请求:
 </p>
-
-
 <pre class="example">import urllib2
 
 request = urllib2.Request(url, data=data)
 request.get_method = lambda:'PUT' # or 'DELETE'
 response = urllib2.urlopen(request)
 </pre>
-
 <p>
 这种做法虽然属于Hack的方式，但实际使用起来也没什么问题。
 </p></div>
-
 </div>
-
-<div id="outline-container-7" class="outline-2">
+<div class="outline-2" id="outline-container-7">
 <h2 id="sec-7"><span class="section-number-2">7</span> 得到HTTP的返回码</h2>
 <div class="outline-text-2" id="text-7">
-
 <p>对于200 OK来说,只要使用urlopen返回的response对象的getcode()方法就可以得到HTTP的返回码。但对其它返回码，
 urlopen会抛出异常。这时候,就要检查异常对象的code属性了:
 </p>
-
-
 <pre class="example">import urllib2
 try:
   response = urllib2.urlopen('http://restrict.web.com')
 except urllib2.HTTPError, e:
   print e.code
 </pre>
-
 </div>
-
 </div>
-
-<div id="outline-container-8" class="outline-2">
+<div class="outline-2" id="outline-container-8">
 <h2 id="sec-8"><span class="section-number-2">8</span> Debug Log</h2>
 <div class="outline-text-2" id="text-8">
-
 <p>使用urllib2时,可以通过下面的方法把debug Log打开，这样收发包的内容就会在屏幕上打印出来，方便调试,有时候
 可以省去抓包的工作
 </p>
-
-
 <pre class="src src-python"><span style="font-weight: bold;">import</span> urllib2
 
 <span style="font-weight: bold; font-style: italic;">httpHandler</span> = urllib2.HTTPHandler(debuglevel!=1)
@@ -289,15 +230,12 @@ except urllib2.HTTPError, e:
 urllib2.install_opener(opener)
 <span style="font-weight: bold; font-style: italic;">response</span> = urllib2.urlopen(<span style="font-style: italic;">'http://www.google.com'</span>)
 </pre>
-
 <p>
 from <a href="http://zhuoqiang.me/python-urllib2-usage.html">http://zhuoqiang.me/python-urllib2-usage.html</a>
 </p>
 </div>
 </div>
 </div>
-
-
             <div>
             <center>
             <div class="pagination">
@@ -325,7 +263,7 @@ from <a href="http://zhuoqiang.me/python-urllib2-usage.html">http://zhuoqiang.me
         <div class="widget">
         <h4>标签云</h4>
         <ul class="tag_box inline list-unstyled">
-        <li><a href="/public/tags/默认.html">默认<span>1</span></a></li><li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&amp;CSS.html">HTML&amp;CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
+        <li><a href="/public/tags/默认.html">默认<span>1</span></a></li><li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/Linux.html">Linux<span>5</span></a></li><li><a href="/public/tags/HTML&CSS.html">HTML&CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>1</span></a></li>
         </ul>
         </div>
         
@@ -342,9 +280,9 @@ from <a href="http://zhuoqiang.me/python-urllib2-usage.html">http://zhuoqiang.me
         
             <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
             
-            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
-            
             <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
             
         </ul>
         </div>
