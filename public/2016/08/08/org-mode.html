@@ -1,0 +1,395 @@
+
+        <!DOCTYPE HTML>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        
+        <title>StudyNotes</title>
+        <meta name="author" content="FangQian">
+        <meta name="description" content="Use OrgNote.">
+        <meta property="og:site_name" content="StudyNotes"/>
+        <meta name="Keywords" content="OrgNote,Emacs,org-mode,blog,python,geek">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="undefined"/>
+
+        <link href="/favicon.ico" rel="icon">
+        
+        <link rel="stylesheet" href="/theme/freemind/css/bootstrap.min.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/font-awesome.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/highlight.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="/theme/freemind/css/default-highlight.css" media="screen" type="text/css">
+        </head>
+        
+
+        <body>  
+        <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+        
+        <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    
+        <a class="navbar-brand" href="/index.html">StudyNotes</a>
+        
+
+        <div class="collapse navbar-collapse nav-menu">
+        
+        <ul class="nav navbar-nav">
+        <li><a href="/public/minyi.html" title="归档"><i class="fa fa-sitemap"></i>MinYi</a></li><li><a href="/public/archive.html" title="归档"><i class="fa fa-archive"></i>归档</a></li><li><a href="/public/about.html" title="关于"><i class="fa fa-user"></i>关于</a></li>
+        </ul>
+        
+        </div> <!-- navbar -->
+        </div> <!-- container -->
+        </nav>
+        
+
+        <div class="clearfix"></div>
+        <div class="container">
+        <div class="content">
+        
+        <div class="page-header">                   <!-- page-header begin -->
+        <h1>org-mode入门</h1>
+        </div>                                      <!-- page-header end -->
+        
+        <div class="row page">                      <!-- row-page begin -->
+        <div class="col-md-9">                      <!-- col-md-9 begin -->
+        <div class="mypage">                        <!-- mypage begin -->
+        
+        <div class="slogan">                        <!-- slogan begin -->
+        <i class="fa fa-heart"></i>
+        标签: <a href="/public/tags/Linux.html"><i class="Linux"></i>Linux</a>
+        </div>                                     <!-- slogan end -->
+        
+<div id="content">
+
+<div id="table-of-contents">
+<h2>目录</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 org-mode简介 </a></li>
+<li><a href="#sec-2">2 使用 </a>
+<ul>
+<li><a href="#sec-2.1">2.1 安装 </a></li>
+<li><a href="#sec-2.2">2.2 章节(标题) </a></li>
+<li><a href="#sec-2.3">2.3 标题二</a></li>
+<li><a href="#sec-2.4">2.4 列表 </a></li>
+<li><a href="#sec-2.5">2.5 脚注 </a></li>
+<li><a href="#sec-2.6">2.6 表格 </a></li>
+<li><a href="#sec-2.7">2.7 链接 </a></li>
+<li><a href="#sec-2.8">2.8 一些特殊的文本格式 </a></li>
+<li><a href="#sec-2.9">2.9 富文本导出 </a></li>
+<li><a href="#sec-2.10">2.10 资料 </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="outline-2" id="outline-container-1">
+<h2 id="sec-1"><span class="section-number-2">1</span> org-mode简介 </h2>
+<div class="outline-text-2" id="text-1">
+<p>org-mode是Emacs提供的一个很强大的编辑模式，可以用于做会议笔记以及制作各种待办事项。其语法类似于Markdown,但是
+提供了比Markdown更多的操作,再加上Emacs强大的编辑功能，能给笔记增加很多动态的操作(能纯文本上实现折叠、展开、树状试图
+、表格求和、代码运行结果等功能)。这个博客就是用Emacs下的org-mode模式编辑的。org-mode强大的同时，也导致了它很复杂，至少我
+用了这么久也只会一些平常的用法(好尴尬)。于是在网上找了些学习资料整理一下，写篇博客为笔记。
+</p>
+</div>
+</div>
+<div class="outline-2" id="outline-container-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 使用 </h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div class="outline-3" id="outline-container-2.1">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> 安装 </h3>
+<div class="outline-text-3" id="text-2.1">
+<p>Emacs的最新版本(24.4)自带了org-mode, 这就意味着只要打开一个后缀名为org的文件就会自动进入org-mode编辑模式。因此只需要下载最新版的Emacs即可。
+</p>
+<pre class="example">install Emacs in Ubuntu:
+$ sudo apt-get install emacs
+</pre>
+</div>
+</div>
+<div class="outline-3" id="outline-container-2.2">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> 章节(标题) </h3>
+<div class="outline-text-3" id="text-2.2">
+<p>org-mode用 <code>*</code> 标识章节，一个 <code>*</code> 代表一级标题,两个表示两级，以此类推。
+</p>
+<pre class="example">* 标题一
+** 标题二
+</pre>
+<p>
+效果相当于两级的html的&lt;h&gt;标签。注意星号后面要接一个空格。不同层级的颜色是不一样的，同级的标$
+当光标在标题那一行的时候，按Alt加左右方向键可以升降标题的层级。下面是一些常用的快捷键:
+</p><ul>
+<li>
+<code>S+Tab</code> 展开、折叠所有章节
+</li>
+<li>
+<code>Tab</code> 对光标所在章节进行展开、折叠
+</li>
+<li>
+<code>M+left/right</code> 升级/降级标题
+
+</li>
+</ul>
+</div>
+</div>
+<div class="outline-3" id="outline-container-2.3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> 列表 </h3>
+<div class="outline-text-3" id="text-2.3">
+<p>列表是文本中一个比较常用的元素，可以列出各种待完成的事项等。org-mode提供了一种很独特的功能，
+可以加入checkbox(实际上就是加入一对中间有空格的方括号 <code>[ ]</code>)标记任务的完成情况，而且如果一个总任务有多个子任务，
+还可以根据子任务的完成情况计算总进度(只需要在总任务后面添加一对方括号，里面加上 <code>%</code> 或 <code>/</code> 如 <code>[%]</code>, <code>[/]</code>)。列表
+分为有序和无序两种，有序列表以 <code>1.=或 =1）</code> 开头，无序列表以 <code>+</code> 或 <code>-</code> 开头，后面要加一个空格。
+</p>
+<p>
+无序列表:
+</p>
+<pre class="example">+ treeroot
+  + branch1
+  + branch2
+</pre>
+<p>
+在输入的时候，我们按 <code>M-RET</code> (Alt+回车)可以自动输入同级的条目，按 <code>M+left/right</code> 调整层级。
+</p>
+<p>
+有序列表:
+</p>
+<pre class="example">1) [-]任务1 [33%]
+   1) [ ] 子任务1
+   2）[x] 子任务2
+   3) [ ] 子任务3
+2) [ ] 任务2
+</pre>
+<p>
+当我们按住 <code>M-S-RET</code> 可以输入一个带checkbox的列表项，而在总任务后面可以输入一个 <code>[%]</code> 或者 =[/]=则能自动计算总任务进度。
+</p></div>
+</div>
+<div class="outline-3" id="outline-container-2.4">
+<h3 id="sec-2.4"><span class="section-number-3">2.4</span> 脚注 </h3>
+<div class="outline-text-3" id="text-2.4">
+<p>用 <code>[fn:1]</code> 的方式插入脚注，而在最下面插入
+[fn:1]本文参考自<a href="http://orgmode.org/orgguide.pdf">http://orgmode.org/orgguide.pdf</a>
+</p>
+</div>
+</div>
+<div class="outline-3" id="outline-container-2.5">
+<h3 id="sec-2.5"><span class="section-number-3">2.5</span> 表格 </h3>
+<div class="outline-text-3" id="text-2.5">
+<p>创建表格时，首先输入表头:
+</p>
+<pre class="example"> input | Name | Phone | sub1 | sub2 | total |
+|-
+</pre>
+<p>
+然后在第二行后面按tab,表格就会自动生成
+下面我们可以填入一些数据，在填写的过程中，按Tab键可以调到右方表格，按Enter则能跳到下方表格。如果同时按住Shift,则是
+反向跳。输完数据后，按 <code>C-c C-c</code> 则能自动对齐表格。
+input | Name | Phone | sub1 | sub2 | total |
+</p><table border="2" cellpadding="6" cellspacing="0" frame="hsides" rules="groups">
+<caption></caption>
+<colgroup><col align="left"></col><col align="left"></col><col align="left"></col><col align="left"></col><col align="left"></col>
+</colgroup>
+<tbody>
+<tr><td>maple</td><td>134…</td><td>89</td><td>98</td><td></td></tr>
+<tr><td>hello world</td><td>142…</td><td>82</td><td>76</td><td></td></tr>
+<tr><td>wizard</td><td>152…</td><td>99</td><td>64</td><td></td></tr>
+</tbody>
+</table>
+<p>
+快捷键:
+</p>
+<ul>
+<li>
+<code>C-c|</code> 此时会提示输入表格的大小，插入表格
+</li>
+<li>
+<code>C-c C-c</code> 对齐表格，按tab键可以加行，此时也会自动对齐
+</li>
+<li>
+<code>Tab</code> 跳到右边一个表格(和shift一起按效果相反)
+</li>
+<li>
+<code>enter</code> 跳到下方的表格(和shift一起按效果相反)
+</li>
+<li>
+<code>M-up/right/down/left/right</code> 上下左右移动行(列)
+</li>
+<li>
+<code>M-S-up/down/left/right</code> 向上下左右插入行(列)
+
+</li>
+</ul>
+</div>
+</div>
+<div class="outline-3" id="outline-container-2.6">
+<h3 id="sec-2.6"><span class="section-number-3">2.6</span> 链接 </h3>
+<div class="outline-text-3" id="text-2.6">
+<p>链接用于链接一些资源地址，如图片、文件、URL等，格式如下:
+</p>
+<pre class="example">[[链接地址][链接内容]]
+
+[[http://orgmode.org/orgguide.pdf][grgguid.pdf]]] 
+[[file:/home/maple/图片/test.jpg][a picture]]
+</pre>
+<p>
+如果去掉标签，则能直接显示图片:
+</p>
+<pre class="example">[[file:/home/maple/test.jpg]]
+</pre>
+<p>
+直接显示的图片在Eamcs里默认不显示，需要按 <code>C-c C-x C-v</code> 才能显示，在输出成其他格式(html,pdf)后也可以看到
+</p></div>
+</div>
+<div class="outline-3" id="outline-container-2.7">
+<h3 id="sec-2.7"><span class="section-number-3">2.7</span> 一些特殊的文本格式 </h3>
+<div class="outline-text-3" id="text-2.7">
+<pre class="example">*bold* 粗体
+/italic/ 斜体
+_underlined_ 下划线
+=code= 
+~verbatim~
++strike-through+
+</pre>
+<p>
+效果:
+<b>bold</b> <i>italic</i> <span style="text-decoration:underline;">underline</span> <code>code</code> <code>verbatim</code> <del>strike-through</del>
+</p>
+</div>
+</div>
+<div class="outline-3" id="outline-container-2.8">
+<h3 id="sec-2.8"><span class="section-number-3">2.8</span> 富文本导出 </h3>
+<div class="outline-text-3" id="text-2.8">
+<p>org-mode的强大之处在于它导出成各种不同的格式，如html、pdf等。在导出时，可以加入一些说明符号，来定制
+导出选项，常用的导出符号如下:
+</p><ul>
+<li>
+设置标题和目录:
+
+</li>
+</ul>
+<pre class="example"># +TITLE: This is the title of the document
+# +OPTIONS: toc:2 (only to two levels in TOC)
+# +OPTIONS: toc:nil (no TOC at all)
+</pre>
+<ul>
+<li>
+添加引用: <code>&lt;qTab</code>
+</li>
+</ul>
+<pre class="example"># +BEGIN_QUOTE
+Everything should be made as simple as possible,
+but not any simpler -- Albert Einstein
+# +END_QUOTE
+</pre>
+<ul>
+<li>
+设置居中 <code>&lt;cTab</code>
+</li>
+</ul>
+<pre class="example"># +BEGIN_CENTER
+    Everything should be made as simple as possible,but not any simpler
+# +END_CENTER
+</pre>
+<ul>
+<li>
+设置样例(在这里面的内容将会被直接输出，不会被转义) <code>&lt;eTAB</code>
+</li>
+</ul>
+</div>
+</div>
+<div class="outline-3" id="outline-container-2.9">
+<h3 id="sec-2.9"><span class="section-number-3">2.9</span> 资料 </h3>
+<div class="outline-text-3" id="text-2.9">
+<p><a href="http://xuzhengchao.com/orgmode/org-markup.html">Orgmode手册</a>
+<a href="http://www.fuzihao.org/blog/2015/02/19/org-mode%E6%95%99ç%A8%8B/">org-mode入门教程</a>
+</p></div>
+</div>
+</div>
+<div id="postamble">
+<p class="author"> 作者: FangQian
+<a href="mailto:qiangu_fang@163.com">&lt;qiangu_fang@163.com&gt;</a>
+</p>
+<p class="date"> 日期: 2016/08/08</p>
+<p class="creator">HTML generated by org-mode 6.33x in emacs 23</p>
+</div>
+</div>
+            <div>
+            <center>
+            <div class="pagination">
+            <ul class="pagination">
+            <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+            <li><a href="/public/archive.html" target="_blank"><i class="fa fa-archive"></i>Archive</a></li>
+            <li class="next"><a href="/public/2016/08/06/NewStart.html" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+            </ul>
+            </div>
+            </center>
+            </div>
+            
+            </div> <!-- my-page --></div> <!-- col-md -->
+
+        <div class="col-md-3">
+        <div id="sidebar">
+        
+        <div class="widget">
+        <h4>最新文章</h4>
+        <ul class="entry list-unstyled">
+        <li><a href="/public/2016/08/08/org-mode.html"><i class="fa fa-file-o"></i>org-mode入门</a></li><li><a href="/public/2016/08/06/NewStart.html"><i class="fa fa-file-o"></i>Stay Foolish Stay Hungry</a></li><li><a href="/public/2016/03/23/urllib2.html"><i class="fa fa-file-o"></i>Python标准库urllib2的使用细节</a></li><li><a href="/public/2016/02/29/redis.html"><i class="fa fa-file-o"></i>Redis基础</a></li><li><a href="/public/2016/02/24/WTForms.html"><i class="fa fa-file-o"></i>WTForms</a></li><li><a href="/public/2016/02/02/easy_install.html"><i class="fa fa-file-o"></i>easy_install</a></li>
+        </ul>   
+        </div> 
+        
+        <div class="widget">
+        <h4>标签云</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/Linux.html">Linux<span>6</span></a></li><li><a href="/public/tags/随笔.html">随笔<span>2</span></a></li><li><a href="/public/tags/默认.html">默认<span>1</span></a></li><li><a href="/public/tags/Redis.html">Redis<span>1</span></a></li><li><a href="/public/tags/Flask.html">Flask<span>1</span></a></li><li><a href="/public/tags/python.html">python<span>1</span></a></li><li><a href="/public/tags/Python.html">Python<span>3</span></a></li><li><a href="/public/tags/HTML&CSS.html">HTML&CSS<span>1</span></a></li><li><a href="/public/tags/ShellScript.html">ShellScript<span>2</span></a></li><li><a href="/public/tags/MySQL.html">MySQL<span>2</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>时间机器</h4>
+        <ul class="tag_box inline list-unstyled">
+        <li><a href="/public/tags/201608.html">201608<span>2</span></a></li><li><a href="/public/tags/201603.html">201603<span>1</span></a></li><li><a href="/public/tags/201602.html">201602<span>3</span></a></li><li><a href="/public/tags/201512.html">201512<span>6</span></a></li><li><a href="/public/tags/201511.html">201511<span>6</span></a></li><li><a href="/public/tags/201412.html">201412<span>1</span></a></li><li><a href="/public/tags/201411.html">201411<span>1</span></a></li><li><a href="/public/archive.html">All<span>20</span></a></li>
+        </ul>
+        </div>
+        
+        <div class="widget">
+        <h4>快速链接</h4>
+        <ul class="entry list-unstyled">
+        
+            <li><a href="http://lesliezhu.github.com" title="Leslie Zhu" target="_blank"><i class="fa fa-github"></i>Leslie Zhu</a></li>
+            
+            <li><a href="https://github.com/LeslieZhu/OrgNote" title="OrgNote" target="_blank"><i class="fa fa-github"></i>OrgNote</a></li>
+            
+            <li><a href="http://code.activestate.com/recipes/langs/python" title="Python-Cookbook" target="_blank"><i class="fa fa-github"></i>Python-Cookbook</a></li>
+            
+        </ul>
+        </div>
+        
+        </div> <!-- sidebar -->
+        </div> <!-- col-md-3 -->
+        
+
+        </div> <!-- row-fluid -->
+        </div>
+        </div>
+        
+
+        <div class="container-narrow">
+        <footer>
+        <p>&copy; 2014 FangQian
+        with help from <a href="https://github.com/LeslieZhu/OrgNote" target="_blank">OrgNote</a>. Theme by <a href="https://github.com/LeslieZhu/orgnote-theme-freemind">orgnote-theme-freemind</a>.  Published with GitHub Pages. 
+        </p> </footer>
+        </div> <!-- container-narrow -->
+        
+        <a id="gotop" href="#">   
+        <span>▲</span> 
+        </a>
+        
+        </body>
+        </html>
+        

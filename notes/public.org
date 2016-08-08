@@ -1,3 +1,4 @@
+- [[./notes/2016/08/08/org-mode.html][org-mode入门]]
 - [[./notes/2016/08/06/NewStart.html][Stay Foolish Stay Hungry]]
 - [[./notes/2016/03/23/urllib2.html][Python标准库urllib2的使用细节]]
 - [[./notes/2016/02/29/redis.html][Redis基础]]
