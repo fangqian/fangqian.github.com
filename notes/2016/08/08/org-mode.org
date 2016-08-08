@@ -154,5 +154,7 @@ but not any simpler -- Albert Einstein
 * 总结
 org-mode是很强大的，但并不是每个功能我都用的上，目前只是用来写博客的，这些差不多就够用了，有需要的时候再补。弱水三千，只取一瓢饮。若不止渴，再来取！！！
 * 资料
-[[http://xuzhengchao.com/orgmode/org-markup.html][Orgmode手册]]
+[[http://xuzhengchao.com/orgmode/org-markup.html][Orgmode手册]] 
+
+
 [[http://www.fuzihao.org/blog/2015/02/19/org-mode%E6%95%99%E7%A8%8B/][org-mode入门教程]]
